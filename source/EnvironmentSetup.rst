@@ -18,18 +18,21 @@ nvidia dridver 的安装
 
    :command:`chmod +x installer.run;./installer.run`
 
-.. note:: 正常的情况下installer会自动disable的自带的driver,如果失败的重起一下，重新执行installer就行了。
 
 #. 恢复 X windows.
     
    :command:`sudo service lightdm start`
 
 
+.. note:: 正常的情况下installer会自动disable的自带的driver,如果失败的重起一下，重新执行installer就行了。
+
 安装cuda-toolkit
 ----------------
+
 这里从两种方式来安装，手动安装，或者使用jetpack pro只安装 host端的cuda-toolkit.
 
 #. 添加源
+
    .. code-block:: sh
 
       $ dpkg -i cuda-repo-ubuntu1404_6.5_amd64.deb

@@ -1,11 +1,13 @@
 Linux环境的准备
 ===============
 
-主要是根据`caffe install manual <http://caffe.berkeleyvision.org/installation.html>`_ 来进行的。主要库的依赖可以用这个 https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py 来完成安装。
+主要是根据 `caffe install manual <http://caffe.berkeleyvision.org/installation.html>`_ 来进行的。主要库的依赖可以用这个 https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py 来完成安装。
 
 nvidia dridver 的安装 
 ---------------------
+
 #. 从 `官网<http://www.nvidia.com/Download/index.aspx?lang=en-us>`_ 下载最新driver, 
+
 #. 进入字符介面  tty1
    
    :command:`ctl+alt+F1` 
@@ -24,7 +26,9 @@ nvidia dridver 的安装
    :command:`sudo service lightdm start`
 
 
-.. note:: 正常的情况下installer会自动disable的自带的driver,如果失败的重起一下，重新执行installer就行了。
+.. note:: 
+
+   正常的情况下installer会自动disable的自带的driver,如果失败的重起一下，重新执行installer就行了。
 
 安装cuda-toolkit
 ----------------

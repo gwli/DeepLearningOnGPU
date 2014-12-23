@@ -29,7 +29,7 @@ nvidia dridver 的安装
 安装cuda-toolkit
 ----------------
 
-这里从两种方式来安装，手动安装，或者使用jetpack pro只安装 host端的cuda-toolkit.
+这里从两种方式来安装，手动安装，或者使用 `jetpack pro <http://developer.download.nvidia.com/embedded/jetson/TK1/docs/2_GetStart/Jeston_TK1_QuickStartGuide.pdf#nameddest=Flashing%20Jetson>`_ 只安装 host端的cuda-toolkit.
 
 #. 添加源
 

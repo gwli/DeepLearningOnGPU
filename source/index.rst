@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-    EnvironmentSetup
+   EnvironmentSetup
 
 Indices and tables
 ==================

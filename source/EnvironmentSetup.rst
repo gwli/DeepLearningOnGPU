@@ -37,19 +37,19 @@ nvidia dridver 的安装
 
 #. 添加源
 
-   .. code-block:: 
+   .. code-block:: bash
 
       $ dpkg -i cuda-repo-ubuntu1404_6.5_amd64.deb
 
 #. 安装 cuda toolkit
 
-   .. code-block::
+   .. code-block:: bash
 
       $ sudo apt-get install -y cuda-toolkit-6-5
 
 #. 配制环境变量
    
-   .. code-block:: 
+   .. code-block:: bash
 
       $ export PATH+=/usr/local/cuda-6.5/bin/:
       $ LD_LABRARY_PATH+= /usr/local/cuda-6.5/bin/lib:

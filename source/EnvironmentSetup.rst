@@ -1,57 +1,58 @@
-Linux»·¾³µÄ×¼±¸
+Linuxç¯å¢ƒçš„å‡†å¤‡
 ===============
 
-Ö÷ÒªÊÇ¸ù¾İ `caffe install manual <http://caffe.berkeleyvision.org/installation.html>`_ À´½øĞĞµÄ¡£Ö÷Òª¿âµÄÒÀÀµ¿ÉÒÔÓÃÕâ¸ö https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py À´Íê³É°²×°¡£
+ä¸»è¦æ˜¯æ ¹æ® `caffe install manual <http://caffe.berkeleyvision.org/installation.html>`_ æ¥è¿›è¡Œçš„ã€‚ä¸»è¦åº“çš„ä¾èµ–å¯ä»¥ç”¨è¿™ä¸ª https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py æ¥å®Œæˆå®‰è£…ã€‚
 
-nvidia dridver µÄ°²×° 
+nvidia dridver çš„å®‰è£… 
 ---------------------
 
-#. ´Ó `¹ÙÍø<http://www.nvidia.com/Download/index.aspx?lang=en-us>`_ ÏÂÔØ×îĞÂdriver, 
+#. ä» `å®˜ç½‘ <http://www.nvidia.com/Download/index.aspx?lang=en-us>`_ ä¸‹è½½æœ€æ–°driver, 
 
-#. ½øÈë×Ö·û½éÃæ  tty1
+#. è¿›å…¥å­—ç¬¦ä»‹é¢  tty1
    
    :command:`ctl+alt+F1` 
 
-#. ¹Øµô X windows.
+#. å…³æ‰ X windows.
 
    :command:`sudo service lightdm stop`
 
-#. °²×°driver.
+#. å®‰è£…driver.
 
    :command:`chmod +x installer.run;./installer.run`
 
 
-#. »Ö¸´ X windows.
+#. æ¢å¤ X windows.
     
    :command:`sudo service lightdm start`
 
 
 .. note:: 
 
-   Õı³£µÄÇé¿öÏÂinstaller»á×Ô¶¯disableµÄ×Ô´øµÄdriver,Èç¹ûÊ§°ÜµÄÖØÆğÒ»ÏÂ£¬ÖØĞÂÖ´ĞĞinstaller¾ÍĞĞÁË¡£
+   æ­£å¸¸çš„æƒ…å†µä¸‹installerä¼šè‡ªåŠ¨disableçš„è‡ªå¸¦çš„driver,å¦‚æœå¤±è´¥çš„é‡èµ·ä¸€ä¸‹ï¼Œé‡æ–°æ‰§è¡Œinstallerå°±è¡Œäº†ã€‚
 
-°²×°cuda-toolkit
+å®‰è£…cuda-toolkit
 ----------------
 
-ÕâÀï´ÓÁ½ÖÖ·½Ê½À´°²×°£¬ÊÖ¶¯°²×°£¬»òÕßÊ¹ÓÃ `jetpack pro <http://developer.download.nvidia.com/embedded/jetson/TK1/docs/2_GetStart/Jeston_TK1_QuickStartGuide.pdf#nameddest=Flashing%20Jetson>`_ Ö»°²×° host¶ËµÄcuda-toolkit.
+è¿™é‡Œä»ä¸¤ç§æ–¹å¼æ¥å®‰è£…ï¼Œæ‰‹åŠ¨å®‰è£…ï¼Œæˆ–è€…ä½¿ç”¨ `jetpack pro <http://developer.download.nvidia.com/embedded/jetson/TK1/docs/2_GetStart/Jeston_TK1_QuickStartGuide.pdf#nameddest=Flashing%20Jetson>`_ åªå®‰è£… hostç«¯çš„cuda-toolkit.
 
-#. Ìí¼ÓÔ´
+#. æ·»åŠ æº
 
-   .. code-block:: sh
+   .. code-block:: 
 
       $ dpkg -i cuda-repo-ubuntu1404_6.5_amd64.deb
 
-#. °²×°cuda toolkit
+#. å®‰è£… cuda toolkit
 
-   .. code-block:: sh
+   .. code-block::
 
       $ sudo apt-get install -y cuda-toolkit-6-5
 
-#. ÅäÖÆ»·¾³±äÁ¿
+#. é…åˆ¶ç¯å¢ƒå˜é‡
    
-   .. code-block:: sh
+   .. code-block:: 
 
       $ export PATH+=/usr/local/cuda-6.5/bin/:
       $ LD_LABRARY_PATH+= /usr/local/cuda-6.5/bin/lib:
+
 
 

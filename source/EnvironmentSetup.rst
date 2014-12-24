@@ -3,7 +3,7 @@ Linux环境的准备
 
 主要是根据 `caffe install manual <http://caffe.berkeleyvision.org/installation.html>`_ 来进行的。主要库的依赖可以用这个 https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py 来完成安装。
 
-nvidia dridver 的安装 
+nvidia driver 的安装 
 ---------------------
 
 #. 从 `官网 <http://www.nvidia.com/Download/index.aspx?lang=en-us>`_ 下载最新driver, 
@@ -19,7 +19,6 @@ nvidia dridver 的安装
 #. 安装driver.
 
    :command:`chmod +x installer.run;./installer.run`
-
 
 #. 恢复 X windows.
     

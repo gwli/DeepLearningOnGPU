@@ -24,7 +24,6 @@ nvidia driver 的安装
     
    :command:`sudo service lightdm start`
 
-
 .. note:: 
 
    正常的情况下installer会自动disable的自带的driver,如果失败的重起一下，重新执行installer就行了。
@@ -50,8 +49,58 @@ nvidia driver 的安装
    
    .. code-block:: bash
 
-      $ export PATH+=/usr/local/cuda-6.5/bin/:
-      $ LD_LABRARY_PATH+= /usr/local/cuda-6.5/bin/lib:
+      $ export PATH+=:/usr/local/cuda-6.5/bin/:
+      $ LD_LIBRARY_PATH+= /usr/local/cuda-6.5/bin/lib:
+      $ export LD_LIBRARY_PATH
+
+    .. note:: 
+
+       也可以直接写.bashrc中就行，重启shell就行了。
+   
 
 
+相关库的安装
+------------
 
+直接使用 https://github.com/gwli/StudyNote/blob/master/caffe/install/prepare.py 来完成就行了。
+
+下面几个不常见库的说明
+
+.. csv-table:: libs 
+   :header: "Lib names",Content, Remark
+
+   google-glog, google提供的一个C++的logging库, https://code.google.com/p/googl有e-glog/
+   protobuf-devel,性能更好的jason用于进程通信,相当于TCP/IP的包解析技术用在了进程通信IPC.
+   gflags, 类似于getopt命令行处理接口,http://dreamrunner.org/blog/2014/03/09/gflags-jian-ming-shi-yong/
+   google snappy, 一个高速的压缩库，http://www.infoq.com/cn/news/2011/04/Snappy
+   google leveldb, LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.，https://github.com/google/leveldb
+
+
+安装cudnn 
+---------
+
+#. 从 ·https://developer.nvidia.com/cuDNN 下载 linux 官
+
+#. 解压安装
+
+   .. code-block:: bash
+      
+      $ tar -xzvf cudnn.tgz
+      $ mv cudnn /usr/local/cudnn
+
+#. 修改LD_LIBRARY_PATH
+      
+   .. code-block:: bash
+
+      LD_LIBRARY_PATH+=:/usr/local/cudnn:
+      C_INCLUDE_PATH+=:/usr/local/cudnn:
+      CPLUS_INCLUDE_PATH+=:/usr/local/cudnn:
+
+
+build 
+-----
+
+.. note::
+
+   cudnn-6.5-linux-R2-RC1 is compatible with caffe, cudnn-6.5-linux-R1 is good.
+   可以在这个https://groups.google.com/forum/#!forum/caffe-users 里找到这个问题

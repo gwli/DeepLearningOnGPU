@@ -13,6 +13,7 @@ Contents:
    
    target
    EnvironmentSetup
+   basicConcept
 
 Indices and tables
 ==================

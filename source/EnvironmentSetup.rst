@@ -99,6 +99,28 @@ nvidia driver 的安装
 
 build 
 -----
+caffe 采用了大量的template,所以代码模式基本
+
+.. graphviz::
+   
+   digraph flow {
+
+       template->code->"PIC so"-> "link to app";
+   }
+
+
+#. build the app
+   
+   :command:`make all |tee make.log`
+
+#. build the test
+
+   :command:`make test |tee test.log`
+
+#. run the test
+
+   :command:`make runtest |tee runtest.log`
+
 
 .. note::
 

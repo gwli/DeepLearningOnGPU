@@ -1,1 +1,1 @@
-include basicConcept/SVM.rst
+.. include:: basicConcept/SVM.rst

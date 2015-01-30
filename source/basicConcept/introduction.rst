@@ -5,12 +5,13 @@
 ============
 
 神经网络起源于对大脑皮层的研究，神纤细胞的轴突末梢（也就是终端）->神经细胞=处理端f(x)
+.. math::
 
-\begin{figure}[htp!]
-  \centering
-  \includegraphics[width=6cm]{neutral}\\
-    \caption{神经元}
-\end{figure}
+   \begin{figure}[htp!]
+     \centering
+     \includegraphics[width=6cm]{neutral}\\
+       \caption{神经元}
+   \end{figure}
 
 
 大脑特征：
@@ -20,11 +21,14 @@
 #. 最后的输出具有归纳和推广功能。
 #. 神经输出按照激活（fire）和不激活两种选择。
 
-\begin{figure}[htp!]
-  \centering
-  \includegraphics[width=6cm]{NN.jpg}\\
-  \caption{神经网络基本结构}
-\end{figure}
+.. math::
+
+   \begin{figure}[htp!]
+     \centering
+     \includegraphics[width=6cm]{NN.jpg}\\
+     \caption{神经网络基本结构}
+   \end{figure}
+
 虽然神经网络具有复杂的结构，但是人脑只是简单的模拟，成为人工智能（ANN），利用f(x) 模拟人脑思考中的非线性。
 
 特征表示的粒度：
@@ -33,23 +37,24 @@
 
 大脑模型：
 
-<dot>
-digraph G {
-rankdir=LR
+.. graphviz::
 
-Memory1->Predict[label="feature1:Color"]
+   digraph G {
+      rankdir=LR
+      
+      Memory1->Predict[label="feature1:Color"]
+      
+      Memory2->Predict [label="feature2:Construct"]
+      
+      Memory3->Predict [label="feature2:3D information"]
+      
+      Memory4->Predict [label="feature3:spatial and time seires information"]
+      
+      Predict->Output
+   
+   }
 
-Memory2->Predict [label="feature2:Construct"]
-
-Memory3->Predict [label="feature2:3D information"]
-
-Memory4->Predict [label="feature3:spatial and time seires information"]
-
-Predict->Output
-
-}
-</dot>
-RED% 这里的time series 着的是多层之间吗？input？ %ENDCOLOR%
+*这里的time series 着的是多层之间吗？input？*
 
 
 单层神经网络{前向传播}
@@ -63,66 +68,72 @@ RED% 这里的time series 着的是多层之间吗？input？ %ENDCOLOR%
 这里$t_k^n$表示第n个样本对应的标签的第k维。$y_k^n$表示第n个样本对应的网络输出的第k 个输出。
 
 对于样本n的误差可以表示为：
+
 .. math::
  
-  \begin{array}{l}
+   \begin{array}{l}
         E^n=\frac{1}{2}\sum_{k=1}^C(t_k^n-y_k^n)^2=\frac{1}{2}||\textbf{t}^n-\textbf{y}^n||_2^2\\
         \end{array}
 
 那么l层的误差可以表示为：
+
 .. math::
  
- \begin{array}{l}
-  E^n=\frac{1}{2}\sum_{k=1}^C(t_k^n-y_k^n)^2=\frac{1}{2}||\textbf{t}^n-\textbf{y}^n||_2^2\\
- \end{array}
+   \begin{array}{l}
+    E^n=\frac{1}{2}\sum_{k=1}^C(t_k^n-y_k^n)^2=\frac{1}{2}||\textbf{t}^n-\textbf{y}^n||_2^2\\
+   \end{array}
 
 
 对于传统的神经网络需要计算网络关于每一个权值的偏导数。我们用l表示当前层，那么当前层的输出可以表示为：
+
 .. math::
  
- \begin{array}
-  x^l=f(u^l)\\
-  s.t.\; u^l =W^lx^{l-1}+b^l
- \end{array}
+   \begin{array}
+    x^l=f(u^l)\\
+    s.t.\; u^l =W^lx^{l-1}+b^l
+   \end{array}
 
 
-这里$x^l$是下一层的输入，这一层的输出。
+这里 :math:`x^l` 是下一层的输入，这一层的输出。
 
 
-输出激活函数$f(.)$可以有很多中，一般是sigmoid函数或者双曲线正切函数。意思是把他们进行分类。
-<dot>
-digraph logistic_regress {
-   node [shape = box]
-   rankdir=LR;
-   {node [shape=circle, style=invis]
-    1 2 3 4 5
+输出激活函数 :math:`f(.)` 可以有很多中，一般是sigmoid函数或者双曲线正切函数。意思是把他们进行分类。
+
+.. graphviz:: 
+
+   digraph logistic_regress {
+      node [shape = box]
+      rankdir=LR;
+      {node [shape=circle, style=invis]
+       1 2 3 4 5
+      }
+      { node [shape=point,width=0]
+        input
+        dummy1
+        dummy2
+        dummy3
+      }
+      { rank=same;
+         posibity cost
+      }
+      {1 2 3 4 5}-> input-> function -> posibity -> dummy1 -> prediction -> output [weight=8];
+      dummy1->dummy2 [weight=8]
+      { rank=same;
+   
+        dummy2 -> cost  [splines="ortho"]
+        cost -> dummy3 ;
+      }
+      dummy3-> input [weight=8]
    }
-   { node [shape=point,width=0]
-     input
-     dummy1
-     dummy2
-     dummy3
-   }
-   { rank=same;
-      posibity cost
-   }
-   {1 2 3 4 5}-> input-> function -> posibity -> dummy1 -> prediction -> output [weight=8];
-   dummy1->dummy2 [weight=8]
-   { rank=same;
 
-     dummy2 -> cost  [splines="ortho"]
-     cost -> dummy3 ;
-   }
-   dummy3-> input [weight=8]
-}
 
-</dot>
+
 
 后向传导算法}
 
 .. math::
  
- \frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}\frac{\partial u}{\partial b}=\delta
+   \frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}\frac{\partial u}{\partial b}=\delta
 
 
 因为$\frac{\partial u}{\partial b}=1$, 所以$\frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}=\delta$
@@ -130,7 +141,7 @@ digraph logistic_regress {
 
 .. math::
  
- \delta^l = (W^{l+1})^T\delta^{l+1}\circ f\prime(u^l)
+   \delta^l = (W^{l+1})^T\delta^{l+1}\circ f\prime(u^l)
 
 
 这个表示什么意思？这里是基于一个样本？还是多个样本的？ 应该是一个样本的.这个模型在无限次迭代中趋于0，也就是没有价值。
@@ -140,7 +151,7 @@ digraph logistic_regress {
 
 .. math::
  
-  \delta^L= f\prime(u^L)\circ(y^n-t^n)
+   \delta^L= f\prime(u^L)\circ(y^n-t^n)
 
 
 神经网络就是利用多层信息进行非线性拟合。
@@ -149,11 +160,11 @@ digraph logistic_regress {
 
 .. math::
  
- \frac{\partial E}{\partial W^l}=X^{l-1}(\delta^l)^T
+   \frac{\partial E}{\partial W^l}=X^{l-1}(\delta^l)^T
 
 .. math::
  
- \Delta W^l=-\eta\frac{\partial E}{\partial W^l}
+   \Delta W^l=-\eta\frac{\partial E}{\partial W^l}
 
 反向传导算法：
 
@@ -164,7 +175,7 @@ digraph logistic_regress {
 
 卷积神经网络}
 
-[[http://blog.csdn.net/zouxy09/article/details/8775360][卷积神经网络:]] %IF{" '' = '' " then="" else="- "}%
+`卷积神经网络: <http://blog.csdn.net/zouxy09/article/details/8775360>`_  
 
 算法优点：
 }
@@ -180,15 +191,17 @@ digraph logistic_regress {
 
 除了卷积网络本身还有什么方法可以来减少的连接数的。
 
-\begin{figure}
-  \centering
-  \includegraphics[width=4cm]{CNN.jpg}\\
-  \caption{卷积神经网络}
-\end{figure}
+.. math::
+
+   \begin{figure}
+     \centering
+     \includegraphics[width=4cm]{CNN.jpg}\\
+     \caption{卷积神经网络}
+   \end{figure}
 
 .. math::
  
- x_j^l = f(\sum_{i\in M_j}x_i^{l-1}*k_{ij}^l+b_j^l)
+   x_j^l = f(\sum_{i\in M_j}x_i^{l-1}*k_{ij}^l+b_j^l)
 
 $M_j$表示选择的输入maps的集合。（对于图像处理，是获取边缘信息。）
 
@@ -196,7 +209,7 @@ $M_j$表示选择的输入maps的集合。（对于图像处理，是获取边�
 
 .. math::
  
- \delta_j^l = \beta_j^{l+1}(up(\delta^{l+1})\circ f\prime(u_j^l))
+   \delta_j^l = \beta_j^{l+1}(up(\delta^{l+1})\circ f\prime(u_j^l))
 
 up(.)表示上采样操作。
 
@@ -204,37 +217,42 @@ Sub-sampling Layers 子采样层
 }
 .. math::
  
- x_j^l=f(\beta_j^l down (x_j^{l-1})+b_j^l)
+   x_j^l=f(\beta_j^l down (x_j^{l-1})+b_j^l)
 
 $down(.)$表示下采样函数。
-<dot>
- digraph CNN{
-rankdir=LR
-node[shape=box]
-subgraph clusterA {
 
-x_1->y_1 [label="w_11"]
-x_2->y_1  [label="w_21"]
-x_2->y_2  [label="w_22"]
-x_3->y_2  [label="w_32"]
-label="layer1"
-subgraph clusterB {
- y_1
+.. graphviz::
 
-y_2
-label="layer 2 maxpooling"
-}
-}
-y_1->y
-y_2->y
-}
-</dot>
+    digraph CNN{
+   rankdir=LR
+   node[shape=box]
+   subgraph clusterA {
+   
+   x_1->y_1 [label="w_11"]
+   x_2->y_1  [label="w_21"]
+   x_2->y_2  [label="w_22"]
+   x_3->y_2  [label="w_32"]
+   label="layer1"
+   subgraph clusterB {
+    y_1
+   
+   y_2
+   label="layer 2 maxpooling"
+   }
+   }
+   y_1->y
+   y_2->y
+   }
+   
+
 自动编码}
 
-----++++深度学习读书笔记之[[http://blog.csdn.net/mytestmy/article/details/16918641][AE（自动编码）]]
+深度学习读书笔记之 `AE（自动编码） <http://blog.csdn.net/mytestmy/article/details/16918641>`_ 
+==============================================================================================================
 
 
-[[http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C][深度学习wiki]] %IF{" '' = '' " then="" else="- "}%
+
+`深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
 
 AE对图形不同位置和方向进行边缘检测。另外可用于检测图像隐藏的相关性，和PCA类似。
 
@@ -253,15 +271,17 @@ Denoising Autoencoders 原理：
 具体如下：
 
 对于输入x建立神经网络：
+
 .. math::
  
- y=s(Wx+b)
+   y=s(Wx+b)
 
 
 其中s是非线性函数：期望得到输出：
+
 .. math::
  
- z=s(W^{T}y+b)
+   z=s(W^{T}y+b)
 
 
 最后使用不同的reconstruction error 作为约束函数：
@@ -272,14 +292,14 @@ Denoising Autoencoders 原理：
 
 .. math::
  
- L(x,z)=||x-z||^2
+   L(x,z)=||x-z||^2
 
 
-或者使用[[http://zh.wikipedia.org/wiki/%E7%9B%B8%E5%AF%B9%E7%86%B5][交叉熵(cross-entropy)]]作为约束函数：
+或者使用 `交叉熵(cross-entropy) <http://zh.wikipedia.org/wiki/%E7%9B%B8%E5%AF%B9%E7%86%B5>`_ 作为约束函数：
 
 .. math::
  
- L_H(x,z)=-\sum_{k=1}^d[x_klog{z_k}+(1-x)log(1-z_k)]
+   L_H(x,z)=-\sum_{k=1}^d[x_klog{z_k}+(1-x)log(1-z_k)]
 
 square error 只适用于高斯误差，所以cross-entropy 更加鲁棒些。
 
@@ -295,19 +315,19 @@ L1,L2正则化
 
 .. math::
  
-J_R(w)=\frac {1}{n}||y-xw||^2+\lambda ||w||^2
+   J_R(w)=\frac {1}{n}||y-xw||^2+\lambda ||w||^2
 
 但是如果对于高维数据一般存在稀疏性，一般加入L1正则化：
 
 .. math::
  
-J_R(w)=\frac {1}{n}||y-xw||^2+\lambda ||w||^1
+   J_R(w)=\frac {1}{n}||y-xw||^2+\lambda ||w||^1
 
 2006年tao证明L1正则化等价于0 范数，说明其具有稀疏性。
 
 另外一个是形象性的解释:\href{http://blog.sina.com.cn/s/blog_49b5f5080100af1v.html}{L1 Norm 稀疏性原理}
 
----++++[[http://blog.sciencenet.cn/blog-261330-623443.html][KKT条件]]
+`KKT 条件 <http://blog.sciencenet.cn/blog-261330-623443.html>`_
 
 $\min x f(x)$
 
@@ -322,17 +342,18 @@ $Subject to: g_i(x)\leq 0, h_j(x)=0$
 3. a*g(x) = 0;
 
 最后写成:
+
 .. math::
  
- \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
+   \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
 
 
 通过$max_{a,b}L(a,b,x)$, 只有在 $a*g(x)=0$的情况下才取最大值。 也就是$min f(x)$ 和$a*g(x)$ 必须是相反的才具有约束意义。*
 
 
-   * [[http://docs.python.org/2/library/gzip.html][import gzip 模块 压缩文件]] %IF{" '' = '' " then="" else="- "}%
+#. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  
    \href{http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0][拉格朗日乘数}{设置约束函数的时候可以这么干}
-   * [[http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/][LDA-math-MCMC 和 Gibbs Sampling]] %IF{" '' = '' " then="" else="- "}%
+#. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  
 stacked autoencoder  是什么？
 
 -- Main.GegeZhang - 19 Feb 2014
@@ -373,7 +394,7 @@ BM模型结构研究解法
 -- Main.GegeZhang - 22 Feb 2014
 
 
-[[http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/][LDA-math-MCMC 和 Gibbs Sampling]] gibbs 采样
+`LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  gibbs 采样
 
 -- Main.GegeZhang - 22 Feb 2014
 
@@ -419,7 +440,7 @@ BM模型结构研究解法
 =====
 
 \href{http://blog.csdn.net/zouxy09/article/details/9993371}{神经网络基础}
-[[http://www.huanqiukexue.com/html/newqqkj/newsm/2014/0409/24296.html][蜜蜂能够认出你]] 蜜蜂在如此脑容量小的情况下能够认出人脸，有什么启发？
+`蜜蜂能够认出你 <http://www.huanqiukexue.com/html/newqqkj/newsm/2014/0409/24296.html>`_  蜜蜂在如此脑容量小的情况下能够认出人脸，有什么启发？
 
 \href{http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/}{L1,L2 正则化}
 

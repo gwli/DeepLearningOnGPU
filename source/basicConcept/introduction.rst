@@ -64,7 +64,7 @@
  
   E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
 
-这里:math:`t_k^n`表示第n个样本对应的标签的第k维。:math:`y_k^n`表示第n个样本对应的网络输出的第k 个输出。
+这里:math:`t_k^n` 表示第n个样本对应的标签的第k维。:math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
 
 对于样本n的误差可以表示为：
 
@@ -134,8 +134,7 @@
    \frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}\frac{\partial u}{\partial b}=\delta
 
 
-因为:math:`\frac{\partial u}{\partial b}=1`, 所以:math:`\frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}=\delta`
-这里bias基的灵敏度是什么意思？？
+因为:math:`\frac{\partial u}{\partial b}=1`, 所以:math:`\frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}=\delta`, 这里bias基的灵敏度是什么意思？？
 
 .. math::
  
@@ -200,7 +199,7 @@
  
    x_j^l = f(\sum_{i\in M_j}x_i^{l-1}*k_{ij}^l+b_j^l)
 
-:math:`M_j`表示选择的输入maps的集合。（对于图像处理，是获取边缘信息。）
+:math:`M_j` 表示选择的输入maps的集合。（对于图像处理，是获取边缘信息。）
 
 此时的灵敏度可以表示为：
 
@@ -216,7 +215,7 @@ Sub-sampling Layers 子采样层
  
    x_j^l=f(\beta_j^l down (x_j^{l-1})+b_j^l)
 
-:math:`down(.)`表示下采样函数。
+:math:`down(.)` 表示下采样函数。
 
 .. graphviz::
 

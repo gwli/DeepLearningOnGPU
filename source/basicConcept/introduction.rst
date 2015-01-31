@@ -40,17 +40,17 @@
 .. graphviz::
 
    digraph G {
-   rankdir=LR
+    rankdir=LR
       
-   Memory1->Predict[label="feature1:Color"]
+    Memory1->Predict[label="feature1:Color"]
       
-   Memory2->Predict [label="feature2:Construct"]
+    Memory2->Predict [label="feature2:Construct"]
       
-   Memory3->Predict [label="feature2:3D information"]
+    Memory3->Predict [label="feature2:3D information"]
       
-   Memory4->Predict [label="feature3:spatial and time seires information"]
+    Memory4->Predict [label="feature3:spatial and time seires information"]
       
-   Predict->Output
+    Predict->Output
    
    }
 
@@ -65,7 +65,7 @@
  
   E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
 
-这里 :math:`t_k^n` 表示第n个样本对应的标签的第k维。 :math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
+这里 :math:`t_k^n` 表示第n个样本对应的标签的第k维。:math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
 
 对于样本n的误差可以表示为：
 

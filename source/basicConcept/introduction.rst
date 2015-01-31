@@ -22,7 +22,6 @@
 #. 神经输出按照激活（fire）和不激活两种选择。
 
 .. math::
-
    \begin{figure}[htp!]
      \centering
      \includegraphics[width=6cm]{NN.jpg}\\
@@ -129,7 +128,7 @@
 
 
 
-后向传导算法}
+后向传导算法
 
 .. math::
  

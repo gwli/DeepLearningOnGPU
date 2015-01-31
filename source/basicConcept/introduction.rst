@@ -263,7 +263,7 @@ autoencoders  利用稀疏性来对规则化。
 
 Denoising Autoencoders 原理：
 
-使用code和decode 来求解:math:`w_{ij}' .
+使用code和decode 来求解:math:`w_{ij}` .
 
 具体如下：
 
@@ -332,7 +332,7 @@ L1,L2正则化
 
 Subject to: g_i(x)\leq 0, h_j(x)=0
 
-这个式子中对于:math:`g_i(x)' 是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
+这个式子中对于:math:`g_i(x)` 是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
 
 1. L(a, b, x)对x求导为零；
 
@@ -347,25 +347,13 @@ Subject to: g_i(x)\leq 0, h_j(x)=0
    \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
 
 
-通过:math:`max_{a,b}L(a,b,x)' , 只有在 :math:`a*g(x)=0' 的情况下才取最大值。 也就是:math:`min f(x)'  和:math:`a*g(x)'  必须是相反的才具有约束意义。*
+通过:math:`max_{a,b}L(a,b,x)` , 只有在 :math:`a*g(x)=0` 的情况下才取最大值。 也就是:math:`min f(x)`  和:math:`a*g(x)`  必须是相反的才具有约束意义。*
 
 
 #. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  
    \href{http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0][拉格朗日乘数}{设置约束函数的时候可以这么干}
 #. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  
-stacked autoencoder  是什么？
-
--- Main.GegeZhang - 19 Feb 2014
-
-
-A simple explanation is based on the observation that stochastic gradient descent with early stopping is similar to an L2 regularization of the parameters.  什么意思
-
--- Main.GegeZhang - 19 Feb 2014
-
-
 *EM 就是参数估计一种* 把样本值代入直接相乘，把参数当做变量，然后求最大值。前提已经知道了分布。
-
--- Main.GangweiLi - 20 Feb 2014
 
 
 GIbbs 采样，现在还看不明白

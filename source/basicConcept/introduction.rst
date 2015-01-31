@@ -78,7 +78,7 @@
 
 .. math::
  
-   \begin{array}{l}
+   \begin{array}
     E^n=\frac{1}{2}\sum_{k=1}^C(t_k^n-y_k^n)^2=\frac{1}{2}||\textbf{t}^n-\textbf{y}^n||_2^2\\
    \end{array}
 
@@ -88,8 +88,8 @@
 .. math::
  
    \begin{array}
-    x^l=f(u^l)\\
-    s.t.\; u^l =W^lx^{l-1}+b^l
+   x^l=f(u^l)\\
+   s.t.\; u^l =W^lx^{l-1}+b^l
    \end{array}
 
 
@@ -213,7 +213,7 @@ $M_j$表示选择的输入maps的集合。（对于图像处理，是获取边�
 up(.)表示上采样操作。
 
 Sub-sampling Layers 子采样层
-}
+
 .. math::
  
    x_j^l=f(\beta_j^l down (x_j^{l-1})+b_j^l)
@@ -328,9 +328,11 @@ L1,L2正则化
 
 `KKT 条件 <http://blog.sciencenet.cn/blog-261330-623443.html>`_
 
-$\min x f(x)$
+.. math::
 
-$Subject to: g_i(x)\leq 0, h_j(x)=0$
+\min x f(x)
+
+Subject to: g_i(x)\leq 0, h_j(x)=0
 
 这个式子中对于$g_i(x)$是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
 

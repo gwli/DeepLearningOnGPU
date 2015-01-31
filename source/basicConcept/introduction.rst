@@ -176,13 +176,12 @@
 `卷积神经网络: <http://blog.csdn.net/zouxy09/article/details/8775360>`_  
 
 算法优点：
-}
 
- 针对图像中的像素点进行操作，通过卷积和下采样交替进行，在图像分类和识别中有重要应用。
+#. 针对图像中的像素点进行操作，通过卷积和下采样交替进行，在图像分类和识别中有重要应用。
 
 #. 采用感受野和权值共享达到减小隐藏层的目的，同时起到旋转不变的作用。
 
- #. down-sampling 达到减小分辨力的作用，同时也减小运算量。
+#. down-sampling 达到减小分辨力的作用，同时也减小运算量。
 
 #. 最后在经过 logistic regression 判断求所有layers的parameters。  %RED% 不难，建立一个cost函数，然后直接梯度计算%ENDCOLOR%
 
@@ -264,7 +263,7 @@ autoencoders  利用稀疏性来对规则化。
 
 Denoising Autoencoders 原理：
 
-使用code和decode 来求解:math:`w_{ij}$.
+使用code和decode 来求解:math:`w_{ij}' .
 
 具体如下：
 
@@ -333,7 +332,7 @@ L1,L2正则化
 
 Subject to: g_i(x)\leq 0, h_j(x)=0
 
-这个式子中对于:math:`g_i(x)$是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
+这个式子中对于:math:`g_i(x)' 是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
 
 1. L(a, b, x)对x求导为零；
 
@@ -348,7 +347,7 @@ Subject to: g_i(x)\leq 0, h_j(x)=0
    \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
 
 
-通过:math:`max_{a,b}L(a,b,x)$, 只有在 :math:`a*g(x)=0$的情况下才取最大值。 也就是:math:`min f(x)$ 和:math:`a*g(x)$ 必须是相反的才具有约束意义。*
+通过:math:`max_{a,b}L(a,b,x)' , 只有在 :math:`a*g(x)=0' 的情况下才取最大值。 也就是:math:`min f(x)'  和:math:`a*g(x)'  必须是相反的才具有约束意义。*
 
 
 #. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  

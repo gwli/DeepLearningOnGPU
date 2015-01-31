@@ -39,17 +39,17 @@
 .. graphviz::
 
    digraph G {
-      rankdir=LR
+   rankdir=LR
       
-      Memory1->Predict[label="feature1:Color"]
+   Memory1->Predict[label="feature1:Color"]
       
-      Memory2->Predict [label="feature2:Construct"]
+   Memory2->Predict [label="feature2:Construct"]
       
-      Memory3->Predict [label="feature2:3D information"]
+   Memory3->Predict [label="feature2:3D information"]
       
-      Memory4->Predict [label="feature3:spatial and time seires information"]
+   Memory4->Predict [label="feature3:spatial and time seires information"]
       
-      Predict->Output
+   Predict->Output
    
    }
 
@@ -64,7 +64,7 @@
  
   E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
 
-这里$t_k^n$表示第n个样本对应的标签的第k维。$y_k^n$表示第n个样本对应的网络输出的第k 个输出。
+这里:math:`t_k^n`表示第n个样本对应的标签的第k维。:math:`y_k^n`表示第n个样本对应的网络输出的第k 个输出。
 
 对于样本n的误差可以表示为：
 
@@ -101,28 +101,27 @@
 .. graphviz:: 
 
    digraph logistic_regress {
-      node [shape = box]
-      rankdir=LR;
-      {node [shape=circle, style=invis]
-       1 2 3 4 5
-      }
-      { node [shape=point,width=0]
-        input
-        dummy1
-        dummy2
-        dummy3
-      }
-      { rank=same;
-         posibity cost
-      }
-      {1 2 3 4 5}-> input-> function -> posibity -> dummy1 -> prediction -> output [weight=8];
-      dummy1->dummy2 [weight=8]
-      { rank=same;
-   
-        dummy2 -> cost  [splines="ortho"]
-        cost -> dummy3 ;
-      }
-      dummy3-> input [weight=8]
+   node [shape = box]
+   rankdir=LR;
+   {node [shape=circle, style=invis]
+   1 2 3 4 5
+   }
+   { node [shape=point,width=0]
+   input
+   dummy1
+   dummy2
+   dummy3
+   }
+   { rank=same;
+   posibity cost
+   }
+   {1 2 3 4 5}-> input-> function -> posibity -> dummy1 -> prediction -> output [weight=8];
+   dummy1->dummy2 [weight=8]
+   { rank=same;
+   dummy2 -> cost  [splines="ortho"]
+   cost -> dummy3 ;
+   }
+   dummy3-> input [weight=8]
    }
 
 
@@ -135,7 +134,7 @@
    \frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}\frac{\partial u}{\partial b}=\delta
 
 
-因为$\frac{\partial u}{\partial b}=1$, 所以$\frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}=\delta$
+因为:math:`\frac{\partial u}{\partial b}=1`, 所以:math:`\frac{\partial E}{\partial b}=\frac{\partial E}{\partial u}=\delta`
 这里bias基的灵敏度是什么意思？？
 
 .. math::
@@ -202,7 +201,7 @@
  
    x_j^l = f(\sum_{i\in M_j}x_i^{l-1}*k_{ij}^l+b_j^l)
 
-$M_j$表示选择的输入maps的集合。（对于图像处理，是获取边缘信息。）
+:math:`M_j`表示选择的输入maps的集合。（对于图像处理，是获取边缘信息。）
 
 此时的灵敏度可以表示为：
 
@@ -218,7 +217,7 @@ Sub-sampling Layers 子采样层
  
    x_j^l=f(\beta_j^l down (x_j^{l-1})+b_j^l)
 
-$down(.)$表示下采样函数。
+:math:`down(.)`表示下采样函数。
 
 .. graphviz::
 
@@ -265,7 +264,7 @@ autoencoders  利用稀疏性来对规则化。
 
 Denoising Autoencoders 原理：
 
-使用code和decode 来求解$w_{ij}$.
+使用code和decode 来求解:math:`w_{ij}`.
 
 具体如下：
 
@@ -334,7 +333,7 @@ L1,L2正则化
 
 Subject to: g_i(x)\leq 0, h_j(x)=0
 
-这个式子中对于$g_i(x)$是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
+这个式子中对于:math:`g_i(x)`是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
 
 1. L(a, b, x)对x求导为零；
 
@@ -349,7 +348,7 @@ Subject to: g_i(x)\leq 0, h_j(x)=0
    \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
 
 
-通过$max_{a,b}L(a,b,x)$, 只有在 $a*g(x)=0$的情况下才取最大值。 也就是$min f(x)$ 和$a*g(x)$ 必须是相反的才具有约束意义。*
+通过:math:`max_{a,b}L(a,b,x)`, 只有在 :math:`a*g(x)=0`的情况下才取最大值。 也就是:math:`min f(x)` 和:math:`a*g(x)` 必须是相反的才具有约束意义。*
 
 
 #. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  

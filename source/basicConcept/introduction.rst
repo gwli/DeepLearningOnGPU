@@ -6,7 +6,6 @@
 
 神经网络起源于对大脑皮层的研究，神纤细胞的轴突末梢（也就是终端）->神经细胞=处理端f(x)。
 
-.. math::
 
    \begin{figure}[htp!]
      \centering
@@ -31,26 +30,22 @@
 
 虽然神经网络具有复杂的结构，但是人脑只是简单的模拟，成为人工智能（ANN），利用f(x) 模拟人脑思考中的非线性。
 
-特征表示的粒度：
-
-比如汽车和人脸的基是差别很大的，因此深度学习的根本目标就是找"basis"。
-
 大脑模型：
 
 .. graphviz::
 
    digraph G {
-    rankdir=LR
+   rankdir=LR
       
-    Memory1->Predict[label="feature1:Color"]
+   Memory1->Predict[label="feature1:Color"]
       
-    Memory2->Predict [label="feature2:Construct"]
+   Memory2->Predict [label="feature2:Construct"]
       
-    Memory3->Predict [label="feature2:3D information"]
+   Memory3->Predict [label="feature2:3D information"]
       
-    Memory4->Predict [label="feature3:spatial and time seires information"]
+   Memory4->Predict [label="feature3:spatial and time seires information"]
       
-    Predict->Output
+   Predict->Output
    
    }
 
@@ -58,6 +53,7 @@
 
 
 单层神经网络{前向传播}
+========================
 
 假设C类，N个训练样本的结果。
 
@@ -65,7 +61,7 @@
  
   E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
 
-这里 :math:`t_k^n` 表示第n个样本对应的标签的第k维。:math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
+这里 :math:`t_k^n` 表示第n个样本对应的标签的第k维。 :math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
 
 对于样本n的误差可以表示为：
 
@@ -129,6 +125,7 @@
 
 
 后向传导算法
+============
 
 .. math::
  
@@ -164,16 +161,15 @@
  
    \Delta W^l=-\eta\frac{\partial E}{\partial W^l}
 
-反向传导算法：
 
 就是首先求最后一层的误差，逐步扩展到前一层。
 
 实际中对数据训练都是首先前向传导求出实际输出Op,
 然和和理想输出做对比。得到对比函数，最后使用后向传导调整权值。
 
-卷积神经网络}
+卷积神经网络
+============
 
-`卷积神经网络: <http://blog.csdn.net/zouxy09/article/details/8775360>`_  
 
 算法优点：
 
@@ -242,22 +238,10 @@ Sub-sampling Layers 子采样层
    }
    
 
-自动编码}
-
 深度学习读书笔记之 `AE（自动编码） <http://blog.csdn.net/mytestmy/article/details/16918641>`_ 
 ==============================================================================================================
 
-
-
-`深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
-
-AE对图形不同位置和方向进行边缘检测。另外可用于检测图像隐藏的相关性，和PCA类似。
-
-
-autoencoders  利用稀疏性来对规则化。
-
-
-\href{http://deeplearning.net/tutorial/SdA.html#sda}{sda}
+AE对图形不同位置和方向进行边缘检测。另外可用于检测图像隐藏的相关性，和PCA类似。autoencoders  利用稀疏性来对规则化。
 
 只是da的多层堆在一起，每一层算完之后，再整体就像MLP一样计算一遍。autoAE要利用约束防止训练单位阵。
 
@@ -301,10 +285,10 @@ Denoising Autoencoders 原理：
 square error 只适用于高斯误差，所以cross-entropy 更加鲁棒些。
 
 
-\Section{Deep Belief Networks深信度网络
-}
+Deep Belief Networks深信度网络
+==============================
 
-限制玻尔兹曼机生成获得低层次信息，包含两个层，一个可视层，一个隐藏层，可视层和隐藏层通过吉布斯采样实现，隐藏层的优
+限制玻尔兹曼机生成获得低层次信息，包含两个层，一个可视层，一个隐藏层，可视层和隐藏层通过吉布斯采样实现，隐藏层的优化。
 
 L1,L2正则化
 
@@ -322,94 +306,12 @@ L1,L2正则化
 
 2006年tao证明L1正则化等价于0 范数，说明其具有稀疏性。
 
-另外一个是形象性的解释:\href{http://blog.sina.com.cn/s/blog_49b5f5080100af1v.html}{L1 Norm 稀疏性原理}
-
-`KKT 条件 <http://blog.sciencenet.cn/blog-261330-623443.html>`_
-
-.. math::
-
-\min x f(x)
-
-Subject to: g_i(x)\leq 0, h_j(x)=0
-
-这个式子中对于 :math:`g_i(x)` 是一个小于号问题，没有办法写成 求取整体最小值，因此需要转换为对偶问题（在SVM中还会遇到），就是所谓的KKT条件：
-
-1. L(a, b, x)对x求导为零；
-
-2. h(x) =0;
-
-3. a*g(x) = 0;
-
-最后写成:
-
-.. math::
- 
-   \max_{a,b}L(a,b,x) =L(a,b,x) +a*g(x) +b*h(x)
-
-
-通过 :math:`max_{a,b}L(a,b,x)` , 只有在 :math:`a*g(x)=0` 的情况下才取最大值。 也就是 :math:`min f(x)`  和 :math:`a*g(x)`  必须是相反的才具有约束意义。*
-
-
-#. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  
-   \href{http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0][拉格朗日乘数}{设置约束函数的时候可以这么干}
-#. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  
-*EM 就是参数估计一种* 把样本值代入直接相乘，把参数当做变量，然后求最大值。前提已经知道了分布。
-
-
-GIbbs 采样，现在还看不明白
-
--- Main.GegeZhang - 21 Feb 2014
-
-
-对比散度（Contrastive Divergence，CD）算法
-
--- Main.GegeZhang - 21 Feb 2014
-
-
-判别模型和生成模型，图变换网络(Graph-transformer Networks)，条件随机场，最大化边界马尔科夫网络以及一些流形学习的方法
-
--- Main.GegeZhang - 21 Feb 2014
-
-
-自由能量函数
-
--- Main.GegeZhang - 21 Feb 2014
-
-
-BM模型结构研究解法
-
--- Main.GegeZhang - 22 Feb 2014
-
-
-`LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  gibbs 采样
-
--- Main.GegeZhang - 22 Feb 2014
-
-
-对于一些基本的概念是不是应该看？？
-
--- Main.GegeZhang - 27 Feb 2014
-
-
-这么多文献时该怎么看？ 只看经典的和新的？
-
--- Main.GegeZhang - 27 Feb 2014
-
-
-
--- Main.GegeZhang - 15 May 2014
-
-
-是不是可以借助于tensor 和混合高斯过程来 核函数来求解。
-
 
 目前问题：
+==========
 
 
-  #. 如何构造每一个感知器，层与层之间如何连接，需要多少层？最简单的方法，每一层之间都是全连接，通过增加层数，来解决所有问题，这样的计算太大。因此如果全联接，要尽可能用剪枝算法，来减少不必要的连接。并且到底需要多少层都是根据实际的情况来的。
-
-      例如数字的分类，最后只有2*2*2种情况，肯定是分不出来的, 所以对于卷积网络，并不是层越多越好。
-
+#. 如何构造每一个感知器，层与层之间如何连接，需要多少层？最简单的方法，每一层之间都是全连接，通过增加层数，来解决所有问题，这样的计算太大。因此如果全联接，要尽可能用剪枝算法，来减少不必要的连接。并且到底需要多少层都是根据实际的情况来的。
 
 #. 另外一部分那就是如何反馈，现在看到的都是利用的梯度，建立一个cost函数，然后把所有的参数都放进去，然后求梯度，theano采用链式求导，也就是复合函数求导。只要都是表达式，就可以求导，一次更新所有参数。所以反馈机制，是整体的cost,还是每一层都可以有一个cost,并且反馈采用梯度，还是牛顿法等。
 
@@ -426,9 +328,20 @@ BM模型结构研究解法
 参考：
 =====
 
-\href{http://blog.csdn.net/zouxy09/article/details/9993371}{神经网络基础}
-`蜜蜂能够认出你 <http://www.huanqiukexue.com/html/newqqkj/newsm/2014/0409/24296.html>`_  蜜蜂在如此脑容量小的情况下能够认出人脸，有什么启发？
+#. `深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
 
-\href{http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/}{L1,L2 正则化}
+#. `神经网络基础<ttp://blog.csdn.net/zouxy09/article/details/9993371>`_
+#. `蜜蜂能够认出你 <http://www.huanqiukexue.com/html/newqqkj/newsm/2014/0409/24296.html>`_  蜜蜂在如此脑容量小的情况下能够认出人脸，有什么启发？
 
-\href{http://blog.csdn.net/zouxy09/article/details/8782018}{人工智能的未来}}
+#. `L1,L2 正则化<http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/>`_
+
+#. `SDA<http://deeplearning.net/tutorial/SdA.html#sda>`_
+#. `人工智能的未来<http://blog.csdn.net/zouxy09/article/details/8782018>`_
+
+#. `L1 Norm 稀疏性原理<http://blog.sina.com.cn/s/blog_49b5f5080100af1v.html>`_
+#. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  
+#. `拉格朗日乘数<http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0]
+#. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  
+
+#. `卷积神经网络: <http://blog.csdn.net/zouxy09/article/details/8775360>`_  
+#. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  gibbs 采样

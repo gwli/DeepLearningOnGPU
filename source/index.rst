@@ -14,6 +14,7 @@ Contents:
    target
    EnvironmentSetup
    basicConcept
+   python
 
 Indices and tables
 ==================

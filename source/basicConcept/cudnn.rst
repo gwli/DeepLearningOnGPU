@@ -44,3 +44,8 @@ kernel本身计算模式的改变可以尽可能利用硬件资源。一个算�
    这样可以把数据保存显存里，然后方便多个kernel之间的计算减少D<=>H之间的传输而己。
    可以使用 CUDA annalysis  对其进行分析。
 #. kernel中算法本身需要的参数 
+
+
+其余那就类似于 CUDA runtimeapi 一样，各种各样的get/set以及createhandle之类的东东了。
+
+

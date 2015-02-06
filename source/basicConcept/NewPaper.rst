@@ -1,0 +1,118 @@
+deep learning 新文章：
+*********************
+
+Deep Learning Shape Priors for Object Segmentation
+==================================================
+
+形状，这个是在模拟人的情况吗？
+modeling high-dimensional richly
+structured data
+
+deep learning 为什么能建模高纬度数据？？
+
+
+在网络中使用deeplearning 还是有些不太方便的，低层次特征描述一些特征，高层次特征描述另一些内容特征
+The Shape-Time Random Field for Semantic Video Labeling
+}
+这个文章中建立的是shape time model。我想这个必须是  暂时先不看。
+
+
+Switchable Deep Network for Pedestrian Detection
+================================================
+
+这个是使用deep做行人探测，进一步得到一些高层次信息。可是这些高层次信息是什么？在隐藏层中怎样体现，是不是一些抽象信息。
+
+Facial Expression Recognition via a Boosted Deep Belief Network
+===============================================================
+
+早期的分类都是基于特征学习，
+
+
+这个是不是首先使用多个DBN，然后使用多个神经网络，使用弱分类器进行判决。
+
+弱分类器：
+
+.. math::
+
+\xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum)}-E_i]
+
+这里DBN中输出的是什么？
+
+使用卷积神经网络学习low-level feature。
+
+这个网络中的switch指的是什么？
+
+这个算法中使用部分面部图像，比如nose，eye and mouth。
+
+算法整个流程：
+
+.. graphviz:
+
+digraph G {
+   edge [fontname="FangSong"];
+node [shape=null, fontname="FangSong" size="20,20"];
+{
+a [label="图像"];
+b [label="特征"  ];
+c [label="分类器"];
+d [label="弱分类器"];
+
+}
+
+a->b   [label="1.图像分块"];
+b->c    [label="2.学习层级的特征"];
+c->b [label="3.根据反馈形成强分类器"];
+c->d [label="3.根据反馈形成弱分类器"];
+}
+
+
+
+
+疑问：
+======
+
+这里为什么要在输入的时候使用相互交叠的patches那？这样计算量不是很大吗？
+
+算法创新点：
+===========
+
+#. 以前的算法都是基于特征学习、特征选择、分类约束，这三个过程是顺序并且是独立的，缺少全局反馈，此方法中形成整一个系统，使用全局微调，交替估计这三个状态的值，做出最优的学习
+
+
+扩展阅读：
+==========
+
+#. On deep generative models with applications to recognition  
+#. Disentangling factors of variation for facial expression recognition.
+
+这两个文章使用层级的特征表示和logistic 回归交替估计用于目标分类，但是这个文章使用整张脸来做面部表情识别。
+
+#. Facial action unit recognition with sparse representation. 
+#. Sparse coding for flexible, robust 3d facial-expression synthesis.
+这两篇文章使用sparse coding 呈现轮廓特征。
+
+可能的创新点：
+==============
+
+#.  这个算法中全部使用强分类器，若分类器效果那？
+
+
+Switchable Deep Network for Pedestrian Detection
+================================================
+
+这个文章中使用限制玻尔兹曼机，分出人的不同块。但是是怎样分块的？
+
+Pedestrian Parsing via Deep Decompositional Network
+===================================================
+
+首先这个网络中使用的是什么？
+
+
+全局调整是什么？
+
+Discriminative Deep Metric Learning for Face Verification in the Wild
+=====================================================================
+
+Mahalanobis Distance Metric Learning
+
+传统的Mahalanobis 距离试图找到方矩阵 :math:`M\in R^{d\times d}`

@@ -30,11 +30,42 @@ Facial Expression Recognition via a Boosted Deep Belief Network
 
 这个是不是首先使用多个DBN，然后使用多个神经网络，使用弱分类器进行判决。
 
-弱分类器：
+L层的联合概率密度函数可以表示为：
 
 .. math::
 
-\xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum)}-E_i]
+   \Prob(H^0,H^1,...,H^L)=\prod_{l=0}^{L-2}\Prob(H^l|H^{l-1})\Prob(H^{L-1},H^L)
+
+:math:`\Prob(H^{l-1},H^l)` 和:math:`\Prob(H^{l},H^{l-1})` 分别表示为：
+
+.. math::
+
+   \Prob(H^{l-1}|H^l)=\frac{1}{1\exp((W^{l,l+1}H^l+b_h^{l+1}))}
+
+在最高层次的输出:mat:`H^L` 可以表示为：
+
+.. math::
+
+   H^L=  W^{L-1,L}H^{L-1}
+
+其中:math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
+
+形成弱分类器：
+
+.. math::
+
+   \xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum\alpha j(Wj^(L1,L)H{i,j}^{L1}Tj) )}-E_i]^2
+
+其中:math:`\alpha` 和 T是若分类器的门限。使用梯度下降方向。
+
+使用联合梯度下降方向：
+
+.. math::
+
+   \xi\lamba\xi{strong}\xi{weak}
+
+
+top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
 
 这里DBN中输出的是什么？
 
@@ -50,20 +81,19 @@ Facial Expression Recognition via a Boosted Deep Belief Network
 
 digraph G {
    edge [fontname="FangSong"];
-node [shape=null, fontname="FangSong" size="20,20"];
-{
-a [label="图像"];
-b [label="特征"  ];
-c [label="分类器"];
-d [label="弱分类器"];
+   node [shape=null, fontname="FangSong" size="20,20"];
+   {
+   a [label="图像"];
+   b [label="特征"  ];
+   c [label="分类器（强分类器和弱分类器）"];
 
-}
+   }
 
-a->b   [label="1.图像分块"];
-b->c    [label="2.学习层级的特征"];
-c->b [label="3.根据反馈形成强分类器"];
-c->d [label="3.根据反馈形成弱分类器"];
-}
+   a->b   [label="1.图像分块"];
+   b->c    [label="2.学习层级的特征"];
+   c->b [label="3.根据反馈调整前向特征"];
+   }
+
 
 
 

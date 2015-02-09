@@ -12,8 +12,10 @@ deep learning 为什么能建模高纬度数据？？
 
 
 在网络中使用deeplearning 还是有些不太方便的，低层次特征描述一些特征，高层次特征描述另一些内容特征
+
 The Shape-Time Random Field for Semantic Video Labeling
-}
+
+
 这个文章中建立的是shape time model。我想这个必须是  暂时先不看。
 
 
@@ -22,10 +24,19 @@ Switchable Deep Network for Pedestrian Detection
 
 这个是使用deep做行人探测，进一步得到一些高层次信息。可是这些高层次信息是什么？在隐藏层中怎样体现，是不是一些抽象信息。
 
+
+扩展阅读：
+=========
+
+Learning and selecting features jointly with point-wise gated Boltzmann machines
+
+利用特征对物体进行分类，前景特征和背景特征。
+
+
 Facial Expression Recognition via a Boosted Deep Belief Network
 ===============================================================
 
-早期的分类都是基于特征学习，
+早期的分类都是基于特征学习
 
 
 这个是不是首先使用多个DBN，然后使用多个神经网络，使用弱分类器进行判决。
@@ -146,3 +157,28 @@ Discriminative Deep Metric Learning for Face Verification in the Wild
 Mahalanobis Distance Metric Learning
 
 传统的Mahalanobis 距离试图找到方矩阵 :math:`M\in R^{d\times d}`
+
+
+Hybrid Deep Learning for Face Verification
+==========================================
+
+在deep learning 中一直都使用卷积，怎样能确定那？哪里是特征，其实现在特征就是不明显了。
+
+这里建立两张脸的特征，是什么意思？
+
+
+扩展阅读：
+==========
+
+Deep convolutional network cascade for facial point detection  使用卷积神经网络来探测脸部区域。
+
+
+这个文章看起来真是费劲，
+ 
+
+DeepFace: Closing the Gap to Human-Level Performance in Face Verification
+=========================================================================
+
+使用三维脸建模，使用deep learning。
+
+

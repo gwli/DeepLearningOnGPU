@@ -59,7 +59,7 @@ Learning and selecting features jointly with point-wise gated Boltzmann machines
 Facial Expression Recognition via a Boosted Deep Belief Network
 ===============================================================
 
-早期的分类都是基于固定特征学习，和目标分类是分离的，这篇文章首先使用多个DBN，使用多个神经网络，使用弱分类器进行判决。
+早期的分类都是基于固定特征的分类，特征没有为具体的分类进行定制，这篇文章首先使用多个DBN，最顶层使用分类器进行判决。
 
 L层的联合概率密度函数可以表示为：
 
@@ -79,9 +79,9 @@ L层的联合概率密度函数可以表示为：
 
    H^L=  W^{L-1,L}H^{L-1}
 
-其中:math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
+其中 :math:`W^{L-1,L}H^{L-1}` 是第最顶层的权值矩阵。
 
-形成强分类器：
+最后形成强分类器：
 
 .. math::
 
@@ -95,17 +95,15 @@ L层的联合概率密度函数可以表示为：
 
    \xi_{}= \sum_{j=1}^M\alpha_j \sum_{i=1}^{N_I}\beta_i[\frac{1+ sgn (W_j^{(L-1,L)}H_{i,j}^{L-1}-T_j}{2}-E_i]^2
 
-
-使用联合梯度下降方向：
+最后判决使用分类器，并使用联合梯度下降方法更新权值W：
 
 .. math::
 
    \xi=\lambda\xi_{strong}+\xi_{weak}
 
 
-top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
+top 两层使用boosting 结构， {0，L-2}层使用后向反馈算法。
 
-这个算法中使用部分面部图像，比如nose，eye and mouth。
 
 算法整个流程：
 =============
@@ -131,6 +129,8 @@ digraph G {
 
 #. 以前的算法都是基于特征学习、特征选择、分类约束，这三个过程是顺序并且是独立的，缺少全局反馈，此方法中形成整一个系统，使用全局微调，交替估计这三个状态的值，做出最优的分类。
 
+#. 这个算法中使用局部面部图像，比如nose，eye and mouth，达到更好的面部特征识别。
+
 扩展阅读：
 ==========
 
@@ -146,11 +146,6 @@ digraph G {
 
 可能的创新点：
 ==============
-
-Switchable Deep Network for Pedestrian Detection
-================================================
-
-这个文章中使用限制玻尔兹曼机，分出人的不同块。但是是怎样分块的？
 
 Pedestrian Parsing via Deep Decompositional Network
 ===================================================

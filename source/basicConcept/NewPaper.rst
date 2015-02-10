@@ -59,10 +59,7 @@ Learning and selecting features jointly with point-wise gated Boltzmann machines
 Facial Expression Recognition via a Boosted Deep Belief Network
 ===============================================================
 
-早期的分类都是基于特征学习
-
-
-这个是不是首先使用多个DBN，然后使用多个神经网络，使用弱分类器进行判决。
+早期的分类都是基于固定特征学习，和目标分类是分离的，这篇文章首先使用多个DBN，使用多个神经网络，使用弱分类器进行判决。
 
 L层的联合概率密度函数可以表示为：
 
@@ -76,7 +73,7 @@ L层的联合概率密度函数可以表示为：
 
    Prob(H^{l-1}|H^l)=\frac{1}{1+\exp((W^{(l,l+1)}H^l+b_h^{l+1}))}
 
-在最高层次的输出:math:`H^L` 可以表示为：
+在最高层次的输出 :math:`H^L` 可以表示为：
 
 .. math::
 
@@ -88,9 +85,16 @@ L层的联合概率密度函数可以表示为：
 
 .. math::
 
-   \xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum_{j=1}^M\alpha_j\sgn (W_j^{(L-1,L)}H_{i,j}^{L-1}-T_j) )}-E_i]^2
+   \xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum_{j=1}^M\alpha_j sgn (W_j^{(L-1,L)}H_{i,j}^{L-1}-T_j) )}-E_i]^2
 
-其中:math:`\alpha` 和 T是弱分类器的门限。使用梯度下降方向。
+其中 :math:`\alpha` 和 T是弱分类器的门限，使用梯度下降方向。
+
+弱分类器：
+
+.. math::
+
+   \xi_{}= \sum_{j=1}^M\alpha_j \sum_{i=1}^{N_I}\beta_i[\frac{1+ sgn (W_j^{(L-1,L)}H_{i,j}^{L-1}-T_j}{2}-E_i]^2
+
 
 使用联合梯度下降方向：
 
@@ -101,15 +105,10 @@ L层的联合概率密度函数可以表示为：
 
 top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
 
-这里DBN中输出的是什么？
-
-使用卷积神经网络学习low-level feature。
-
-这个网络中的switch指的是什么？
-
 这个算法中使用部分面部图像，比如nose，eye and mouth。
 
 算法整个流程：
+=============
 
 .. graphviz:
 
@@ -122,7 +121,6 @@ digraph G {
    c->b [label="3.根据反馈调整前向特征"];
    }
 
-
 疑问：
 ======
 
@@ -131,8 +129,7 @@ digraph G {
 算法创新点：
 ===========
 
-#. 以前的算法都是基于特征学习、特征选择、分类约束，这三个过程是顺序并且是独立的，缺少全局反馈，此方法中形成整一个系统，使用全局微调，交替估计这三个状态的值，做出最优的学习
-
+#. 以前的算法都是基于特征学习、特征选择、分类约束，这三个过程是顺序并且是独立的，缺少全局反馈，此方法中形成整一个系统，使用全局微调，交替估计这三个状态的值，做出最优的分类。
 
 扩展阅读：
 ==========
@@ -144,13 +141,11 @@ digraph G {
 
 #. Facial action unit recognition with sparse representation. 
 #. Sparse coding for flexible, robust 3d facial-expression synthesis.
+
 这两篇文章使用sparse coding 呈现轮廓特征。
 
 可能的创新点：
 ==============
-
-#.  这个算法中全部使用强分类器，若分类器效果那？
-
 
 Switchable Deep Network for Pedestrian Detection
 ================================================

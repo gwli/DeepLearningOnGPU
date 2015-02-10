@@ -39,7 +39,7 @@ Switchable Deep Network for Pedestrian Detection
 
 #. 首先是卷积神经网络，得到轮廓信息。
 #. 采取kMeans 算法对训练数据进行分组。 
-#. 采用EM算法，估计S和参数:math:`\Theta` 。
+#. 采用EM算法，估计S和参数 :math:`\Theta` 。
 #. 使用 logistic 回归得到labels信息。
 #. 使用误差熵进行反馈微调。
 
@@ -79,7 +79,7 @@ L层的联合概率密度函数可以表示为：
 
    H^L=  W^{L-1,L}H^{L-1}
 
-其中:math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
+其中 :math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
 
 形成强分类器：
 
@@ -112,13 +112,13 @@ top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
 
 .. graphviz:
 
-digraph G {
-   a [label="图像"];
-   b [label="特征"  ];
-   c [label="分类器（强分类器和弱分类器）"];
-   a->b   [label="1.图像分块"];
-   b->c    [label="2.学习层级的特征"];
-   c->b [label="3.根据反馈调整前向特征"];
+   digraph G {
+      a [label="图像"];
+      b [label="特征"  ];
+      c [label="分类器（强分类器和弱分类器）"];
+      a->b   [label="1.图像分块"];
+      b->c    [label="2.学习层级的特征"];
+      c->b [label="3.根据反馈调整前向特征"];
    }
 
 疑问：

@@ -18,26 +18,35 @@ The Shape-Time Random Field for Semantic Video Labeling
 
 这个文章中建立的是shape time model。我想这个必须是  暂时先不看。
 
-
 Switchable Deep Network for Pedestrian Detection
 ================================================
 
-这个是使用deep learning 做行人探测，首先使用卷积得到低层次特征，进一步得到一些高层次信息。
 
 创新点：
 =======
-
-#. 加入更多实际的因素，考虑问题。比如前景和背景，
+#. 这个是使用deep learning 做行人探测，首先使用卷积神经网络得到低层次特征，进一步使用限制玻尔兹曼机得到中层和高层特征, 用logistic 回归得到高层次特征。
+#. 加入更多实际的因素，比如前景和背景，特征有无，从而建立如下模型：
 
 .. math::
 
-   E(x,y,h,s,m;\Theta)  \sum {k1}^K skhk^T(Wk(x\circ mk)bk\sum{k1}^Ksk^T(x\circ mk) y^TU\sum{k1}^Kskhk d^Ty
+   E(x,y,h,s,m;\Theta) = \sum {k=1}^K s_kh_k^T(W_k(x\circ m_k)+b_k\sum{k=1}^Ksa_k^T(x\circ m_k) y^TU\sum{k=1}^Ks_kh_k- d^Ty
 
-其中K是元素个数(在实际中指的是什么？比如有些人坐着，有些人站着，就是不同的K)。:math:`\Theta {W,b,c,U,d}` 是所有未知参数。其中U是全连接矩阵用来。:math:`sk` 判断某个元素是否激活，比如手和腿；:math:`mk` 是saliency map 代表行人的前景还是背景。比如，0 代表背景，1代表目标行人。
+其中K是元素个数,在实际中表示有些人坐着，有些人站着，就是不同的K。:math:`\Theta= \{W,b,c,U,d\}` 是所有未知的待估计的参数。其中U是全连接矩阵。:math:`s_k` 判断某个元素是否激活；:math:`m_k` 是saliency map 代表前景还是背景。比如，0 代表背景，1代表目标行人。
+
+
+算法步骤：
+=========
+
+#. 首先是卷积神经网络，得到轮廓信息。
+#. 采取kMeans 算法对训练数据进行分组。 
+#. 采用EM算法，估计S和参数:math:`\Theta` 。
+#. 使用 logistic 回归得到labels信息。
+#. 使用误差熵进行反馈微调。
 
 可能的创新点：
 =============
 
+#. 在人脸识别中遮挡部分也可以switchable 变量来表示遮挡。但是人脸是一个相对简单的问题。
 
 扩展阅读：
 =========
@@ -59,15 +68,15 @@ L层的联合概率密度函数可以表示为：
 
 .. math::
 
-   \Prob(H^0,H^1,...,H^L)=\prod_{l=0}^{L-2}\Prob(H^l|H^{l-1})\Prob(H^{L-1},H^L)
+   Prob(H^0,H^1,...,H^L)=\prod_{l=0}^{L-2}Prob(H^l|H^{l-1})Prob(H^{L-1},H^L)
 
-:math:`\Prob(H^{l-1},H^l)` 和:math:`\Prob(H^{l},H^{l-1})` 分别表示为：
+:math:`Prob(H^{l-1},H^l)` 和 :math:`Prob(H^{l},H^{l-1})` 分别表示为：
 
 .. math::
 
-   \Prob(H^{l-1}|H^l)=\frac{1}{1\exp((W^{l,l+1}H^l+b_h^{l+1}))}
+   Prob(H^{l-1}|H^l)=\frac{1}{1+\exp((W^{(l,l+1)}H^l+b_h^{l+1}))}
 
-在最高层次的输出:mat:`H^L` 可以表示为：
+在最高层次的输出:math:`H^L` 可以表示为：
 
 .. math::
 
@@ -75,19 +84,19 @@ L层的联合概率密度函数可以表示为：
 
 其中:math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
 
-形成弱分类器：
+形成强分类器：
 
 .. math::
 
-   \xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum\alpha j(Wj^(L1,L)H{i,j}^{L1}Tj) )}-E_i]^2
+   \xi_{strong}=\sum_{i=1}^{N_I}\beta_i[\frac{1}{1+\exp(-\sum_{j=1}^M\alpha_j\sgn (W_j^{(L-1,L)}H_{i,j}^{L-1}-T_j) )}-E_i]^2
 
-其中:math:`\alpha` 和 T是若分类器的门限。使用梯度下降方向。
+其中:math:`\alpha` 和 T是弱分类器的门限。使用梯度下降方向。
 
 使用联合梯度下降方向：
 
 .. math::
 
-   \xi\lamba\xi{strong}\xi{weak}
+   \xi=\lambda\xi_{strong}+\xi_{weak}
 
 
 top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
@@ -105,15 +114,9 @@ top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
 .. graphviz:
 
 digraph G {
-   edge [fontname="FangSong"];
-   node [shape=null, fontname="FangSong" size="20,20"];
-   {
    a [label="图像"];
    b [label="特征"  ];
    c [label="分类器（强分类器和弱分类器）"];
-
-   }
-
    a->b   [label="1.图像分块"];
    b->c    [label="2.学习层级的特征"];
    c->b [label="3.根据反馈调整前向特征"];

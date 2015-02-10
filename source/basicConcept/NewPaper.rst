@@ -110,7 +110,7 @@ top 两层使用boosting 结构， 0，L2层使用 后向反馈算法。
 算法整个流程：
 =============
 
-.. graphviz:
+.. graphviz::
 
    digraph G {
       a [label="图像"];

@@ -11,16 +11,9 @@ structured data
 deep learning 为什么能建模高纬度数据？？
 
 
-在网络中使用deeplearning 还是有些不太方便的，低层次特征描述一些特征，高层次特征描述另一些内容特征
-
-The Shape-Time Random Field for Semantic Video Labeling
-
-
-这个文章中建立的是shape time model。我想这个必须是  暂时先不看。
-
+在网络中使用deeplearning 还是有些不太方便的，低层次
 Switchable Deep Network for Pedestrian Detection
 ================================================
-
 
 创新点：
 =======
@@ -47,6 +40,15 @@ Switchable Deep Network for Pedestrian Detection
 =============
 
 #. 在人脸识别中遮挡部分也可以switchable 变量来表示遮挡。但是人脸是一个相对简单的问题。
+
+疑问：
+=====
+
+#. 在算法预训练中S 和其他参数是怎样估计的，为什么首先估计S? 是不是使用决策树会更好一点。
+
+#. 怎样区分前景和背景？
+
+#. 这里的head  shoulder， upper body， 这些都是怎么来的信息？
 
 扩展阅读：
 =========
@@ -79,11 +81,7 @@ L层的联合概率密度函数可以表示为：
 
    H^L=  W^{L-1,L}H^{L-1}
 
-<<<<<<< HEAD
 其中 :math:`W^{L-1,L}H^{L-1}` 是第最顶层的权值矩阵。
-=======
-其中 :math:`W^{L-1,L}H^{L-1}` 是第最上层的权值矩阵。
->>>>>>> 68f6bdd36de294e6ab79a2cd2e68b2c4346a507b
 
 最后形成强分类器：
 
@@ -154,10 +152,52 @@ top 两层使用boosting 结构， {0，L-2}层使用后向反馈算法。
 Pedestrian Parsing via Deep Decompositional Network
 ===================================================
 
+
+#. 遮挡估计，估计那个部位被遮挡了？
+#. 
+
 首先这个网络中使用的是什么？
+
+算法步骤：
+
+1. 估计只等当
+
+.. graphviz::
+
+   digraph G {
+      a [label="图像"];
+      b [label="特征"  ];
+      c [label="判断是否遮挡？"];
+      d [label="使用降噪autocoder补全component"];
+      e[label="判断是否是背景？"];
+      a->b->c->d->e->f
+   }
 
 
 全局调整是什么？
+
+扩展阅读：
+=========
+
+Body part detectors trained using 3d human pose annotations.
+
+利用人类3d骨骼轮廓探测身体每个部分。
+
+Robust boltzmann machines for recognition and denoising.
+
+使用RBM学习遮挡部分和非遮挡部分。
+
+The shape boltzmann machine: a strong model of object shape
+
+generative model for partsbased object segmentation
+
+利用玻尔兹曼机不全离散数据。
+
+Stacked denoising autoencoders: Learning useful representations in a deep network with a local denoising criterion
+
+使用降噪aucoder来恢复破坏的数据。我想这个可以用于人职业规划中。
+
+
 
 Discriminative Deep Metric Learning for Face Verification in the Wild
 =====================================================================

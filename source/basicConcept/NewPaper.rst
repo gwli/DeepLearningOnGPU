@@ -12,6 +12,7 @@ deep learning 为什么能建模高纬度数据？？
 
 
 在网络中使用deeplearning 还是有些不太方便的，低层次
+
 Switchable Deep Network for Pedestrian Detection
 ================================================
 
@@ -152,15 +153,10 @@ top 两层使用boosting 结构， {0，L-2}层使用后向反馈算法。
 Pedestrian Parsing via Deep Decompositional Network
 ===================================================
 
-
 #. 遮挡估计，估计那个部位被遮挡了？
-#. 
-
-首先这个网络中使用的是什么？
+#. 首先这个网络中使用的是什么？ 
 
 算法步骤：
-
-1. 估计只等当
 
 .. graphviz::
 
@@ -170,9 +166,8 @@ Pedestrian Parsing via Deep Decompositional Network
       c [label="判断是否遮挡？"];
       d [label="使用降噪autocoder补全component"];
       e[label="判断是否是背景？"];
-      a->b->c->d->e->f
+      a->b->c->d->e
    }
-
 
 全局调整是什么？
 
@@ -229,5 +224,7 @@ DeepFace: Closing the Gap to Human-Level Performance in Face Verification
 
 使用三维脸建模，使用deep learning。
 
+深度学习总结：
+=============
 
-
+深度学习中通过简单的wxb模型实现复杂的网络参数估计，我觉得太神奇了。用来模拟非线性问题。但是怎样设计结构，是随机的，还是需要特定设置？但是需要多少的训练

@@ -153,8 +153,9 @@ top 两层使用boosting 结构， {0，L-2}层使用后向反馈算法。
 Pedestrian Parsing via Deep Decompositional Network
 ===================================================
 
-#. 遮挡估计，估计那个部位被遮挡了？
-#. 首先这个网络中使用的是什么？ 
+算法创新点：
+
+#. 首先估计遮挡部位，然后进行补全。 
 
 算法步骤：
 
@@ -169,7 +170,6 @@ Pedestrian Parsing via Deep Decompositional Network
       a->b->c->d->e
    }
 
-全局调整是什么？
 
 扩展阅读：
 =========

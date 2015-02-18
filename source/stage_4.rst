@@ -4,3 +4,4 @@
 
 
 .. include:: Stage_4/NewPaper.rst
+.. include:: Stage_4/NewDiction.rst

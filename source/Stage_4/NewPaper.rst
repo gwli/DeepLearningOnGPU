@@ -224,7 +224,52 @@ DeepFace: Closing the Gap to Human-Level Performance in Face Verification
 
 使用三维脸建模，使用deep learning。
 
+Deep Learning Face Representation from Predicting 10,000 Classes
+================================================================
+
+创新点：
+=======
+
+#. 使用跨层信息获得多尺度信息
+#. 
+
+.. math::
+   
+   y^{j(r)} max(0,b^{j(r)\sum i k^{ij(r)}*x^{i(r)}})
+
+联合贝叶斯：
+
+.. math::
+   x \mu\xi
+
+这两个算法：
+
+.. math::
+
+   \Sum I
+
+.. math::
+
+   r(x1,x2) \log\frac{P(x1,x2|HI)}{x1,x2|HE}
+
+疑问：
+=====
+
+#. 为什么不使用全局脸，和非全局脸部区域。
+#. The hidden neurons are ReLUs and the output neuron is sigmoid
+
+
+扩展阅读：
+=========
+
+Imagenet classification with deep convolutional neural networks.
+
+使用非线性函数max()作为激活函数。
+
 深度学习总结：
 =============
 
 深度学习中通过简单的wxb模型实现复杂的网络参数估计，我觉得太神奇了。用来模拟非线性问题。但是怎样设计结构，是随机的，还是需要特定设置？但是需要多少的训练
+
+
+

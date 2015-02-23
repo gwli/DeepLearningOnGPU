@@ -24,6 +24,7 @@
 #. 激活函数包括（只要是连续即可）：sigmod，tanh，softmax，retified linear 。
 
 
+.. include:: Stage_2/toplogyStructure/cnn.rst
 .. include:: Stage_2/toplogyStructure/RBM.rst
 .. include:: Stage_2/toplogyStructure/SVM.rst
 

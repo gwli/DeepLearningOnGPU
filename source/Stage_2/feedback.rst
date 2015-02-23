@@ -1,4 +1,10 @@
-Backpropgation
+﻿Backpropgation
 ==============
 
-��������һ����ʽ��ƫ���Ĺ��̡� :math:`\frac{{\PartialC}{W}}` �������ͼ��������·����̵����⡣
+整个就是一个链式求偏导的过程。 :math:`\frac{{\PartialC}{W}}` 另外就是图论中所有路径最短的问题。
+
+#. 从整个学习上说，就是一个偏导函数量。要解决的一个问题包括两方面：第一个是学习速度问题，第二个是防止震荡。目前用的都是基于导数的优化。
+#. 受到cost函数影响是约束问题的松和紧。 cost ， activate MSE(最小二乘），线性的max 函数 cross-entropy, sigmoid函数 log-likelihood, softmax函数。
+#. 超参数的估计，目前是过拟合产生一个主要原因。
+#. 具体采用哪一种组合呢，就看你采用哪一种解析了，如果想用要概率模型就要用softmax组合。
+

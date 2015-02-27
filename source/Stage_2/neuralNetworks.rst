@@ -8,7 +8,7 @@
    
    digraph{
       a [label="初始层"]
-      b [label="隐层1（中层特征：边缘？？）"]
+      b [label="隐层1（中层特征：corner,edge and color？）"]
       c [label="隐层2（高层特征：shape？）"]
       d [label="决策层"]
       a->b  [label="卷积层"]

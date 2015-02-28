@@ -22,8 +22,8 @@ Switchable Deep Network for Pedestrian Detection
 #. 加入更多实际的因素，比如前景和背景，特征有无，从而建立如下模型：
 
 .. math::
+   E(x,y,h,s,m;\Theta ) = \sum\limits_{k = 1}^K {\left( {{s_k}h_k^T({W_k}(x \circ {m_k}) + {b_k}} \right)}  - \sum\limits_{k = 1}^K {{s_k}c_k^T(x \circ {m_k})}  - {y^T}{\bf{U}}\sum\limits_{k = 1}^K {{s_k}{h_k} - {d^T}y} 
 
-   E(x,y,h,s,m;\Theta) = \sum {k=1}^K s_kh_k^T(W_k(x\circ m_k)+b_k\sum{k=1}^Ksa_k^T(x\circ m_k) y^TU\sum{k=1}^Ks_kh_k- d^Ty
 
 其中K是元素个数,在实际中表示有些人坐着，有些人站着，就是不同的K。:math:`\Theta= \{W,b,c,U,d\}` 是所有未知的待估计的参数。其中U是全连接矩阵。:math:`s_k` 判断某个元素是否激活；:math:`m_k` 是saliency map 代表前景还是背景。比如，0 代表背景，1代表目标行人。
 

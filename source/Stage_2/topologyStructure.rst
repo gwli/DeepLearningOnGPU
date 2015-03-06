@@ -24,6 +24,10 @@
 #. 激活函数包括（只要是连续即可）：sigmod，tanh，softmax，retified linear 。
 
 
+每一种结构都是基于数学推理或者仿生学的原理。
+并且网络能够自动的组成连接的拓扑，这才是人脑的过程。并且是动态的。
+而现在的网络是静态的过程。
+
 .. include:: Stage_2/toplogyStructure/cnn.rst
 .. include:: Stage_2/toplogyStructure/RBM.rst
 .. include:: Stage_2/toplogyStructure/SVM.rst

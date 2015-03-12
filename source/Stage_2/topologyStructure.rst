@@ -28,6 +28,25 @@
 并且网络能够自动的组成连接的拓扑，这才是人脑的过程。并且是动态的。
 而现在的网络是静态的过程。
 
+
+网络框架
+========
+
+#. 基于限制波尔兹曼机
+
+   - 卷积限制玻欠兹曼机
+   - 三阶因子玻尔兹曼机
+
+#. 基于自编码
+
+   - 去噪自编码器
+   - 变换自编码器
+
+#. 卷积神经网络
+    
+   - 卷积神经网络
+   - 卷积分解神经网络
+
 .. include:: Stage_2/toplogyStructure/cnn.rst
 .. include:: Stage_2/toplogyStructure/RBM.rst
 .. include:: Stage_2/toplogyStructure/SVM.rst

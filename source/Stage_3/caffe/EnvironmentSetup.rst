@@ -96,6 +96,21 @@ nvidia driver 的安装
       C_INCLUDE_PATH+=:/usr/local/cudnn:
       CPLUS_INCLUDE_PATH+=:/usr/local/cudnn:
 
+      PATH+=:/usr/local/cuda-6.5/bin:
+      LD_LIBRARY_PATH+=:/usr/local/cuda-6.5/lib64:
+      LD_LIBRARY_PATH+=:/usr/local/cuda/cudnn:
+      export LD_LIBRARY_PATH
+      C_INCLUDE_PATH+=:/usr/local/cuda/cudnn:
+      CPLUS_INCLUDE_PATH+=:/usr/local/cuda/cudnn:
+
+    由于采用 cudnn 的库与caffe兼容性问题，现在 caffe 与V1 是工作的。
+    
+    一个快速灵活的办法，那就是link.
+    
+    .. code-block:: bash
+       
+       ln -s  /usr/local/cudnn-6.5-linux-x64-v2-rc2/ /usr/local/cuda/cudnn
+     
 
 build 
 -----
@@ -127,3 +142,34 @@ caffe 采用了大量的template,所以代码模式基本
 
    cudnn-6.5-linux-R2-RC1 is compatible with caffe, cudnn-6.5-linux-R1 is good.
    可以在这个https://groups.google.com/forum/#!forum/caffe-users 里找到这个问题
+
+support python
+==============
+
+#. 安装依赖
+
+   .. code-block:: bash
+      
+      cd $caffe_root/python
+      for req in $(cat requirements.txt);do pip install $req; done
+
+      
+
+#. installl scipy
+
+ there is miss requirment scipy
+ this need fortrain compiler
+ you can install it by 
+ 
+   #. install gfortran :command:`apt-get install gfortran-4.8`
+   #. make link due can't find gfortran  `ln -s /usr/bin/gfortran-4.8 /usr/bin/gfortan`
+
+   最简单的办法
+
+   :command:`apt-get install python-scipy`
+
+#. 添加caffe to python lib
+
+   .. code-block:: bash
+      
+      export PYTHONPATH=/$caffe_root/python:$PYTHONPATH

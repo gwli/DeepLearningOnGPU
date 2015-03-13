@@ -173,3 +173,9 @@ support python
    .. code-block:: bash
       
       export PYTHONPATH=/$caffe_root/python:$PYTHONPATH
+
+#. 生成文档
+
+   #. install jekyll
+      
+      :command:`apt-get install jekyll doxygen`

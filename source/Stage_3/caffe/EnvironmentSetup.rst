@@ -45,7 +45,7 @@ nvidia driver 的安装
 
       $ sudo apt-get install -y cuda-toolkit-6-5
 
-#. 配制环境变量
+#. 配置环境变量
    
    .. code-block:: bash
 
@@ -178,4 +178,4 @@ support python
 
    #. install jekyll
       
-      :command:`apt-get install jekyll doxygen`
+      :command:`apt-get install jekyll doxygen texlive-full`

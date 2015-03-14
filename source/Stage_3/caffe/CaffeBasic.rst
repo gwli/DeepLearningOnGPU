@@ -26,6 +26,7 @@ caffe 这个神经网络还可以snapshotting与resume,这个就非常的方便�
 caffe流程
 =========
 
+caffe的设计原则与自己的原则一样的，分层的模块化的设计。把一个大大的问题不断的breakdown,变成几个已经解决的小问题。
 #. 数据格式的转换，目前支持 lmdb,leveldb.
 #. 定义 network
    
@@ -41,6 +42,25 @@ caffe流程
 #. testing
 
 开发流程添加几个头文件与与源文件。然后实现setup,initial, resharp,forward,backword,然后就注册就行了。
+
+
+数据的准备
+==========
+
+在网络 里主要有  ``data_para`` 与 ``transform_para`` . 
+
+#. from database
+   levelDB or LMDB
+#. directly from memory
+#. from files on disk in HDF5
+#. common image formats
+
+而预处理包括,通过指定 TransformationParameterS.
+
+#. mean subtraction,
+#. scaling
+#. random cropping
+#. mirroring
 
 
 

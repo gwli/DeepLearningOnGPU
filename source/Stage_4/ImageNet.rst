@@ -1,5 +1,5 @@
-ImageNet 当前现状和评价标准：
-****************************
+ImageNet 当前现状和评价标准
+***************************
 
 ImageNet相关数据分析，
 评价标准：
@@ -9,25 +9,30 @@ ImageNet相关数据分析，
 error即是错误在总体中的计数：
 
 .. math::
-  error \frac{1}{N}\sum \min d{ij}
+
+   error \frac{1}{N}\sum \min d{ij}
 
 在单目标定位时，只有完全正确的标注好目标，并且距离不能超过多少才算成功。
 
 也就是使用算法：
 
 .. math::
-  d{ij} \max(d(c{ij},Ci),\min d(b{ij},B{ik}))
+
+   d{ij} \max(d(c{ij},Ci),\min d(b{ij},B{ik}))
 
 .. math::
- Recall(t) \frac{\sum{ij}1[s{ij}\geq t]z{ij}}{N}
+
+   Recall(t) \frac{\sum{ij}1[s{ij}\geq t]z{ij}}{N}
 
 .. math::
+
    Precision(t)\frac{\sum{ij}1[s{ij}\geq t]z{ij}}{\sum{ij}1[s{ij}\geq t]}
 
 
 另外有算法对边界进行修改：
 
 .. math::
+
    thr(B)\min(0.5,\frac{wh}{(w10)(h10)})
 
 目标探测
@@ -39,8 +44,9 @@ error即是错误在总体中的计数：
 ILSVRC2010.
 
 关注的算法：
-Fisher vector based methods
+Fisher vector based methods 
 线性SVM。
+
 2013 年：卷积神经网络
 dropout technique
 

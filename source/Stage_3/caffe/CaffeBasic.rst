@@ -62,7 +62,13 @@ caffe的设计原则与自己的原则一样的，分层的模块化的设计。
 #. random cropping
 #. mirroring
 
+数据格式
+========
 
+key,value格式，leveldb,lmdm等等就是这种。
+
+`hdf5 <http://www.hdfgroup.org/products/java/hdfview/>`_ 
+用来层次化的数据格式，相当于面向对象结构串行化。 如果其看成是例如IP的解析则更容易理解，例如Mongo那种理解，就相当于TLV格式的包结构。
 
 深度学习和并行计算
 ==================

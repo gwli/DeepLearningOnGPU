@@ -1,5 +1,5 @@
-ImageNet 当前现状和评价标准：
-****************************
+ImageNet 当前现状和评价标准
+***************************
 
 ImageNet相关数据分析，
 评价标准：
@@ -9,13 +9,19 @@ ImageNet相关数据分析，
 error即是错误在总体中的计数：
 
 .. math::
+<<<<<<< HEAD
   error =\frac{1}{N}\sum_{i=1}^N \min_j d_{ij}
+=======
+
+   error \frac{1}{N}\sum \min d{ij}
+>>>>>>> 155a0ad53209f66425c1cbc4b0a2005a86c1caf5
 
 在单目标定位时，只有完全正确的标注好目标，并且距离不能超过多少才算成功。
 
 也就是使用算法：
 
 .. math::
+<<<<<<< HEAD
   d_{ij}= \max(d(c_{ij},C_i),\min_kd(b_{ij},B_{ik}))
 
 .. math::
@@ -23,12 +29,29 @@ error即是错误在总体中的计数：
 
 .. math::
    Precision(t)=\frac{\sum_{ij}1[s_{ij}\geq t]z_{ij}}{\sum_{ij}1[s_{ij}\geq t]}
+=======
+
+   d{ij} \max(d(c{ij},Ci),\min d(b{ij},B{ik}))
+
+.. math::
+
+   Recall(t) \frac{\sum{ij}1[s{ij}\geq t]z{ij}}{N}
+
+.. math::
+
+   Precision(t)\frac{\sum{ij}1[s{ij}\geq t]z{ij}}{\sum{ij}1[s{ij}\geq t]}
+>>>>>>> 155a0ad53209f66425c1cbc4b0a2005a86c1caf5
 
 
 另外有算法对边界进行修改：
 
 .. math::
+<<<<<<< HEAD
    thr(B)=\min(0.5,\frac{wh}{(w+10)(h+10)})
+=======
+
+   thr(B)\min(0.5,\frac{wh}{(w10)(h10)})
+>>>>>>> 155a0ad53209f66425c1cbc4b0a2005a86c1caf5
 
 目标探测
 
@@ -39,8 +62,9 @@ error即是错误在总体中的计数：
 ILSVRC2010.
 
 关注的算法：
-Fisher vector based methods
+Fisher vector based methods 
 线性SVM。
+
 2013 年：卷积神经网络
 dropout technique
 

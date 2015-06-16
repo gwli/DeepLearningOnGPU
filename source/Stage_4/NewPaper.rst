@@ -272,24 +272,3 @@ Imagenet classification with deep convolutional neural networks.
 深度学习中通过简单的wxb模型实现复杂的网络参数估计，我觉得太神奇了。用来模拟非线性问题。但是怎样设计结构，是随机的，还是需要特定设置？但是需要多少的训练
 
 
-
-.. graphviz::
-   digraph G {
-  { 
-    node [margin=0 fontcolor=blue fontsize=32 width=0.5 shape=circle style=filled]
-    b [fillcolor=yellow fixedsize=true]
-    d [fixedsize=shape]
-  }
-  a -> { g h i j k}
-  b -> {h i j k l m n o p q}
-  c -> {h i j k l m n o p q}
-  d -> {h i j k l m n o p q}
-  e -> {h i j k l m n o p q}
-  f -> {h i j k l m n o p q}
-  g -> {h i j k l m n o p q}
-  {h i j k l m n o}->r
-  {i j k l m n o p}->s
-  {j k l m n o p q}->t
-  
-  }
-

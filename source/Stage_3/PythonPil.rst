@@ -159,23 +159,3 @@ plt.close('all') will close all fiures
 
 -- Main.GegeZhang - 16 Jun 2014
 
-.. graphviz::
-   digraph G {
-  { 
-    node [margin=0 fontcolor=blue fontsize=32 width=0.5 shape=circle style=filled]
-    b [fillcolor=yellow fixedsize=true]
-    d [fixedsize=shape]
-  }
-  a -> { g h i j k}
-  b -> {h i j k l m n o p q}
-  c -> {h i j k l m n o p q}
-  d -> {h i j k l m n o p q}
-  e -> {h i j k l m n o p q}
-  f -> {h i j k l m n o p q}
-  g -> {h i j k l m n o p q}
-  {h i j k l m n o}->r
-  {i j k l m n o p}->s
-  {j k l m n o p q}->t
-  
-  }
-

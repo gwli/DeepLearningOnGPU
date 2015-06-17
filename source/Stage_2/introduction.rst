@@ -6,13 +6,13 @@
 
 神经网络起源于对大脑皮层的研究，神纤细胞的轴突末梢（也就是终端）->神经细胞=处理端f(x)。
 
-.. math::
-
-   \begin{figure}[htp!]
-     \centering
-     \includegraphics[width=6cm]{neutral}\\
-       \caption{神经元}
-   \end{figure}
+.. figure:: images/neutral.jpg
+    :width: 400px
+    :align: center
+    :height: 200px
+    :alt: alternate text
+    :figclass: align-center
+   GPU软件结构
 
 
 大脑特征：

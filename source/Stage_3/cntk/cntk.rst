@@ -14,3 +14,6 @@ cntk的主要用途
 用法也应该类似于CUDA了，有自己的API来指定结构。
 
 有两种方式，在python里，是靠重载几个子命令来实现网络拓扑的，例如linear_layer，input_variable,dense_layer,fully_connected_classifier_net等等。
+
+采用方式类似于theano的方式，利用图来构造网络结构。
+所以也就是构造图的过程。 利用input,parameter,以及基本函数来当做原语来指定输入输出。

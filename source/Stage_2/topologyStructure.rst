@@ -3,7 +3,7 @@
 
 .. graphviz::
    
-   digraph{
+   digraph G {
       a [label="初始层"]
       b [label="隐层1（中层特征：边缘？？）"]
       c [label="隐层2（高层特征：shape？）"]
@@ -69,9 +69,9 @@
    - 卷积神经网络
    - 卷积分解神经网络
 
-.. include:: Stage_2/toplogyStructure/cnn.rst
-.. include:: Stage_2/toplogyStructure/RBM.rst
-.. include:: Stage_2/toplogyStructure/SVM.rst
+.. include:: toplogyStructure/cnn.rst
+.. include:: toplogyStructure/RBM.rst
+.. include:: toplogyStructure/SVM.rst
 
 
 

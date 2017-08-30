@@ -1,6 +1,7 @@
 神经网络基础
 ************
 
+
 神经网络起源
 ============
 
@@ -12,11 +13,12 @@
     :height: 200px
     :alt: alternate text
     :figclass: align-center
-   GPU软件结构
+
+    GPU软件结构
 
 
-大脑特征：
-========= 
+大脑特征
+======== 
 
 #. 大脑皮层具有 分布式 并行的特点，
 #. 最后的输出具有归纳和推广功能。
@@ -68,8 +70,9 @@
 
 现在的神经网络分类是单层的分类，层次化的分类，现在还做不到。
 
-参考：
+参考
 =====
+
 #. http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html BP 算法之一种直观的解释
 #. `深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
 
@@ -78,12 +81,12 @@
 
 #. `L1,L2 正则化<http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/>`_
 
-#. `SDA<http://deeplearning.net/tutorial/SdA.html#sda>`_
-#. `人工智能的未来<http://blog.csdn.net/zouxy09/article/details/8782018>`_
+#. `SDA <http://deeplearning.net/tutorial/SdA.html#sda>`_
+#. `人工智能的未来 <http://blog.csdn.net/zouxy09/article/details/8782018>`_
 
-#. `L1 Norm 稀疏性原理<http://blog.sina.com.cn/s/blog_49b5f5080100af1v.html>`_
+#. `L1 Norm 稀疏性原理 <http://blog.sina.com.cn/s/blog_49b5f5080100af1v.html>`_
 #. `import gzip 模块 压缩文件 <http://docs.python.org/2/library/gzip.html>`_  
-#. `拉格朗日乘数<http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0]
+#. `拉格朗日乘数 <http://zh.wikipedia.org/wiki/&#37;E6&#37;8B&#37;89&#37;E6&#37;A0&#37;BC&#37;E6&#37;9C&#37;97&#37;E6&#37;97&#37;A5&#37;E4&#37;B9&#37;98&#37;E6&#37;95&#37;B0>`_
 #. `LDA-math-MCMC 和 Gibbs Sampling <http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/>`_  
 
 #. `卷积神经网络: <http://blog.csdn.net/zouxy09/article/details/8775360>`_  

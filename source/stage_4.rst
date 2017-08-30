@@ -7,3 +7,4 @@
 .. include:: Stage_4/NewDiction.rst
 .. include:: Stage_4/ImageNet.rst
 .. include:: Stage_4/CNNvisualization.rst
+.. include:: Stage_4/ReadingComprehension.rst

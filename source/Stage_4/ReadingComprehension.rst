@@ -4,12 +4,11 @@
 
 R01_ 介绍了深度学习解决机器阅读理解任务的研究进展，提出三种内容表示的方法。
 
-.. figure:: /Stage_4/ReadingComprehension/Model1.png
-   
+.. figure:: /Stage_4/ReadingComprehension/Model1.jpg
    模型1 用BIRNN 来表征文档 
 
-.. figure:: /Stage_4/ReadingComprehension/Model2.png
-.. figure:: /Stage_4/ReadingComprehension/Model3.png
+.. figure:: /Stage_4/ReadingComprehension/Model2.jpg
+.. figure:: /Stage_4/ReadingComprehension/Model3.jpg
    
    模型三是在模型1的基础上改进来的，使用双向RNN来表征每个单词及其上下文的语言信。
    但是RNN对于太长的内容表征能力不足，会存在大量的信息丢失。
@@ -23,7 +22,7 @@ R01_ 介绍了深度学习解决机器阅读理解任务的研究进展，提出
 一维匹配模型
 ------------
 
-.. figure:: /Stage_4/ReadingComprehension/1d_model.png
+.. figure:: /Stage_4/ReadingComprehension/1d_model.jpg
 
 所以将这个结构为一维匹配模型，主要是计算问题Q和文章中单词序列的匹配过程形成了一维线性结构。
 现在Attension Sum Reader, AS Reader, Stanford Attentive Reader. Gated-AttensionReader GA reader.
@@ -39,7 +38,7 @@ Attentive Reader,AMRRNN都是这种结构。
 二维匹配模型
 ------------
 
-.. figure:: /Stage_4/ReadingComprehension/2d_model.png
+.. figure:: /Stage_4/ReadingComprehension/2d_model.jpg
 
 Consensus Attension,Attention-over-Attention AOA,Math-LSTM都属于这种模型。
 
@@ -48,18 +47,18 @@ Consensus Attension,Attention-over-Attention AOA,Math-LSTM都属于这种模型�
 
 一般通过加深网络的层数来模拟不断增加的推理步骤。
 
-.. figure:: /Stage_4/ReadingComprehension/3d_model.png
-.. figure:: /Stage_4/ReadingComprehension/3d_model_GA.png
+.. figure:: /Stage_4/ReadingComprehension/3d_model.jpg
+.. figure:: /Stage_4/ReadingComprehension/3d_model_GA.jpg
 
    GA Reader 的推理过程
-.. figure:: /Stage_4/ReadingComprehension/3d_model_IA.png
+.. figure:: /Stage_4/ReadingComprehension/3d_model_IA.jpg
    
    IA Reader 的推理过程
-.. figure:: /Stage_4/ReadingComprehension/3d_model_AMRNN.png
+.. figure:: /Stage_4/ReadingComprehension/3d_model_AMRNN.jpg
 
    AMRNN Reader 的推理过程
 
-.. figure:: /Stage_4/ReadingComprehension/3d_model_MemoryNetworks.png
+.. figure:: /Stage_4/ReadingComprehension/3d_model_MemoryNetworks.jpg
 
    记忆网络  的推理过程
 

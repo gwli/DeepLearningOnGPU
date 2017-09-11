@@ -2,7 +2,19 @@
 机器阅读与理解
 ##############
 
+机器阅读的类型
+--------------
+
+#.  基本的完形填空式
+#.  cloze style queries.
+#.  推理
+#.  与外界知识库的融合
+#.  SQuAD数据集这类没有候选项且答案可能是多个词的machine comprehension问题。
+
 R01_ 介绍了深度学习解决机器阅读理解任务的研究进展，提出三种内容表示的方法。
+R02_ 介绍了WordEmbed的用意义，同时　R03_ 知乎解释当前Word Represntation的方法，
+R04_ 是stanford 开放的训练好的库，GloVe: Global Vectors for Word Representation. 
+R05_ 知乎专栏对这个有专门的一期。
 
 .. figure:: /Stage_4/ReadingComprehension/Model1.jpg
    模型1 用BIRNN 来表征文档 
@@ -16,6 +28,8 @@ R01_ 介绍了深度学习解决机器阅读理解任务的研究进展，提出
 
 机器阅读理解问题形式:  人工合成问答，cloze style queries以及选择题等方式。，也是文档内容本身的表示以及问题本身的表示。对于问题本身的理解，也要有一个推理过程。对于更加复杂的事情还需要世界知识库融合的一个过程。
 
+
+:math:`{D,Q,A,a}`  D->document,Q->Questions,AnswerSet,a->right answer.
 三种模型
 ========
 
@@ -119,3 +133,7 @@ reference
 =========
 
 .. _R01: http://www.36dsj.com/archives/63037
+.. _R02: https://yjango.gitbooks.io/superorganism/content/shen-ceng-xue-xi-ying-yong/zi-ran-yu-yan-chu-li/word-embedding.html
+.. _R03: https://www.zhihu.com/question/32275069 
+.. _R04: https://nlp.stanford.edu/projects/glove/ 
+.. _R05: https://zhuanlan.zhihu.com/p/22577648

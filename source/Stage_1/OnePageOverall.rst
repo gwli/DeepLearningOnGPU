@@ -1,16 +1,22 @@
 DL的数学模型
-=============
+============
+
 
 .. math:: 
    f =\sum{h(x)g(x)}
 
+   y = f(WX+b)
+   
+   Loss = L(y-y')
+
+   W_{i+1}=Wi - \lambda\frac{\partial{L}}{\partial{W_i}}
 
 
 
 ML 工作流程
 ============
 
-.. image:: BasicMachineLearningWorkflow.PNG
+.. image:: /Stage_1/BasicMachineLearningWorkflow.png
 
 P  范数。
 
@@ -64,3 +70,23 @@ a naive dl  code
                distances = np.sum(np.abs(self.Xtr-X[i,:]),axis=1)
                min_index = np.argmin(distances)
                Ypred[i]=self.ytr[min_index]
+
+流程
+=====
+
+#. Define a model
+#. Compute a cost based on model output and training data
+#. Minimize the cost using gradient descent wrt model parameters
+
+
+非监督学习
+==========
+
+#. K-Means clustering
+#. Guassian mixture models
+#. Hidden Markow Models
+#. Factor Analysis
+
+
+#. Matrix factorization 
+#. Quadratic discriminator/regressor

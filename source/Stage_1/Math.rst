@@ -19,7 +19,7 @@ softmax 函数就是归一化指数函数，是逻辑函数的一种推广，它
 
 用python进行函数计算的示例
 
-.. code-block::
+.. code-block:: python
 
    import math
    z = [1.0, 2.0, 3.0, 4.0, 1.0, 2.0, 3.0]

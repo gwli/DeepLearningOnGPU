@@ -12,6 +12,8 @@ DL的数学模型
    W_{i+1}=Wi - \lambda\frac{\partial{L}}{\partial{W_i}}
 
 
+所谓的Loss函数，可以是两数之间的距离的度量，也可以两个序列之间的距离的度量。在正常情况下，我们希望两者之间的差距，越小越好。可以用cross-entroy或者协方差来表示。
+
 
 ML 工作流程
 ============
@@ -43,7 +45,7 @@ a naive dl  code
 .. code-block:: python
 
    class pototype:
-       def train(train_images,train_labels):
+       def train/fit(train_images,train_labels):
            # build a model of images ->labels.
        def predict(image):
            #evalute the model on the image
@@ -70,6 +72,28 @@ a naive dl  code
                distances = np.sum(np.abs(self.Xtr-X[i,:]),axis=1)
                min_index = np.argmin(distances)
                Ypred[i]=self.ytr[min_index]
+
+
+
+.. code-block:: python
+   
+   class MyModel:
+       def predict(self,X):
+           return X.dot(self.w)
+       
+       def fit(self,X,Y,eta,T):
+            self.w = np.random.randn(X.shape[1])
+            for _ in range(T):
+                 y_hat = self.predict(X)
+                 self.w = self.w - eta* X.T.dot(Y_hat -Y)
+       def cost(self,X,Y):
+           Y_hat = self.predict(X)
+           return (Y_hat -Y).dot(Y_hat -Y)
+    
+     X, Y = load_my_dataset()
+     model = MyModel()
+     model.fit(X,Y)
+大部分的机器学习都是在解决fit,predict 这两个函数是如何实现的。
 
 流程
 =====

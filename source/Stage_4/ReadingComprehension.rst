@@ -2,8 +2,9 @@
 机器阅读与理解
 ##############
 
+
 机器阅读的类型
---------------
+==============
 
 #.  基本的完形填空式
 #.  cloze style queries.
@@ -30,6 +31,7 @@ R05_ 知乎专栏对这个有专门的一期。
 
 
 :math:`{D,Q,A,a}`  D->document,Q->Questions,AnswerSet,a->right answer.
+
 三种模型
 ========
 

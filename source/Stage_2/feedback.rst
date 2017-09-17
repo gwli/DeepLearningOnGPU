@@ -1,7 +1,7 @@
 Backpropgation
 ==============
 
-整个就是一个链式求偏导的过程。 :math:`\frac{{\PartialC}{W}}` 另外就是图论中所有路径最短的问题。
+整个就是一个链式求偏导的过程。 :math:`\frac{\PartialC}{W}` 另外就是图论中所有路径最短的问题。
 
 #. 从整个学习上说，就是一个偏导函数量。要解决的一个问题包括两方面：第一个是学习速度问题，第二个是防止震荡。目前用的都是基于导数的优化。
 #. 受到cost函数影响是约束问题的松和紧。 cost ， activate MSE(最小二乘），线性的max 函数 cross-entropy, sigmoid函数 log-likelihood, softmax函数。
@@ -15,7 +15,7 @@ Backpropgation
 
 .. math::
  
-  E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
+   E^N=\frac{1}{2}\sum_{n=1}^{N}\sum_{k=1}^C(t_k^n-y_k^n)^2
 
 这里 :math:`t_k^n` 表示第n个样本对应的标签的第k维。 :math:`y_k^n` 表示第n个样本对应的网络输出的第k 个输出。
 
@@ -159,6 +159,7 @@ L1就是Lasso,L2就是ridge岭回归。L0产生稀疏，L1是L0最好的近似�
 
 迭代的终止
 ==========
+
 同时训练的时候，要解决什么时候结束训练的时候，一个简单的就是迭代次数，另外根据Error rate. 达到某个值或者保持某个范围不变之后就停止。过度训练也不好。
 http://neuralnetworksanddeeplearning.com/chap3.html
 

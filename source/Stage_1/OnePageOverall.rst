@@ -95,6 +95,31 @@ a naive dl  code
      model.fit(X,Y)
 大部分的机器学习都是在解决fit,predict 这两个函数是如何实现的。
 
+
+网络的拓扑结构
+==============
+
+有点类似于设计设计模式一样，创建型，结构型，行为型。
+
+创建型
+------
+
+#. RNN
+   RNN是一个基本模型，在训练的时候会遇到gradient explode或者gradient vanishing的问题，导致无法训练，所以在实际中经常使用的是经过改良的LSTM RNN或者GRU RNN对输入序列进行表示，更加复杂一点可以用BiRNN、BiRNN with LSTM、BiRNN with GRU、多层RNN等模型来表示，输入序列最终表示为最后一个word的hidden state vector
+
+#. GAN
+
+结构型
+------
+
+#. CNN,
+#. 元胞机
+
+行为型
+------
+
+#. 增强学习 
+
 流程
 =====
 

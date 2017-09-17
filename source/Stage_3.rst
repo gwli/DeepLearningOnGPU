@@ -5,3 +5,5 @@
 .. include:: Stage_3/introduction.rst
 .. include:: Stage_3/caffe.rst
 .. include:: Stage_3/Theano.rst
+.. include:: Stage_3/tensorflow/tensorflow.rst
+.. include:: Stage_3/cntk/cntk.rst

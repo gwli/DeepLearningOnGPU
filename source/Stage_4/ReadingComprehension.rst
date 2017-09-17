@@ -12,6 +12,7 @@
 #.  与外界知识库的融合
 #.  SQuAD数据集这类没有候选项且答案可能是多个词的machine comprehension问题。
 
+
 R01_ 介绍了深度学习解决机器阅读理解任务的研究进展，提出三种内容表示的方法。
 R02_ 介绍了WordEmbed的用意义，同时　R03_ 知乎解释当前Word Represntation的方法，
 R04_ 是stanford 开放的训练好的库，GloVe: Global Vectors for Word Representation. 
@@ -44,12 +45,22 @@ R05_ 知乎专栏对这个有专门的一期。
 现在Attension Sum Reader, AS Reader, Stanford Attentive Reader. Gated-AttensionReader GA reader.
 Attentive Reader,AMRRNN都是这种结构。
 
+rnn可以理解为一个人看完了一段话，他可能只记得最后几个词说明的意思，但是如果你问他前面的信息，他就不能准确地回答，attention可以理解为，提问的信息只与之前看完的那段话中一部分关系密切，而其他部分关系不大，这个人就会将自己的注意力锁定在这部分信息中。
+
 关键是匹配函数的定义 
 
 #. AS Reader   :math:`F(D_i,Q)=D_iQ`
 #. Attentive Reader  :math:`F(D_i,Q)=tanh(W_DDi,W_QQ)`
 #. Stanford AR 采用又线性函数(Bilinear)
    :math:`F(D_i,Q)=D_iWQ`
+
+
+注意力机制分为 Complex attention 与simple attention模型。
+
+.. figure:: /Stage_4/ReadingComprehension/complex_attention.png
+.. figure:: /Stage_4/ReadingComprehension/simple_attention.png
+
+卷积注意力模型（convolutional attention-based encoder），用来确保每一步生成词的时候都可以聚焦到合适的输入上,
 
 二维匹配模型
 ------------
@@ -108,6 +119,12 @@ https://evolution.ai/#technology  已经做到实用阶段。
 #. CNN
 #. Daily Mail
 #. SQuAD 数据集
+#. 中文语料库 R08_
+#. English Gigaword数据集，该数据集包括了六大主流媒体机构的新闻文章，包括纽约时报和美联社，每篇文章都有清晰的内容和标题，并且内容被划分为段落。经过一些预处理之后，训练集包括5.5M篇新闻和236M单词
+
+CNN,daily Mail 数据集生成方法，见 R06_ 中文解读见 R07_
+
+
 
 
 当前的问题
@@ -118,6 +135,11 @@ https://evolution.ai/#technology  已经做到实用阶段。
 #. 二维匹配模型需要做更深入的探索
 #. 世界知识(World Knowledge)的引入
 #. 发展更为完善的的推理机制,目前的推理还是停留在注意力焦点转移的机制。
+#. 常用评价指标 R10_
+方向跟踪
+=========
+
+http://harvardnlp.github.io/
 
 自我理解的方向
 ==============
@@ -128,9 +150,25 @@ https://evolution.ai/#technology  已经做到实用阶段。
 
 对于文档与内容的表示，一般用双向RNN来做。
 `机器阅读理解中文章和问题的深度学习表示方法 <https://www.nytimes.com/2017/08/14/arts/design/google-how-ai-creates-new-music-and-new-artists-project-magenta.html?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Deep%20Learning%20Weekly>`_
-
 文章与问题的表示方法
 
+自动文摘的功能
+==============
+
+Summarization. 
+R09_ 介绍了两种方法 抽取式，与摘要式。 现在还没有很好的解决方式，由于信息的过载。人们迫切有一个工具用最短的时间了解最多的最有用的信息。 根据人们的提出问题，来查询相关的论文，然后自动形成综述。 但是目前还没有很的解决方法。
+
+machine translation是最活跃的一个研究领域，seq2seq框架就是从该领域中提炼出来的，attention model也是借鉴于soft alignment，对于文本摘要这个问题来说，套用seq2seq只能解决headlines generation的问题，面对传统的single document summarization和multi document summarization任务便束手无策了，因为输入部分的规模远大于输出部分的话，seq2seq的效果不会很好，因此说abstractive summarization的研究还长路漫漫。不过这里可以将extractive和abstractive结合在一起来做，用extractive将一篇文档中最重要的一句话提取出来作为输入，套用seq2seq来做abstractive，本质上是一个paraphrase的任务，在工程中可以试一下这种思路。在后续的研究中也可以尝试将extractive和abstractive的思路结合在一起做文本摘要
+
+难点在于自动评价的标准建模。
+
+#. MRT+NHG  这个效果目前是比较好的。
+
+#. R11_  教机器学习摘要
+#. R12_ 分析常用的方法与派系。 
+#. R13_ 摘要系统的实现
+
+用seq2seq的思路来解决文本摘要问题仍停留在short text的生成水平上，最多到paragraph level。原因也比较简单，rnn也好，gru、lstm也罢，终究都面临着一个长程依赖的问题，虽然说gru、lstm等技术用gate机制在一定程度上缓解了长程依赖和梯度消失、爆炸的问题，但终究文本过长的话，神经网络的深度就会随之变得非常深，训练起来难度就会随之增加。所以，这也是为什么document level或者说multi document level的abstractive式的摘要生成问题至今都是一个难以解决的问题。确实，short text的理解、表示在一定程度上有了很大的突破，也可以在工程上有不错的应用，比如机器翻译。但text变了之后，一篇很长的文章如何更加准确地理解和表示是一个非常难的问题，attention是一个不错的解决方案，在decoder的部分不需要考虑encoder的全部，只需确定需要注意的几个点就可以了，其实人在看一篇长文的时候也是这样一种机制，从某种角度上来讲，attention在decoder时提供了一种降维的手段，让model更能捕捉到关键的信息。
 reference
 =========
 
@@ -139,3 +177,11 @@ reference
 .. _R03: https://www.zhihu.com/question/32275069 
 .. _R04: https://nlp.stanford.edu/projects/glove/ 
 .. _R05: https://zhuanlan.zhihu.com/p/22577648
+.. _R06: https://github.com/deepmind/rc-data
+.. _R07: http://rsarxiv.github.io/2016/06/13/Teaching-Machines-to-Read-and-Comprehend-PaperWeekly/
+.. _R08: http://hfl.iflytek.com/chinese-rc/
+.. _R09: http://rsarxiv.github.io/tags/%E8%87%AA%E5%8A%A8%E6%96%87%E6%91%98/ 
+.. _R10: http://www.jianshu.com/p/60deff0f64e1
+.. _R11: http://rsarxiv.github.io/2016/06/25/%E6%95%99%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%91%98%E8%A6%81/ 
+.. _R12: http://bj.bcebos.com/cips-upload/cwmt2012/ymy.pdf
+.. _R13: http://rsarxiv.github.io/2016/06/10/Neural-Network-Based-Abstract-Generation-for-Opinions-and-Arguments-PaperWeekly/

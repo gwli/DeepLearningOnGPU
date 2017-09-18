@@ -1,6 +1,9 @@
 tensorflow
-==========
+**********
 
+很好的资源库: https://github.com/fendouai/Awesome-TensorFlow-Chinese
+
+不错的基本原理的书: https://github.com/exacity/deeplearningbook-chinese
 R01_ 是Tensorflow的中文社区， tensorflow采用数据流图表来描述数学计算。
 
 节点用来表示施加的数学操作，也可以表示数据输入的起点或输出的终点。或者是持久的变量，tensor.
@@ -15,6 +18,61 @@ tensor 来表示数据，
 
 Placeholder与tf.variable的区别
 
+
+神经网络库实现的难点，一个是计算的并行化，那另一个那就是variable空间的引用。也就决定了网络的拓扑的如何连线。
+
+如何共享变量
+============
+
+就是通过变量的命名空间，来实现的,http://wiki.jikexueyuan.com/project/tensorflow-zh/how_tos/variable_scope.html
+
+
+
+tf.variable_scope 定义一个命名空间，tf.get_variable就在当前空间下搜索该变量。 如果想复用，就得scope.reuse_variables() 来实现
+
+.. code-block:: python
+   def conv_relu(input,kernel_shape,bias_shape):
+        weights = tf.get_variable("weights",kernel_shape,initializer=tf.random_normal_initializer())
+        biases  = tf.get_veriable("biases",bias_shape,initializer=tf.random_normal_initializer())
+        conv = tf.nn.conv2d(input,weights,strides=[1,1,1,1],padding='SAME')
+        return tf.nn.relu(conv,biases)
+
+
+   def my_image_filter(input_images):
+       with tf.variable_scope('conv1'):
+            # variable will be created with name "conv1/weights","conv1/biases"
+            relu1 = conv_relu(input_images,[5,5,32,32],[32])
+       with tf.variable_scope('conv2'):
+            # variable will be created with name "conv2/weights","conv2/biases"
+            return = conv_relu(relu1,[5,5,32,32],[32])
+
+
+   result1 = my_image_filter(image1)
+   result1 = my_image_filter(image2)
+   #Raised varibleError(.. conv1/weights already existes)
+
+   with tf.variable_scope("image_filters") as scope:
+        result1 = my_image_filter(image1)
+        scope.reuse_variables()
+        result2 = my_image_filter(image2)
+
+tf.variable_op_scope
+tf.op_scope
+tf.name_scope
+tf.variable_scope
+
+
+tf.concat 
+
+.. code-block:: python
+
+   t1 = [[1,2,3],[4,5,6]]
+   t2 = [[7,8,9],[10,11,12]]
+   #concat_deim 0 表示行，1表示列
+   tf.concat([t1,t2],0) ==> [[1,2,3,],[4,5,6],[7,8,9],[10,11,12]]
+   tf.concat([t1,t2],1) ==>[[1,2,3,7,8,9],4,5,6,10,11,12]]
+   # < 1.0
+   tf.concat(0,[t1,t2]) ==> [[1,2,3,],[4,5,6],[7,8,9],[10,11,12]]
 网络的基本组成
 ==============
 
@@ -30,7 +88,10 @@ tf.placeholder
 
 tf.name_scope
    可以用来表示层的概念
-tf.run 就相当于求值替换执行。用 eval 用这词就更容易理解了。
+tf.run 就相当于求值替换执行。用 eval 用这词就更容易理解了。 并且指定了返回值。 
+
+tf.train.Saver 
+   用于何存变量
 
 而矩阵乘法可以用来表征 n*m 的网络连接。
 #. 初始化变量
@@ -59,6 +120,8 @@ tensorflow与thenao基本是一致的，都是利用图来构建计算模型，�
 先构建computation graph,然后初始化，再开始运行。 
 
 根据神经网络的结构来，
+
+
 
 
 源码解读

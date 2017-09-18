@@ -1,3 +1,6 @@
+CNTK
+****
+
 https://github.com/Microsoft/CNTK
 安装需要额外安装一个anaconda python 就行了。
 同时用VS 来做开发，在tools.options>python 添加新环境变量，同时在工程文件中使用右键选择新的环境变量就行了。

@@ -108,6 +108,7 @@ a naive dl  code
    RNN是一个基本模型，在训练的时候会遇到gradient explode或者gradient vanishing的问题，导致无法训练，所以在实际中经常使用的是经过改良的LSTM RNN或者GRU RNN对输入序列进行表示，更加复杂一点可以用BiRNN、BiRNN with LSTM、BiRNN with GRU、多层RNN等模型来表示，输入序列最终表示为最后一个word的hidden state vector
 
 #. GAN
+   
 
 结构型
 ------

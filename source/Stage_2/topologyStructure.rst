@@ -70,6 +70,7 @@
    - 卷积分解神经网络
 
 .. include:: toplogyStructure/cnn.rst
+.. include:: toplogyStructure/gan.rst
 .. include:: toplogyStructure/RBM.rst
 .. include:: toplogyStructure/SVM.rst
 

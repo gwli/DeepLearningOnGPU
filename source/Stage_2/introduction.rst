@@ -26,7 +26,7 @@
 
 
 
-.. figure::
+
 .. math::
 
    \begin{figure}[htp!]
@@ -79,10 +79,10 @@
 #. http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html BP 算法之一种直观的解释
 #. `深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
 
-#. `神经网络基础<ttp://blog.csdn.net/zouxy09/article/details/9993371>`_
+#. `神经网络基础 <ttp://blog.csdn.net/zouxy09/article/details/9993371>`_
 #. `蜜蜂能够认出你 <http://www.huanqiukexue.com/html/newqqkj/newsm/2014/0409/24296.html>`_  蜜蜂在如此脑容量小的情况下能够认出人脸，有什么启发？
 
-#. `L1,L2 正则化<http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/>`_
+#. `L1,L2 正则化 <http://freemind.pluskid.org/machine-learning/sparsity-and-some-basics-of-l1-regularization/>`_
 
 #. `SDA <http://deeplearning.net/tutorial/SdA.html#sda>`_
 #. `人工智能的未来 <http://blog.csdn.net/zouxy09/article/details/8782018>`_

@@ -21,15 +21,6 @@ error即是错误在总体中的计数：
 也就是使用算法：
 
 .. math::
-<<<<<<< HEAD
-  d_{ij}= \max(d(c_{ij},C_i),\min_kd(b_{ij},B_{ik}))
-
-.. math::
- Recall(t) =\frac{\sum_{ij}1[s{ij}\geq t]z_{ij}}{N}
-
-.. math::
-   Precision(t)=\frac{\sum_{ij}1[s_{ij}\geq t]z_{ij}}{\sum_{ij}1[s_{ij}\geq t]}
-=======
 
    d{ij} \max(d(c{ij},Ci),\min d(b{ij},B{ik}))
 
@@ -40,18 +31,15 @@ error即是错误在总体中的计数：
 .. math::
 
    Precision(t)\frac{\sum{ij}1[s{ij}\geq t]z{ij}}{\sum{ij}1[s{ij}\geq t]}
->>>>>>> 155a0ad53209f66425c1cbc4b0a2005a86c1caf5
 
 
 另外有算法对边界进行修改：
 
 .. math::
-<<<<<<< HEAD
+
    thr(B)=\min(0.5,\frac{wh}{(w+10)(h+10)})
-=======
 
    thr(B)\min(0.5,\frac{wh}{(w10)(h10)})
->>>>>>> 155a0ad53209f66425c1cbc4b0a2005a86c1caf5
 
 目标探测
 

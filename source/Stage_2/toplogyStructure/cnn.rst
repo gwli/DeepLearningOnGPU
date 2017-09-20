@@ -4,7 +4,7 @@
 .. graphviz::
    
    digraph Flow {
-      Norm->Filter Bank->Non-Linar-> feature Pooling;
+      Norm->"Filter Bank"->"Non-Linar"-> "feature Pooling";
    }
 
 
@@ -83,25 +83,24 @@ Sub-sampling Layers 子采样层
 
 .. graphviz::
 
-    digraph CNN{
-   rankdir=LR
-   node[shape=box]
-   subgraph clusterA {
+   digraph CNN {
+      rankdir=LR;
+      node[shape=box];
+      subgraph clusterA {
    
-   x_1->y_1 [label="w_11"]
-   x_2->y_1  [label="w_21"]
-   x_2->y_2  [label="w_22"]
-   x_3->y_2  [label="w_32"]
-   label="layer1"
-   subgraph clusterB {
-    y_1
-   
-   y_2
-   label="layer 2 maxpooling"
-   }
-   }
-   y_1->y
-   y_2->y
+           x_1->y_1  [label="w_11"];
+           x_2->y_1  [label="w_21"];
+           x_2->y_2  [label="w_22"];
+           x_3->y_2  [label="w_32"];
+           label="layer1";
+      }
+      subgraph clusterB {
+            y_1;
+            y_2;
+             label="layer 2 maxpooling";
+      };
+      y_1->y;
+      y_2->y;
    }
 
 
@@ -111,7 +110,8 @@ Sub-sampling Layers 子采样层
 .. graphviz::
 
    digraph flow {
-      Pixel->edge->texon->motif->part->object;
+      Pixel->edge_line->texon->motif->part->object;
+    
    }
 
 

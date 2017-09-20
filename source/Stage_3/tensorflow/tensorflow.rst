@@ -111,6 +111,7 @@ tf.train.Saver
 #. Loss函数
 #. 优化方法
 
+*global_steps*  用于全局的计数器
 
 tensorboard 的用法
 ==================

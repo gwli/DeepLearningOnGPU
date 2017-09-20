@@ -73,6 +73,18 @@ tf.concat
    tf.concat([t1,t2],1) ==>[[1,2,3,7,8,9],4,5,6,10,11,12]]
    # < 1.0
    tf.concat(0,[t1,t2]) ==> [[1,2,3,],[4,5,6],[7,8,9],[10,11,12]]
+
+
+各种矩阵的形式转换
+==================
+
+对于一个默认的列表 [1,2,3,5,6,7,8,9]，变成矩阵有几种变法:
+
+#.    [[1,2,3,4,5,6,7,8,9]]  也就是1 * 9   tf.expand_dims(list,0)
+#.    [[1],[2],[3],[4],[5],[6],[7],[8],[9]]  9* 1 tf.expand_dim(list,1)
+#.    
+要变成一个矩阵，就相当于列表的列表，[[1,2,3,4,5,6,7]] 这在tensorflow中叫expand_dims。 
+
 网络的基本组成
 ==============
 
@@ -100,6 +112,23 @@ tf.train.Saver
 #. 优化方法
 
 
+tensorboard 的用法
+==================
+
+http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/
+
+.. code-block:: python
+
+   #Tensorflow summaries are essentially logs. And in order to write logs we need a log writer (or what it is called in tensorflow) a SummaryWriter. So for starters, we’ll add the following line before our train loop.
+   
+   writer = tf.train.SummaryWriter(logs_path, graph=tf.get_default_graph())
+   #This will create a log folder and save the graph structure. We can now start tensorboard.
+   tensorboard --logdir=run1:/tmp/tensorflow/ --port 6006
+
+TensorFlow四种Cross Entropy算法实现和应用
+=========================================
+
+http://www.weibo.com/ttarticle/p/show?id=2309404047468714166594
 
 基本组成
 --------

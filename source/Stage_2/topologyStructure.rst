@@ -69,10 +69,10 @@
    - 卷积神经网络
    - 卷积分解神经网络
 
-.. include:: toplogyStructure/cnn.rst
-.. include:: toplogyStructure/gan.rst
-.. include:: toplogyStructure/RBM.rst
-.. include:: toplogyStructure/SVM.rst
+.. include:: /Stage_2/toplogyStructure/cnn.rst
+.. include:: /Stage_2/toplogyStructure/gan.rst
+.. include:: /Stage_2/toplogyStructure/RBM.rst
+.. include:: /Stage_2/toplogyStructure/SVM.rst
 
 
 

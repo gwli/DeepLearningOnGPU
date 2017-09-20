@@ -1,5 +1,5 @@
 GAN 对抗网络
-***********
+************
 
 .. image:: /Stage_2/toplogyStructure/AdversarialNetsFrameworksr.jpg
 .. image:: /Stage_2/toplogyStructure/gan.jpg

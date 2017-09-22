@@ -7,3 +7,4 @@
 .. include:: Stage_3/Theano.rst
 .. include:: Stage_3/tensorflow/tensorflow.rst
 .. include:: Stage_3/cntk/cntk.rst
+.. include:: Stage_3/torch/torch.rst

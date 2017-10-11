@@ -1,3 +1,24 @@
+**********
+简介与目标
+**********
+
+能够使用常见的framework。
+
+#. 快速的搭建环境
+   
+   - 从源码编译,可以采用并行编译系统，以及Clang来加速
+   - 快速的部署，能够使用docker来进行部署
+
+#. 能够扩展开发工具本身
+   
+   - 快速的进行trace，以及anlyasis进行各种可视化分析
+   - 快速的调试
+   - 并且能够优化
+
+#. model本身的导入与导出
+#. model模型结构层极模型
+#. model的简化
+
 工具
 ====
 
@@ -6,7 +27,3 @@
 #. 可视化：信息流的可视化（编码），训练时的可视化(过拟合，迭代下降)。
 #. 网络拓扑本身的可视化。
 
-
-#. You can build any kind of customer model and use Theano/TF,as long as it's differentiable.
-
-无监督学习类假于autoencoders,Restricted Boltzmann Machines

@@ -1,5 +1,11 @@
+**********
 tensorflow
 **********
+
+#. You can build any kind of customer model and use Theano/TF,as long as it's differentiable.
+
+无监督学习类假于autoencoders,Restricted Boltzmann Machines
+
 
 很好的资源库: https://github.com/fendouai/Awesome-TensorFlow-Chinese
 

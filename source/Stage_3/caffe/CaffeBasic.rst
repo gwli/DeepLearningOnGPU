@@ -32,11 +32,12 @@ caffe的设计原则与自己的原则一样的，分层的模块化的设计。
    
    .. graphviz::
       
-      digraph flow{
+      digraph flow {
           Input->Forward->Output;
           Output->Backword->Input;
 
       }
+
 #. 定义 solver
 #. training
 #. testing

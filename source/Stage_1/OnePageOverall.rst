@@ -1,8 +1,9 @@
+************
 DL的数学模型
-============
-
+************
 
 .. math:: 
+
    f =\sum{h(x)g(x)}
 
    y = f(WX+b)
@@ -93,6 +94,7 @@ a naive dl  code
      X, Y = load_my_dataset()
      model = MyModel()
      model.fit(X,Y)
+
 大部分的机器学习都是在解决fit,predict 这两个函数是如何实现的。
 
 

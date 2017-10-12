@@ -1,77 +1,140 @@
+************
 神经网络基础
 ************
 
 
-神经网络起源
-============
-
-神经网络起源于对大脑皮层的研究，神纤细胞的轴突末梢（也就是终端）->神经细胞=处理端f(x)。
-
-.. figure:: images/neutral.jpg
-    :width: 400px
-    :align: center
-    :height: 200px
-    :alt: alternate text
-    :figclass: align-center
-
-    GPU软件结构
-
-
-大脑特征
-======== 
-
-#. 大脑皮层具有 分布式 并行的特点，
-#. 最后的输出具有归纳和推广功能。
-#. 神经输出按照激活（fire）和不激活两种选择。
-
-
-
-
-.. math::
-
-   \begin{figure}[htp!]
-     \centering
-     \includegraphics[width=6cm]{NN.jpg}\\
-     \caption{神经网络基本结构}
-   \end{figure}
-
-虽然神经网络具有复杂的结构，但是只是简单人脑的模拟，成为人工智能（ANN），利用f(x) 模拟人脑思考中的非线性。
-
-大脑模型：
-一个是人类有几十万年的进化基础，并且沉淀下来。特别是那些人类看起来很容易，但是计算机却很难的事情。 另外那就是计算量的问题，现在超算的计算量已经超过人脑了。
 
 .. graphviz::
 
    digraph G {
-   rankdir=LR
-      
-   Memory1->Predict[label="feature1:Color"]
-      
-   Memory2->Predict [label="feature2:Construct"]
-      
-   Memory3->Predict [label="feature2:3D information"]
-      
-   Memory4->Predict [label="feature3:spatial and time seires information"]
-      
-   Predict->Output
+       rankdir=LR
+          
+       Memory1->Predict[label="feature1:Color"]
+          
+       Memory2->Predict [label="feature2:Construct"]
+          
+       Memory3->Predict [label="feature2:3D information"]
+          
+       Memory4->Predict [label="feature3:spatial and time seires information"]
+          
+       Predict->Output
    
    }
 
-*这里的time series 着的是多层之间吗？input*
+基本概念
+========
+
+激活函数 
+   主要的错误，就像一个哈希函数，把一个任意大小的输入映射到固定区间的大小的数据
+   常见的函数有: ReLu ,Sigmoid,Binary,Softplus,SoftMax,Maxout 等以及相关的变型，差不多20多种。
+
+后向传播
+   主要是反馈网络的计算，这包含两个LossFunction的计算，以及如何用LossFunction来更新W参数。
+   主要有梯度法。
+   Cost/Loss 函数 主要来度量预测值与标准值之间测度。单个值对的比较有有时候没有意义。
+   例如二值判断，是没有办法来用距离来判断的，怎么办呢，其实是采用集合的正确率，这样一个统计值来计算出
+   可以量化的距离值来计算loss.
+
+   - MLE(Maximum LikeHood Estimation). 
+   - Cross-Entory
+   - logistic
+   - Quadratic
+   - 0-1 Loss
+   - Hinge Loss
+   - Expontenial
+   - Hellinger Distance
+   - Kullback-Leibler Divengence
+   - https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
+   - https://en.wikipedia.org/wiki/Loss_functions_for_classification
+
+learningRate
+   参数的步进的速度，来解决振荡的问题。最好用的应该是AdaGrad,自适应调整。
+
+前向传播
+   也就是正常推理计算，基本上者就是矩阵乘
+
+训练的优化
+==========
+
+#. Gradient Descent
+#. SGD 来解决计算量太大的问题，每一次随机抽取一块来更新
+#. Momentum 根据上次的变量来加权更新当前的值 
+#. Adagrad 也就是适应调整每一个参数
 
 
+参数初始化
+==========
 
+#. 常量初始化，例如全0初始化，全1的初始化。
+#. Small Random Numbers
+#. calibrating the Variances 最好可以根据输入的结构来调整 
    
+神经元
+======
 
-人工智能的未来
-===============
+:math:`y=f(\sum{W}*X +b)`
 
-大脑是使用记忆来创造的世界，大脑用记忆模型来预测未来，目前的深度学习也体现了这一点。
+输入层
+======
 
-大脑和计算完全不同，大脑不是靠计算来解决掉问题，而是通过记忆来解决问题。
+把各种样的输入，映射到神经网络。当然各个输入之间相互独立是最好的。
+一般都是 :math:`(X,y)` X是多维的，y是一维的，也可能 y也是多维的。
+
+Batch Nomalization
+==================
+
+输入正则化，并且每一次正则化一部分，也可以提前预处理全部的数据。
+
+隐藏层
+======
+   
+输出层
+======
 
 
-现在的神经网络分类是单层的分类，层次化的分类，现在还做不到。
+
+Regularization
+==============
+
+#. L1 norm
+#. L2 norm
+#. Eearly Stopping
+#. Dropout
+#. Sparse regularization on columns
+#. Nuclear norm regularization
+#. Mean-constrained regularization
+#. Cluster mean-constrained regularization
+#. Graph-base similarity 
+
+
+
+网络结构
+========
+
+#. Forward
+#. LSTM
+#. GAN
+#. Auto-Encoders
+#. CNN
+#. RNN(Recurrant)
+#. RNN(Recursive) 
+
+
+如何开始
+========
+
+#. 针对问题，选一个合适的网络结构
+#. 看看这个framework的实现有没有bugs 在梯度检查时。
+#. 参数初始化
+#. 优化
+#. 检验模型的有效性
+   
+   - 如果无效，改变model structure 或者改大网络拓扑
+   - overfit, Regularize to prevvent overfitting
+      
+     * Reduce modle size
+     * l1/l2 on weights
+     
 
 参考
 =====

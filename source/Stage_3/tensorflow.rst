@@ -2,6 +2,10 @@
 tensorflow
 **********
 
+
+
+.. image:: /Stage_3/tensorflow/overall.png
+
 #. You can build any kind of customer model and use Theano/TF,as long as it's differentiable.
 
 无监督学习类假于autoencoders,Restricted Boltzmann Machines
@@ -37,6 +41,7 @@ Placeholder与tf.variable的区别
 tf.variable_scope 定义一个命名空间，tf.get_variable就在当前空间下搜索该变量。 如果想复用，就得scope.reuse_variables() 来实现
 
 .. code-block:: python
+
    def conv_relu(input,kernel_shape,bias_shape):
         weights = tf.get_variable("weights",kernel_shape,initializer=tf.random_normal_initializer())
         biases  = tf.get_veriable("biases",bias_shape,initializer=tf.random_normal_initializer())
@@ -141,6 +146,7 @@ http://www.weibo.com/ttarticle/p/show?id=2309404047468714166594
 --------
 
 #. 变量
+
   + tf.Variable  
 
 用点
@@ -173,6 +179,55 @@ R02_ 已经做了源码的解读，基本实现原理
    - Windows 也可以用 CMake 来时行编译
 #. 矩阵计算采用EIGEN来进行处理或者调用Nvidia-cublas来加速计算
 #. 结构化数据存储结构来用protobuf来定义
+
+
+基本步骤
+========
+
+#. Create the Model
+
+   .. code-block:: python
+
+      x = tf.placeholder(tf.float32,[None,784])
+      W = tf.Variable(tf.zeros([784,10]))
+      b = tf.Variable(tf.zeros([10]))
+      y = tf.matmul(x,W) + b
+
+#. Define Target
+
+   .. code-block:: python
+      
+      y_ = tf.placeholder(tf.float32,[None,10])
+
+#. Define Loss function and Optimizer
+
+   .. code-block:: python
+
+      cross_entropy = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits(label=y_,logits=y))
+      train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
+
+#. Define the Session and Initialise Variable
+   
+   .. code-block:: python
+      
+      sess = tf.InteractiveSession()
+      tf.global_variables_initializer().run()
+
+#. Train the Model
+   
+   .. code-block:: python
+      
+      for _ in range(1000):
+          batch_xs,batch_ys = mnist.train.next_batch(100)
+          sess.run(train_step,feed_dict={x,batch_xs,y_:batch_ys})
+
+#. Test Trained Model
+
+   .. code-block:: python
+
+      correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1))
+      accuracy = tf.readuce_mean(tf.cast(correct_prediction,tf.float32))
+      print(sess.run(accuracy,feed_dict={x:mnist.test.images,y_:mnist.test.labels}))
 
 
 符号计算

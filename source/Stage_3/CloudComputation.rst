@@ -1,5 +1,6 @@
+********
 并行计算 
-**********
+********
 
 Introduction
 =============
@@ -13,7 +14,7 @@ Introduction
 #. dependency 
 
 并行计算，微观
-======================
+===============
 
 这个微观这个极别，有多种解决方案,
 
@@ -61,7 +62,6 @@ CUDA 是为计算本身设计，所以它的处理对象也是计算本身，因
    compulate application , ,
 
 
-
 #. `PVM编程指南 <http://www.longen.org/l-r/detaill-r/pvmprogamming.html>`_ 
 #. `还驾驭不了4核？ 别人已模拟出百万核心上的并行 <http://www.csdn.net/article/2013-01-29/2814001-million-cores-parallel>`_ 
 #. `Google Dremel 原理 - 如何能3秒分析1PB <http://www.yankay.com/google-dremel-rationale/>`_ 
@@ -76,10 +76,13 @@ Evolution of The Architecture for CPU-GPU
 #. 减少传输，例如使用CUDA的dynamic Parellel 
 #. GPU Direct and  NVlink绕过PCI直接与GPU的高速互通，甚至CPU与GPU直接互联，这一点已经被NV与IBM联合开发的nvlink来实现了。
 #. 另外ＣＰＵ与GPU直接共享内存与最后一级cache,现在已经开始实现了。例如Soc,Tegra 5,已经把GPU与ARM做在一起SOC了。并且现在已经有l4t的ubuntu系统。但是还是采用原有的内核调度方法。而在这一方面应该像微软的direct compute与win7学习。直接在内核直接直接CPU与GPU的调度。也就是把tk1中CUDA 内核直接与linux的kernel直接融合在一program  -
-   digraph evolution {
-      rankdir=LR;
-      "chip integrated" ->"holistic optimization" ->"Opportunistic optimization" ->"Tool/Emerging/Power/temparature";
-   }
+    
+   .. graphviz::
+
+      digraph evolution {
+         rankdir=LR;
+         "chip integrated" ->"holistic optimization" ->"Opportunistic optimization" ->"Tool/Emerging/Power/temparature";
+      }
    
 
 制约GPU的性能两个主要问题，传输速度与control flow divergence.
@@ -97,6 +100,7 @@ Hadoop
 
 #. `Apache Hadoop集群的安全性架构 <http://www.csdn.net/article/2013-01-28/2813973-Hadoop-Security-Architecture>`_ 
 #. `大数据发展的5条趋势 <http://www.csdn.net/article/2012-11-08/2811632>`_ 
+
 See also
 ========
 

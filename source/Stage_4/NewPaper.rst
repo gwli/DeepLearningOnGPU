@@ -1,5 +1,6 @@
-deep learning 新文章：
-*********************
+**********************
+deep learning 论文笔记
+**********************
 
 Deep Learning Shape Priors for Object Segmentation
 ==================================================

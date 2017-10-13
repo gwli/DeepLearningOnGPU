@@ -137,8 +137,9 @@ Regularization
      
 
 参考
-=====
+====
 
+#. https://github.com/dformoso/deeplearning-mindmap
 #. http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html BP 算法之一种直观的解释
 #. `深度学习wiki <http://deeplearning.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C>`_  
 

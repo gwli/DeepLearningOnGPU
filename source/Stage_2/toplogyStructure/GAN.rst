@@ -2,6 +2,8 @@
 GAN 对抗网络
 ************
 
+GAN 最好的应用那就是设计模式中生成模式，可以有各种各样的变种模式。
+
 .. image:: /Stage_2/toplogyStructure/AdversarialNetsFrameworksr.jpg
 .. image:: /Stage_2/toplogyStructure/gan.jpg
 
@@ -35,3 +37,5 @@ https://github.com/zhangqianhui/AdversarialNetsPapers GAN 资料大全
 交叉熵的概念相难理解。
 
 https://github.com/hwalsuklee/tensorflow-generative-model-collections  tensorlfow中的GAN实现。
+
+

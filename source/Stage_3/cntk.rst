@@ -5,6 +5,20 @@ https://github.com/Microsoft/CNTK
 安装需要额外安装一个anaconda python 就行了。
 同时用VS 来做开发，在 *tools.options>python* 添加新环境变量，同时在工程文件中使用右键选择新的环境变量就行了。
 
+#. 安装VS2017 并选择 *Data Processing* 模块。
+#. pip install cntk  from https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-Windows-Python?tabs=cntkpy22
+#. pip install keras
+#. pip install tensorflow-gpu
+#. set the backend of keras :command:`set KERAS_BACKEND=cntk`
+   
+setup on Azure
+==============
+
+#. Deploy CNTK Azure web API
+#. Data Science Virtual Machine
+ 
+
+
 使用的基本步骤，那就是建立网络拓扑，指定参数训练，输入适配。
 
 cntk的主要用途

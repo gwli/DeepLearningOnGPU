@@ -7,5 +7,5 @@
 .. include:: Stage_2/feedback.rst
 .. include:: Stage_2/InfoFlow.rst
 .. include:: Stage_2/capacityMeasure.rst
-.. include:: Stage_2/topologyStructure.rst
+.. include:: Stage_2/toplogyStructure.rst
 

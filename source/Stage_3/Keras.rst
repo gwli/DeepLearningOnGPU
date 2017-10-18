@@ -1,8 +1,8 @@
+*****
 Keras
 *****
 
 详细的中文文档。 https://keras-cn.readthedocs.io/en/latest/
-
 
 #. 建立模型
 #. 训练优化
@@ -12,6 +12,32 @@ Keras
    - 减少少网络尺寸
    - 推理优化，例如编译优化等等。
 
+详细的步骤可以参考 `udemy deeplearning A-Z <https://nvidia.udemy.com/deeplearning/learn/v4/t/lecture/6743752?start=0>`_ 课程目录就是一个很好的template.
+
+skilearn
+========
+
+对于清洗,例如模数转换，例如把各种分类数值化，以及onehotvector等，以及正则化等等都有现成的包。
+并且
+i
+
+quick start
+===========
+
+.. code-block::python
+
+   from keras.models import Sequnetial 
+   
+   model = Sequnetial()
+   model.add(Dense(unit=64,input_dim=100))
+   model.add(Activation("relu"))
+   model.add(Dense(units=10))
+   model.add(Activation("softmax"))
+   model.compile(loss="catagorical_crossentropy',optimizer='sgd',metrics=['accuracy'])
+   model.fit(x_train,y_train,epochs=5,batch_size=32)
+   loss_and_metrics =  model.evulate(x_test,y_test,batch_size=128)
+   classess = model.predict(x_test,batch_size=128) 
+   
 
 基本组成
 ========

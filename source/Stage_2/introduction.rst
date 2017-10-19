@@ -106,6 +106,10 @@ Regularization
 #. Cluster mean-constrained regularization
 #. Graph-base similarity 
 
+bias
+====
+
+.. image:: /Stage_2/biasVariance.png
 
 
 网络结构

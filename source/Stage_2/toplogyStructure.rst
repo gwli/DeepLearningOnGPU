@@ -74,6 +74,8 @@
 .. include:: /Stage_2/toplogyStructure/gan.rst
 .. include:: /Stage_2/toplogyStructure/RBM.rst
 .. include:: /Stage_2/toplogyStructure/SVM.rst
+.. include:: /Stage_2/toplogyStructure/SOM.rst
+.. include:: /Stage_2/toplogyStructure/CelluarRC.rst
 
 
 

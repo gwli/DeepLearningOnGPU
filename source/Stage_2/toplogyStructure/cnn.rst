@@ -2,6 +2,8 @@
 卷积神经网络
 ************
 
+.. image:: /Stage_2/toplogyStructure/cnn.png
+
 R01 卷积滤波示意图
 
 .. _R01: http://weibo.com/5501429448/E9qtkpgqh?type=comment#_rnd1506300506843

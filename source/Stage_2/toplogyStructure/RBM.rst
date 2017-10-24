@@ -60,6 +60,9 @@ EBM通过对变量的每个配置施加一个有范围限制的能量来捕获�
   \caption{玻尔兹曼机和限制玻尔兹曼机}
 \end{figure}
 
+
+`能量函数意义 <http://blog.csdn.net/hejunqing14/article/details/50057001>`_  那就是定义一个合适的COST函数，而这个合适的COST可以从各种物理化学模型 中来，能量函数就是热力学中用过来的，整体的能量函数值越小，系统趋于稳定。
+`能量函数的定义历史 <https://www.zhihu.com/question/22981388/answer/23259540>`_
 限制玻尔兹曼机
 ===============
 

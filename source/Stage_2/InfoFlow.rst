@@ -9,7 +9,25 @@ auto coder， sparse coding。中层打label。
 
 
 深度学习读书笔记之 `AE（自动编码） <http://blog.csdn.net/mytestmy/article/details/16918641>`_ 
-==============================================================================================================
+=============================================================================================
+
+并且用 AE来自动学习一个物体的表征方式，是一个不错方向。
+`Representation Learning: A Review and New Perspectives <https://arxiv.org/abs/1206.5538>`_
+
+
+#. Sparse AE
+#. Denoise AE
+#. contractive AE
+#. Stacked AE
+#. Deep AE    
+
+用于特征抽取特别有效。
+
+
+
+.. code-block:: python
+   model.parameters
+   optimizer.RMSprop(model.parameters,lr=0.1,weight_decay=0.1)
 
 AE对图形不同位置和方向进行边缘检测。另外可用于检测图像隐藏的相关性，和PCA类似。autoencoders  利用稀疏性来对规则化。
 

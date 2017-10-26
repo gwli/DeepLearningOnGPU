@@ -2,6 +2,35 @@
 tensorflow
 **********
 
+Installation
+============
+
+#. check GPU Capacity
+   
+   .. csv-table::
+      :header: ARCH, CAPACITY
+
+      Kepler, 3.0
+      Maxwell, 5.0/5.2
+      Pas
+      Volta,
+#. install cuda >8.0
+   
+   .. code-block:: bash
+      
+      dpkg -i cuda-repo*8.0*
+      apt update
+      apt install cuda-toolkit
+
+#. install cudnn
+
+   .. code-block:: bash
+      
+      dpkg -i libcudnn-repo*8.0*
+      apt update
+      apt install libcudnn
+   
+#. pip install tensorflow-gpu
 
 
 .. image:: /Stage_3/tensorflow/overall.png

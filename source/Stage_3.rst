@@ -4,6 +4,7 @@
 
 
 .. include:: Stage_3/introduction.rst
+.. include:: Stage_3/NV_DIGITS.rst
 .. include:: Stage_3/caffe.rst
 .. include:: Stage_3/Theano.rst
 .. include:: Stage_3/tensorflow.rst

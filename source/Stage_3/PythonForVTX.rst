@@ -67,6 +67,7 @@ render display
    plot3d ,,
 
 annim 效果可以通过改变数据实现，就像放电影一样，但是这个framerate是如何定义的。并且更新同步的机制是怎样的，是不是也会有像opengl，glflush,glclear,glswap之类的函数来进行同步。
+
 See also
 ========
 

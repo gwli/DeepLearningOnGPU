@@ -2,6 +2,7 @@
 MxNet
 *****
 
+主要由Amazon支持。
 https://mxnet.incubator.apache.org/get_started/why_mxnet.html 同时提供了两种计算模式，基于 *mx.nd.array* 的命令式计算，以及 *mx.sym.Variable* 的符号式计算。
 并且两者是相互交互的，在DL的网络拓扑是用 符号式计算来描述。 而train 更新 model 则是用 命令式计算。 同时提供一系列的DL的原语。例如
 

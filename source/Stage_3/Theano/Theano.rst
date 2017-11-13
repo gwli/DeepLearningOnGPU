@@ -1,5 +1,9 @@
-+ install note
-==============
+******
+Theano
+******
+
+install note
+============
 
 #. pip install Theano 
    #. pip install numpy 
@@ -7,8 +11,8 @@
 #. apt-get install libblas-dev
    #. apt-cache search blas
   
- introduction
-=============
+introduction
+============
 
 theano利用python的语法来实现了自己的语言。这个语言的特别之处，自己实现的用自己的，自己没有实现的就可以直接使用了python的，不过只是一个中间件语言，下层实现还是直接借用CPU与GPU的blas库。并且theano实现还是一个JIT编译器。它的主要特点那就是直接使用利用sympy以及自己的张量符号表达式来直接构造公式,在theano中公式与函数基本上可以直接化等号了。 并且theano还有自己的编译算法，它可以直接打印出依赖图，如何简化自己的逻辑图呢。
 
@@ -39,8 +43,8 @@ theano.function这个是编译指令，然后返回一个编译后object,就像s
 
 
 
-+theano 结构
-==============
+theano 结构
+===========
 
 现在明白了theano中对于优化问题的固定的结构，首先declare the variable,  then compile the data ,input, outputs, then tain the data;
 finally look at the results. 

@@ -9,6 +9,6 @@
 .. include:: Stage_3/Theano.rst
 .. include:: Stage_3/tensorflow.rst
 .. include:: Stage_3/cntk.rst
-.. include:: Stage_3/torch/torch.rst
+.. include:: Stage_3/torch.rst
 .. include:: Stage_3/tensorrt.rst
 .. include:: Stage_3/DLA.rst

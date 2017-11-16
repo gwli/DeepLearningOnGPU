@@ -71,7 +71,7 @@
    - 卷积分解神经网络
 
 .. include:: /Stage_2/toplogyStructure/cnn.rst
-.. include:: /Stage_2/toplogyStructure/gan.rst
+.. include:: /Stage_2/toplogyStructure/GAN.rst
 .. include:: /Stage_2/toplogyStructure/RBM.rst
 .. include:: /Stage_2/toplogyStructure/SVM.rst
 .. include:: /Stage_2/toplogyStructure/SOM.rst

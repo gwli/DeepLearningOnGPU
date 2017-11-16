@@ -7,13 +7,13 @@ pytorch
 
 .. list-table::
 
-   TH = TorcH
-   THC = TorcH Cuda
-   THCS = TorcH Cuda Sparse
-   THCUNN = TorcH CUda Neural Network (see cunn)
-   THD = TorcH Distributed
-   THNN = TorcH Neural Network
-   THS = TorcH Sparse
+   * - TH = TorcH
+   * - THC = TorcH Cuda
+   * - THCS = TorcH Cuda Sparse
+   * - THCUNN = TorcH CUda Neural Network (see cunn)
+   * - THD = TorcH Distributed
+   * - THNN = TorcH Neural Network
+   * - THS = TorcH Sparse
 
 
 .. figure:: /Stage_3/pytorch/overall.png

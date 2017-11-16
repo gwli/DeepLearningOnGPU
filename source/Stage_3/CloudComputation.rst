@@ -50,7 +50,7 @@ CUDA 是为计算本身设计，所以它的处理对象也是计算本身，因
 而另外一些语言要考虑的并行性与依赖关系。并行性例如CUDA对于线程三层模式，grid/block/thread三种模式。依赖的解决一方面依赖于手工解决，别一方面可以利用函数调用等依赖算法来自动管理。现在数据依赖主要是靠人来解决，例如CUDA就像你来实现内因分配方式然后通过数组下标的变化计算来解决并行，有点类于numpy与sql的模式。 Hadoop 采用的是map/reduce模型，这个模形解决了没有反馈一直往前走，对于反馈模型不太好解决了。而 `mpi <http://www.mcs.anl.gov/research/projects/mpi/>`_    , `pvm Parallel Virtual Machine <http://www.csm.ornl.gov/pvm/>`_   则是通过消息路由的机制透明的实现各个结点或者进程的同步。例如MPI的进程也CUDA一样是分组的，同样消息也分P2P与组播与广播等机制。
 
 对于性能影响（这个题目好像不太好）
-============
+=====================================
 
 数据传输，同步这种overhead会大大影响效率，例如CUDA发明了nvlink来取代PCIE，来得到更高传输速率，这也是为CUDA中在host memory 与device  memory （是什么）之间慢的原因，二者是通过PCIE接口传的，PCI接口的速度决定了传输速度，那是不是可以用网口或者光纤直接传输呢，对于集群之间也尽可能高速传输。
  the parallel coupute divided three layers.

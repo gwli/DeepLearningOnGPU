@@ -19,6 +19,7 @@ R04_ 是stanford 开放的训练好的库，GloVe: Global Vectors for Word Repre
 R05_ 知乎专栏对这个有专门的一期。
 
 .. figure:: /Stage_4/ReadingComprehension/Model1.jpg
+
    模型1 用BIRNN 来表征文档 
 
 .. figure:: /Stage_4/ReadingComprehension/Model2.jpg
@@ -136,6 +137,7 @@ CNN,daily Mail 数据集生成方法，见 R06_ 中文解读见 R07_
 #. 世界知识(World Knowledge)的引入
 #. 发展更为完善的的推理机制,目前的推理还是停留在注意力焦点转移的机制。
 #. 常用评价指标 R10_
+
 方向跟踪
 =========
 
@@ -169,6 +171,7 @@ machine translation是最活跃的一个研究领域，seq2seq框架就是从该
 #. R13_ 摘要系统的实现
 
 用seq2seq的思路来解决文本摘要问题仍停留在short text的生成水平上，最多到paragraph level。原因也比较简单，rnn也好，gru、lstm也罢，终究都面临着一个长程依赖的问题，虽然说gru、lstm等技术用gate机制在一定程度上缓解了长程依赖和梯度消失、爆炸的问题，但终究文本过长的话，神经网络的深度就会随之变得非常深，训练起来难度就会随之增加。所以，这也是为什么document level或者说multi document level的abstractive式的摘要生成问题至今都是一个难以解决的问题。确实，short text的理解、表示在一定程度上有了很大的突破，也可以在工程上有不错的应用，比如机器翻译。但text变了之后，一篇很长的文章如何更加准确地理解和表示是一个非常难的问题，attention是一个不错的解决方案，在decoder的部分不需要考虑encoder的全部，只需确定需要注意的几个点就可以了，其实人在看一篇长文的时候也是这样一种机制，从某种角度上来讲，attention在decoder时提供了一种降维的手段，让model更能捕捉到关键的信息。
+
 reference
 =========
 

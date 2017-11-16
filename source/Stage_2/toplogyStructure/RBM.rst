@@ -54,15 +54,19 @@ EBM通过对变量的每个配置施加一个有范围限制的能量来捕获�
 并进行求导，但是上式中 :math:`Z=\sum_x e^{-E(x)}` ,对x进行求导非常困难，因此通过采样方法获得近似值。
 
 因此采用玻尔兹曼机实现，但是BM方法计算量非常大，后来使用RBM模型,在层内无联系。
-\begin{figure}
-  \centering
-  \includegraphics[width=8cm]{wangluotuopu}\\
-  \caption{玻尔兹曼机和限制玻尔兹曼机}
-\end{figure}
+
+.. ::
+
+   \begin{figure}
+     \centering
+     \includegraphics[width=8cm]{wangluotuopu}\\
+     \caption{玻尔兹曼机和限制玻尔兹曼机}
+   \end{figure}
 
 
 `能量函数意义 <http://blog.csdn.net/hejunqing14/article/details/50057001>`_  那就是定义一个合适的COST函数，而这个合适的COST可以从各种物理化学模型 中来，能量函数就是热力学中用过来的，整体的能量函数值越小，系统趋于稳定。
 `能量函数的定义历史 <https://www.zhihu.com/question/22981388/answer/23259540>`_
+
 限制玻尔兹曼机
 ===============
 
@@ -175,7 +179,7 @@ Deep Belief Networks深信度网络
 DBM是多层RBM。首先使用多层连接的RBM，最后一层使用BP网络(全局性最优的算法)，使用后向反馈对前面的隐含层进行微调。
 
 
-参考：
+参考
 =====
 
 #. http://blog.csdn.net/chlele0105/article/details/17309491}{能量模型(EBM)、限制波尔兹曼机(RBM)}

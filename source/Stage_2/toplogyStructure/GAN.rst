@@ -24,7 +24,7 @@ GAN 最好的应用那就是设计模式中生成模式，可以有各种各样�
 
 .. figure:: /Stage_2/toplogyStructure/gan_train_figure.png
 
-.. figure:: /Stage_2/toplogyStructure/gan_train.png
+.. figure:: /Stage_2/toplogyStructure/gan_train.jpg
    
    红圈，训练D，D是希望V(G,D) 越大越好，所以是加上梯度(ascending).
    第二步训练G时，V(G,D)越小越好，所以是减去梯度(descending).

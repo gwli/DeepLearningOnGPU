@@ -26,6 +26,7 @@ auto coder， sparse coding。中层打label。
 
 
 .. code-block:: python
+
    model.parameters
    optimizer.RMSprop(model.parameters,lr=0.1,weight_decay=0.1)
 
@@ -102,7 +103,7 @@ AE与GAN的同与不同
    而这个本质就在于层层之间转换的这个基是什么。 GAN相当于只是找到 :math:`y=F(x)G(X)` 找到 :math:`G(x)` 
 #. Vairational AE 也是一个生成模型，而原始版本的 AE只能重构原始数据。
 
-目前问题：
+目前问题
 =========
 
 #. 如何构造每一个感知器，层与层之间如何连接，需要多少层？最简单的方法，每一层之间都是全连接，通过增加层数，来解决所有问题，这样的计算太大。因此如果全联接，要尽可能用剪枝算法，来减少不必要的连接。并且到底需要多少层都是根据实际的情况来的。

@@ -142,4 +142,16 @@ Sub-sampling Layers 子采样层
 
 
 
+`卷积神经网络图解 <https://www.zybuluo.com/hanbingtao/note/485480>`_, 每一层有多少kernel当相于有多少featuremap,
+因为每一个kernel的参数都是独立的。相当于同时弄了多套的filter.
+
+输出与输入这的关系:
+
+.. math::
+   
+   W_2 = (W_1 - F + 2P)/S + 1
+   H_2 = (H_1 - F + 2P)/S + 1
+
+每一个kenerl对应一个输出的图像，output_chanels就是指的 kernels的数量。
+http://web.stanford.edu/class/cs20si/lectures/notes_07_draft.pdf
 

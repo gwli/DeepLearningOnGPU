@@ -44,3 +44,8 @@ framework
 =========
 
 #. http://www.pytorchtutorial.com/pytorch-source-code-reading-network/
+
+source code reading
+===================
+
+torch.nn.module 的结构就是dict,addmodule,也就是key,value    

@@ -8,4 +8,5 @@
 .. include:: Stage_2/InfoFlow.rst
 .. include:: Stage_2/capacityMeasure.rst
 .. include:: Stage_2/toplogyStructure.rst
+.. include:: Stage_2/Capsules.rst
 

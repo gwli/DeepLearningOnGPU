@@ -148,6 +148,7 @@ Sub-sampling Layers 子采样层
 .. math::
    
    W_2 = (W_1 - F + 2P)/S + 1
+
    H_2 = (H_1 - F + 2P)/S + 1
 
 每一个kenerl对应一个输出的图像，output_chanels就是指的 kernels的数量。

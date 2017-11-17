@@ -45,6 +45,18 @@ Capsules net
 
 而每一层capsule层的关系，就像贝叶斯理论来指导。总合其为1。
 
+
+实现流程
+========
+
+
+#. 大的工作流程
+
+   .. image:: /Stage_2/capsulenet/workflow_1.png
+   .. image:: /Stage_2/capsulenet/workflow_2.png
+
+
+
 .. code-block:: bash
 
    root@48d5c7680565:/opt/pytorch/pytorch-capsule# CapsuleNetwork (
@@ -86,6 +98,29 @@ Capsules net
      (relu): ReLU (inplace)
      (sigmoid): Sigmoid ()
    )
+
+
+#. 输入
+   
+   .. graphviz:: 
+      
+      digraph Image {
+	graph [layout=dot rankdir=LR,labeljust=1]
+        node [shape=record,penwdith=2,fontsize=25];
+        subgraph cluster_input {
+           label = "batch:1-128";
+           fontsize = 40;
+           bgcolor="purple:pink";
+            subgraph cluster_chanel {
+                label = "channel:1";
+                bgcolor = "blue:cyan";
+                image[label="28*28" fillcolor="red:yellow",style="filled"];
+            }
+        }
+
+      } 
+
+
 
 
 Reference

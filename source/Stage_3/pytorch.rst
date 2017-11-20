@@ -40,6 +40,34 @@ quick tutoiral
 .. image:: /Stage_3/pytorch/dynamic_graph.gif
 
 
+各种运算
+========
+
+#. 各种sum的计算，可以看作是group的功能，理解为对某一行或某一例的求和吧。
+#. 其他的一些逐点计算，sqrt,还有一些那就是求导计算。
+#. 关键是乘法，有多种
+   
+   - 数乘 (变相的矩阵乘)
+   - 内积 也就是标量乘 :math:`a*b = |a| |b| * cos`
+   - 外积 也就是点乘。 * 
+   - 混合积 
+   - 范数
+
+n对于n的数乘就是矩阵乘。
+
+对于矩阵试编程中，随时变量实现。例如 
+
+.. code-block:: python
+   
+   temp = a*b
+   c = temp * 1
+   d = temp * 1.5 
+   e = temp * 2
+   # implment in matrix mul
+   matrix_base = torch.stack[[temp] * 3,dim=0]
+   matrix_c = torch.sensor([c,d,e])
+   matrix = matrix_base *matrix_c
+
 framework
 =========
 
@@ -48,4 +76,50 @@ framework
 source code reading
 ===================
 
-torch.nn.module 的结构就是dict,addmodule,也就是key,value    
+
+torch.nn.module 
+===============
+
+这个是网络拓扑的根结构，基本结构也就是dict,并且module是不可以不断嵌入的。
+
+#. addModules 
+
+   code-block:: python
+   
+   self._modules['module_name'] = module
+
+#. parameters.
+核心是 __init__ 在这里，生成网络。
+
+#. 然后是其forward函数。需要自己实现。
+
+#. 其核心那就是那个__call__ 的实现。
+   
+   .. code-block:: python
+
+      def __call__(self, *input, **kwargs):
+        for hook in self._forward_pre_hooks.values():
+            hook(self, input)
+        result = self.forward(*input, **kwargs)
+        for hook in self._forward_hooks.values():
+            hook_result = hook(self, input, result)
+            if hook_result is not None:
+                raise RuntimeError(
+                    "forward hooks should never return any values, but '{}'"
+                    "didn't return None".format(hook))
+        if len(self._backward_hooks) > 0:
+            var = result
+            while not isinstance(var, Variable):
+                if isinstance(var, dict):
+                    var = next((v for v in var.values() if isinstance(v, Variable)))
+                else:
+                    var = var[0]
+            grad_fn = var.grad_fn
+            if grad_fn is not None:
+                for hook in self._backward_hooks.values():
+                    wrapper = functools.partial(hook, self)
+                    functools.update_wrapper(wrapper, hook)
+                    grad_fn.register_hook(wrapper)
+      return result
+
+     

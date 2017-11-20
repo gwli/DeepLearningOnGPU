@@ -100,28 +100,46 @@ Capsules net
    )
 
 
-#. 输入
+#. 数据流
    
-   .. graphviz:: 
-      
-      digraph Image {
-	graph [layout=dot rankdir=LR,labeljust=1]
-        node [shape=record,penwdith=2,fontsize=25];
-        subgraph cluster_input {
-           label = "batch:1-128";
-           fontsize = 40;
-           bgcolor="purple:pink";
-            subgraph cluster_chanel {
-                label = "channel:1";
-                bgcolor = "blue:cyan";
-                image[label="28*28" fillcolor="red:yellow",style="filled"];
-            }
-        }
+   - [128,1,28,80]
 
-      } 
+      .. graphviz:: 
+         
+         digraph Image {
+           graph [layout=dot rankdir=LR,labeljust=1]
+           node [shape=record,penwdith=2,fontsize=25];
+           subgraph cluster_input {
+              label = "batch:1-128";
+              fontsize = 40;
+              bgcolor="purple:pink";
+               subgraph cluster_chanel {
+                   label = "channel:1";
+                   bgcolor = "blue:cyan";
+                   image[label="28*28" fillcolor="red:yellow",style="filled"];
+               }
+           }
+
+         } 
 
 
-
+    -  经过第一层的conv+relu之后，256 kernel, 就形成了。 [128,256,20,20]
+       
+    -  然后进入primate layer. 然后是这个[128,256,20,20]进入8个并行的，并且每一个unit有32kernel. 然后再把这些kernel squash.
+       8个[128,32,6,6], [batch,channel,width,height] -> [batch,unit,channel,width,height] [128,8,32,6,6] 然后再压平变成[batch,unit,features]
+    
+    -  Squash 就是在这些features 这个来做。    
+    -  Digists层，相当于10个onehot vector,每一个向量具有16维，而后面的全连接，则是其参数矩阵。
+       来解决一个还是二个的映射组合。
+   
+这个就像人的认识过程，先做一个预处理，从大量的重复出得到pattern,然后这些pattern最小化。
+Primary Caspsules 相当于是经验，一些先验知识与元认知。
+    
+       
+#. squish 的图形
+   
+   .. image:: /Stage_2/capsulenet/squash.png 
+   .. image:: /Stage_2/capsulenet/squash_wolfram.png
 
 Reference
 =========

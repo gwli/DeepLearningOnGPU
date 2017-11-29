@@ -169,9 +169,68 @@ machine translation是最活跃的一个研究领域，seq2seq框架就是从该
 #. R11_  教机器学习摘要
 #. R12_ 分析常用的方法与派系。 
 #. R13_ 摘要系统的实现
+#. [R13]_ 是由saleforce 实现的基于增强学习实现的摘要，是目前的最高水平
 
 用seq2seq的思路来解决文本摘要问题仍停留在short text的生成水平上，最多到paragraph level。原因也比较简单，rnn也好，gru、lstm也罢，终究都面临着一个长程依赖的问题，虽然说gru、lstm等技术用gate机制在一定程度上缓解了长程依赖和梯度消失、爆炸的问题，但终究文本过长的话，神经网络的深度就会随之变得非常深，训练起来难度就会随之增加。所以，这也是为什么document level或者说multi document level的abstractive式的摘要生成问题至今都是一个难以解决的问题。确实，short text的理解、表示在一定程度上有了很大的突破，也可以在工程上有不错的应用，比如机器翻译。但text变了之后，一篇很长的文章如何更加准确地理解和表示是一个非常难的问题，attention是一个不错的解决方案，在decoder的部分不需要考虑encoder的全部，只需确定需要注意的几个点就可以了，其实人在看一篇长文的时候也是这样一种机制，从某种角度上来讲，attention在decoder时提供了一种降维的手段，让model更能捕捉到关键的信息。
 
+那些老的基于统计的方法，只是基于词频的方法的实用性极差，google 搜索提供的textsum 看起来还不错。
+最新的水平 
+
+对于字幕分析
+============
+
+字幕下载器
+----------
+
+.. code-block:: bash
+   
+   # https://github.com/Diaoul/subliminal
+   $ docker run --rm --name subliminal -v subliminal_cache:/usr/src/cache -v /tvshows:/tvshows -it diaoulael/subliminal download -l en /tvshows/The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4
+
+分析流程
+--------
+
+#. 爬取数据 
+   - 要利用代理与匿名网络来解决IP被封的问题
+   - 利用多线程并行，来加快速度 
+
+#. 数据的清洗
+   - 词性，格式
+   - 中英文的问题
+    
+#. 分析
+
+   - 词汇量
+   - 用到的人名，地名
+   - 用到颜色的名字
+   - 心情的的词语
+   - 车，酒，等等 
+   - 分词,摘要  
+     
+     * yaha 具有自动摘要的功能
+     .. code-block:: bash
+        
+        pip install jieba,yaha
+    
+   - 如何判断经典句子
+
+#. 词云的生成
+   - wordCloud see github
+   - 中文的支持主要是字体的设置 
+
+#. 每一次更新之后
+
+   - 最热的词汇排行有什么变化
+   - 有哪些新增，新增有哪些变化。
+   - 读一批书，帮助自己快速的了解一个行业
+   - 把一次把一千本书，压缩一下。看看哪些是重复的句子。也就是所谓的金句。
+
+#. 如果一次一千本，那么重复1000次，然后可可视化看看一些参数的变化。
+
+   - 就像我们的阅读用同样的方法，重复读几遍，就会有不一样的认识，那我如果用机器来重复这样的事情呢。   
+ 
+python 任意中文文本的生成 http://blog.csdn.net/fontthrone/article/details/72988956
+  
 reference
 =========
 
@@ -188,3 +247,4 @@ reference
 .. _R11: http://rsarxiv.github.io/2016/06/25/%E6%95%99%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%91%98%E8%A6%81/ 
 .. _R12: http://bj.bcebos.com/cips-upload/cwmt2012/ymy.pdf
 .. _R13: http://rsarxiv.github.io/2016/06/10/Neural-Network-Based-Abstract-Generation-for-Opinions-and-Arguments-PaperWeekly/
+.. _R14: https://arxiv.org/pdf/1705.04304.pdf

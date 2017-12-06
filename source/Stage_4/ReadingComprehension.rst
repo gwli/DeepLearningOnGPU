@@ -176,6 +176,9 @@ machine translation是最活跃的一个研究领域，seq2seq框架就是从该
 那些老的基于统计的方法，只是基于词频的方法的实用性极差，google 搜索提供的textsum 看起来还不错。
 最新的水平 
 
+语料库可以在 nlpcn.org 上找不到少。
+github.com/thunlp 清华大学的自然语言处理
+
 对于字幕分析
 ============
 
@@ -231,6 +234,12 @@ machine translation是最活跃的一个研究领域，seq2seq框架就是从该
  
 python 任意中文文本的生成 http://blog.csdn.net/fontthrone/article/details/72988956
   
+
+Char-RNN
+========
+
+对于特别常的文档，生成效果也不好，例如ku,用了115M,然而生成的效果很差。
+
 reference
 =========
 

@@ -90,6 +90,24 @@ source code reading
 torch.nn.module 
 ===============
 
+整个网络层的基本结构，参数的存放，然后就是foward与backword的计算。
+其他就是一些辅助函数了。就像最基本的类型
+
+.. code-block:: python
+   
+   class layer :
+     def __init__():
+         self.W
+         self.B
+     
+     def foward():
+         return self.active(self.W*self.X +self.B)    
+     def cost():
+         error = distance(self.foward(),origina_data_force)
+
+     def backwoard():
+         self.W = self.W + xxxxx
+
 这个是网络拓扑的根结构，基本结构也就是dict,并且module是不可以不断嵌入的。
 
 #. addModules 
@@ -98,7 +116,8 @@ torch.nn.module
    
    self._modules['module_name'] = module
 
-#. parameters.
+#. parameters. 这个函数variable的一种封装。因为一个模块的parameter在迭代中才会更新。
+当做parameters的变量传给module时，会自动变成其参数的一部分。
 核心是 __init__ 在这里，生成网络。
 
 #. 然后是其forward函数。需要自己实现。
@@ -132,4 +151,59 @@ torch.nn.module
                     grad_fn.register_hook(wrapper)
       return result
 
-     
+
+optim
+=====
+
+.. code-block:: python
+    
+   for input,target in dataset:
+        optimizer.zero_grad()
+        output=model(input)
+        loss = loss_fn(output,target)
+        loss.backword()
+        optimizer.step()
+
+各种优化算法的原理与区别
+------------------------
+
+基本上都是采用的迭代的方法，核心 :math:`\Theta = \Theta - \alpha \cdot \triangledown_\Theta J(\Theta)`
+
+这种方法，容易停在鞍点，
+
+Momentum算法，同时观察历史梯度 :math:`v_{t}`   
+
+.. math::
+   
+   v_{t} = \gamma \cdot v_{t-1} + \alpha \cdot \triangledown_\Theta J(\Theta)
+   \Theta = \Theta -v_{t}
+
+Adagrad
+-------
+
+是对learningrate的改变，我们采用频率较低参数采用较大的更新，相反，频率较高的参数采用较小的更新。采用累加之前的所有梯度平方的方法，这个造成训练的中后期，分母上梯度累加变大，就会造成梯度趋近于0，使得训练提前结束。
+
+RMSprop的方法
+-------------
+
+采用计算对应的平均值，因此可缓解adagrad算法学习率下降较快的问题。
+
+Adam
+----
+利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率，使得参数比较平稳。
+
+.. figure:: /Stage_3/pytorch/optims_1.gif
+   
+   损失平面等高线随时间的变化情况
+
+.. figure:: /Stage_3/pytorch/optims_2.gif
+
+   不同算法在鞍点处的行为比较
+
+http://shuokay.com/2016/06/11/optimization/
+
+
+L-BFGS算法
+----------
+
+无约束最小化，http://www.hankcs.com/ml/l-bfgs.html，解决了计算海森矩阵的烦恼。但是吃内存，L-BFGS 就是改进内存的使用用的BFGS算法。

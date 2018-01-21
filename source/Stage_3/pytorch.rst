@@ -33,6 +33,38 @@ pytorch 动态指的其使用命令模式，而不是符号式。这样好处在
    train_set = torch.FloatTensor(training_set)
 
 
+
+工作流程
+========
+
+#. 建立网络模型
+#. 数据结构建模->tensor
+#. 各种tensor之间的适配
+
+   #. torch.squeeze(),torch.unsqueeze()
+   #. torch.expand(),torch.cat()
+
+#. 定义优化器。 
+
+
+tensor基本的数学运算
+====================
+
+torch.addcdiv 
+
+.. math::
+
+   out_i = tensor_i + value \times \frac{tensor1_i}{tensor2_i}
+
+torchvision.transforms
+======================
+
+常用 image变换，并且chainup.
+
+.. codeblock:: python
+
+   transforms.Compose([ transforms.CenterCrop(10),transforms.ToTensor(),])
+
 quick tutoiral
 ==============
 
@@ -202,8 +234,86 @@ Adam
 
 http://shuokay.com/2016/06/11/optimization/
 
+有两个超参数beta1,beta2来用计算指数移动均值的时候使用。是不是股票中移动均线的方法来计算。
+
+beta1 : 一阶矩估计的指数衰减率
+beta2 ：二阶矩估计的指数衰减率
+
+epsilon: 该参数是非常小的数,主要为防止实现中除零10E-8.
 
 L-BFGS算法
 ----------
 
 无约束最小化，http://www.hankcs.com/ml/l-bfgs.html，解决了计算海森矩阵的烦恼。但是吃内存，L-BFGS 就是改进内存的使用用的BFGS算法。
+
+
+how to save the model
+=====================
+
+#. torch.save(self.G.state_dict(),"model path")
+
+onnx
+=====
+
+.. code-block:: python
+   
+   from torch.autograd import Variable
+   import torch.onnx
+   import torchvision
+   
+   dummy_input = Variable(torch.randn(10,3,224,224)).cuda()
+   model = torchvision.models.alexnet(pretrained=True).cuda()
+   #。 alexnet.proro caffe 二制model,verbose会打印出可读信息
+   torch.onnx.export(model,dummy_input,"alexnet.proto",verbose=True)
+
+   
+
+   #import model in caffe
+
+   model = onnx.load('alexnet.proto')
+
+   #Check that the IR is well formed
+   onnx.checker.check_model(model)
+
+   #print a human readdable represnetation of the graph
+   onnx.helper.printable_graph(model.graph)
+
+
+符号推导
+========
+
+torch与 numpy不同的地方，很大一部分原因那就是对微分的符号推导的完美实现的。
+
+通过对于一个正常的tensor添加一个wraper,就形成了，就变成了符号，但是又起了Variable的类型，这难免给你一种误解，那就是用蓝色笔来红色的红字。如果把其叫符号，不容易误解了。torch并没有实现符号推导的大部分功能，只实现了微分推导的功能，并且将其推导到了极致。但是它要求推导只能是标量，一次只能对一个Y,对多个x 求导。
+
+一旦把 tensor-> Variable,就是意味着变成符号。但是其类型还保持原来的样子，其实就是利用链式求导法，在v.grad里实现了所有函数操作，abs,+/- tan等等操作微分求法。
+
+由于保存了长链，需要占用大量的内存，所以默认情况下，求导只用一次，并且用完就扔了。如果二次利用就是添加retain_variables=True.
+
+https://sherlockliao.github.io/2017/07/10/backward/, 并且backword之后，可以得到每一个因变量在此处的导数。
+而且对于为什么backword可以传参数，就是为解决对tensor对tensor求导的问题。
+
+相当于 先计算l =torch.sum(y*w),然后求l对能够影响到Y的所有变量x的导数。
+
+https://zhuanlan.zhihu.com/p/29923090
+
+.. code-block:: python
+
+   import torch as t
+   from torch.autograd import Variable as v
+
+   a = t.ones(2,2)  
+   # [1,1]
+   # [1,1]
+   x = v(a,requried_grad=True)
+   # [x00,x01]
+   # [x10,x11] 
+
+
+Step 
+====
+
+整个优化迭代就在这个step函数中，
+
+就是实现关键的 :math:`W_n=W_{n-1} + \triangledown\theta`
+

@@ -166,6 +166,8 @@ http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/
    #This will create a log folder and save the graph structure. We can now start tensorboard.
    tensorboard --logdir=run1:/tmp/tensorflow/ --port 6006
 
+tensorsummary 也是Op,也是需要在session里更新他的。
+
 TensorFlow四种Cross Entropy算法实现和应用
 =========================================
 

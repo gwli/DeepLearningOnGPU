@@ -112,24 +112,63 @@ GAN 可以用来做 迁移学习 :math:`f(\alpha(x,A))=\beta(x,B)`
 pix2pixHD
 =========
 
+它解决了，pix2pix 训练不稳定，并且不能生成高分辨的图片，并且生成的图片细节与真实性的问题。
+
+解决了从无尺度变化->label. 
+
+#. 如何解决了多尺度的变化，并且实现不尽可能的真实。
+#. 如何解决了训练的不稳定性。
 #. G是如何定义
-   都采用了convolution-batchNorm-ReLu 的结构.采用了 U-net结构。
-   卷积-降采样->bottleneck->upsampling 
+   分层 {G1,G2}, 并且G1 为global Generator,G2为local Generator. 然后G1与G2的连接就如下代码，直接用利用向量格式拼接起来。
+   在这一点上有点像capsule网络的向量进向量出的模型。然后逐层训练。只要保证每一层的接口是兼容就可以了。
+   G1采用了与StarGAN的结构，conv-residualBlock-conTrans 并且保证与原输入同样的的大小的尺寸。 
    
    .. code-block:: python
-
-      X ------------------------- identity ------------------------------ X
-         |-- downsampling ---| submodule | -- upsampling -- | 
       
-      class  UnetSkipConnectionBlock:
-          def forward(self,x):
-              if self.outermost:
-                 return self.model(x)
-              else :
-                 return torch.cat([x,self.model(x)],1)
+     
+              ### final convolution
+              if n == n_local_enhancers:                
+                  model_upsample += [nn.ReflectionPad2d(3), nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0), nn.Tanh()]                       
+              
+              setattr(self, 'model'+str(n)+'_1', nn.Sequential(*model_downsample))
+              setattr(self, 'model'+str(n)+'_2', nn.Sequential(*model_upsample))                  
+          
+          self.downsample = nn.AvgPool2d(3, stride=2, padding=[1, 1], count_include_pad=False)
 
+      def forward(self, input): 
+          ### create input pyramid
+          input_downsampled = [input]
+          for i in range(self.n_local_enhancers):
+              input_downsampled.append(self.downsample(input_downsampled[-1]))
+
+          ### output at coarest level
+          output_prev = self.model(input_downsampled[-1])        
+          ### build up one layer at a time
+          for n_local_enhancers in range(1, self.n_local_enhancers+1):
+              model_downsample = getattr(self, 'model'+str(n_local_enhancers)+'_1')
+              model_upsample = getattr(self, 'model'+str(n_local_enhancers)+'_2')            
+              input_i = input_downsampled[self.n_local_enhancers-n_local_enhancers]            
+              output_prev = model_upsample(model_downsample(input_i) + output_prev)
+          return output_prev
+
+     
+   
 #. D 是如何定义的
-   两种:PatchGAN discriminator/PixelDiscriminator      
+   也是采用多尺度的方法。  
+   input: {instance boundary map,sematic label map,and real/synthesized image}
+    
+   采用了 setattr+ 前缀编号来实现的。 然后在调用forward时，再拼接起来。
+   .. code-block:: bash
+
+      if getIntermFeat:
+              for n in range(len(sequence)):
+                  setattr(self, 'model'+str(n), nn.Sequential(*sequence[n]))
+          else:
+              sequence_stream = []
+              for n in range(len(sequence)):
+                  sequence_stream += sequence[n]
+              self.model = nn.Sequential(*sequence_stream)
+       #**
 
 #. 基本输入信息流是什么
    
@@ -145,6 +184,11 @@ pix2pixHD
 
 #. LOSS 函数如何定义
 #. 超分辨是如何实现的
+
+
+对于卷积核的大小的，是与你补捉的细节的程度是相关的。越小，细节越多。
+
+几个小的卷积核叠加在一起，相比一个大的卷积核与原图的连通性不变，但是却大大降低了参数的个数以及计算的复杂度。
 
 starGAN
 ========

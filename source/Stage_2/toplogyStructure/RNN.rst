@@ -1,8 +1,17 @@
 RNN
 ===
 
+RNN 解决了DL中时间先后依赖的问题。 但是基本RNN只能是很近到远这种固定的依赖。
+RNN只是提出了极数的形式。
+LSTM解决了，就像极数，并且可以控制每级的参数。
 
+又向LSTM解决了，前向依赖的问题，之前的问题只解决了后项依赖。 而对于attention 机制就像capsule中的sqush函数一样。
 
+注意力机制 其实加权平均，以及压缩变换都是，是不是利用压缩变换再加6signa原则，直接发截判就够了。 
+也就是输出要根据的输入进行动态的加权输出。 http://www.wildml.com/2016/01/attention-and-memory-in-deep-learning-and-nlp/,  
+残差网直接把输入加入输出，而attension机制，则是把输入加权进入输出。
+
+更进一步那就是注意力函数，来实现自由的挑选。 
 `递归神经网络不可思议的有效性 <http://blog.csdn.net/mydear_11000/article/details/52414783>`_ 可以根据库来生成一个新序列。
 
 例如你给一个名人的词句库，然后他能给你生成一个新名言了。
@@ -34,6 +43,31 @@ http://lib.csdn.net/article/deeplearning/45392，实现了一个RNN来学习加�
 对于语言处理的n-gram模型，http://blog.csdn.net/xiaokang06/article/details/17965965
 
 
+LSTM
+====
+
+.. image:: /Stage_2/toplogyStructure/LSTM.png
+
+.. code-block:: bash
+   
+   def forward(x, h_prev, C_prev):
+      assert x.shape == (X_size, 1)
+      assert h_prev.shape == (H_size, 1)
+      assert C_prev.shape == (H_size, 1)
+
+      z = np.row_stack((h_prev, x))
+      f = sigmoid(np.dot(W_f, z) + b_f)
+      i = sigmoid(np.dot(W_i, z) + b_i)
+      C_bar = tanh(np.dot(W_C, z) + b_C)
+
+      C = f * C_prev + i * C_bar
+      o = sigmoid(np.dot(W_o, z) + b_o)
+      h = o * tanh(C)
+
+      y = np.dot(W_y, h) + b_y
+      p = np.exp(y) / np.sum(np.exp(y))
+
+      return z, f, i, C_bar, C, o, h, y, p
 ESN
 ====
 

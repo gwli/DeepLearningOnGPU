@@ -154,3 +154,5 @@ Sub-sampling Layers 子采样层
 每一个kenerl对应一个输出的图像，output_chanels就是指的 kernels的数量。
 http://web.stanford.edu/class/cs20si/lectures/notes_07_draft.pdf
 
+
+pool层相当于 attention层的一种选择机制。

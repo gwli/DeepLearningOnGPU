@@ -2,6 +2,8 @@
 GAN 对抗网络
 ************
 
+漫化式原理讲解 https://zhuanlan.zhihu.com/p/26397259, 解决了如何别人只拿到Y/No 的回答。就不断的迭代而找到正确答案。
+
 GAN 最好的应用那就是设计模式中生成模式，可以有各种各样的变种模式。
 
 .. image:: /Stage_2/toplogyStructure/AdversarialNetsFrameworksr.jpg
@@ -39,4 +41,22 @@ https://github.com/zhangqianhui/AdversarialNetsPapers GAN 资料大全
 
 https://github.com/hwalsuklee/tensorflow-generative-model-collections  tensorlfow中的GAN实现。
 
+
+# 是转换卷积只是保证转换前后的，矩阵的大小保持不变。而不保证是逆运算。 
+ConTranv  https://www.zhihu.com/question/43609045 
+
+CycleGAN
+========
+
+采用的对偶式学习法， X->Y->X', 通过对比X与x'的差距来解决X-Y以及Y-X的转换。所以把图片去除衣服就变成了图片翻译过程。
+所以NMT是一个基本模式。模型的不收敛，就会出去模型model collapse.
+
+ATAGAN
+======
+
+https://arxiv.org/pdf/1802.09070.pdf
+分析发现 GAN的D不能让CNN中那样有效检测目标区块。 解决在D网那块并列了CNN然后输出结果CAM与D网进行对比，然后让D网尽可能接近CNN。
+有点脱裤子放屁的感觉，D的网络结构本身就没有限制，为什么不直接用CNN呢。 
+
+所谓的attention,也就是一个softmax.
 

@@ -2,7 +2,8 @@
 各种图像生成算法
 ****************
 
-为什么GAN会有这么强有力，主要是因为他用一个网络来代替了原来的简单LOSS函数来进么反馈。 一个确定的loss的是很难直观的设计，所以利用网络来代替一个具体的loss函数。
+
+为什么GAN会有这么强有力，主要是因为他用一个网络来代替了原来的简单LOSS函数来进么反馈。 一个确定的loss的是很难直观的设计，所以利用网络来代替一个具体的loss函数。一个更高的目标，那就是生成一个稳定可靠的生成式来代替传统的固定的简单生成式。
 
 
 GAN中主要是利用G来生成实现各种生成。
@@ -13,19 +14,47 @@ Face Age cGAN  对于年龄的翻译。
 pix2pix_ 实现了从一个域到另一域的任何转换， pix2pixHD_ 实现超分辨，
 而 startGAN_ 实现 N->1->N的转换。 用一个模型学习多个领域，并且实现任意两个之间的转换。
 
+
+有了DL的这种模糊能力，我们就可以解决 vorbose的原理与实际动手之间的差距。
+
 .. image:: /Stage_4/gan_image_generate/gan_compare.png
 
 例如一个基本模型+属性，例如喜怒哀乐，就能生成对应的表情。
 
+图片标题的生成
+==============
 
+你可以用 www.captionbot.ai 来自动识别。
+
+ATTNGAN
+-------
+
+https://github.com/gwli/AttnGAN
+
+Attenion 输入，一个word features另一个每层local Image features.
+如何处理文字与图像feature之间的对应的关系，图像的feature 用CNN 中间层来表示。
+而texture,用word2Vector来表示。
+一种方式是双方都扩展固定大小相融的尺寸来进行点乘，相当求两个项量的夹角来实现。
+另一种方式是直接拼接在一起由网络来学习。
+还有一种方法，那生成关联矩阵，然后求网络来学习其参数. 所谓的attention最常用做法那就是softmax+6signama. 相关性常见的做 
+
+.. math:: 
+   
+   R(C_i,e_i) = (c_i^Te_i)/(||c_i||||e_i||)
+
+
+Attension Generate network, and DAMSM 用计算fine-grained-text-image matching loss. 
 
 主要利用的领域
 ==============
 
 #. 图片的生成
 #. 图片的翻译
+     
 #. 超分辨的实现
 #. 表情的合成
+#. 动画的生成
+#. 电影的自动合成
 
 GAN 论文的汇总 https://www.jiqizhixin.com/articles/2017-04-21-5
 
@@ -109,6 +138,8 @@ GAN 可以用来做 迁移学习 :math:`f(\alpha(x,A))=\beta(x,B)`
 另外在判别真实器性一方面用AMT用真人来测，另一方面用最新识别系统来进行判别。
 例如最新的imagenet测试系统能否认出该物体。
 
+并且去除马塞克也是利用pix2pix来实现，而其中的样本也采用open_nsfw模型来进行打码，然后来进行解码。这些在github都能找到。
+
 pix2pixHD
 =========
 
@@ -189,6 +220,12 @@ pix2pixHD
 对于卷积核的大小的，是与你补捉的细节的程度是相关的。越小，细节越多。
 
 几个小的卷积核叠加在一起，相比一个大的卷积核与原图的连通性不变，但是却大大降低了参数的个数以及计算的复杂度。
+
+
+Cycle-GAN
+=========
+
+实现了图片的翻译，例如黑夜与白天，季节变化的转换，https://junyanz.github.io/CycleGAN/
 
 starGAN
 ========
@@ -446,8 +483,17 @@ starGANPaper_
            return self.transform(image),torch.floatTensor(label)        
 
 
+Deep Dream的生成原理
+====================
 
+实际是就是一个黑盒的迭代测试，来了解功能。 对于特定的分类网络，如果我想
+知道他有什么功能，那就是不断测试输入与输出来了解。对于一个深度网络来测试。
+就是给其一个独立的图片，不断迭代，反向更新调整输入本身，而不是网络。来看看
+其最终生成什么，从而了解网络的功能。
+http://www.pytorchtutorial.com/deepdream-pytorch/#i
 
+进一步的玩法，那就是用两张图，一张当控制图，都输入网络，得到其特征，
+然后它们重新排列，然后做矩阵乘法，最后选择矩阵乘法里面最大的下标，将这些下标对应的原始图片的特征向量提取出作为新的特征向量就可以了。矩阵相乘的时候进行一下转置可以方便的保存想到尺寸。
 references
 ==========
 

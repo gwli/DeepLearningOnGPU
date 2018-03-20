@@ -14,6 +14,11 @@ Keras
 
 详细的步骤可以参考 `udemy deeplearning A-Z <https://nvidia.udemy.com/deeplearning/learn/v4/t/lecture/6743752?start=0>`_ 课程目录就是一个很好的template.
 
+tensor的基本操作
+================
+
+RepeatVector 类似于 np.stack/concat的功能。
+TimeDistributed,主要用一个接口形式的适配，可以用reshape功能来实现
 skilearn
 ========
 
@@ -68,3 +73,21 @@ Dense
 
    from keras.utils import plot_model
    plot_model(model,to_file='model.png')
+   module.summary()
+
+
+
+sample 的分析
+=============
+
+Addition_RNN
+------------
+
+采用了类似于训练诗集一样的方法，对有效的字符 "1234567890+ " 进行编码。 
+然后分成两段采用了Seq2Seq的方式来进行。 
+https://www.jianshu.com/p/16bbcad00956. 
+
+用到字符进行onehot编码，然后按照XYZ+ABC,7位的长度来进行编码。
+
+基本做到128 HN,能达到99%的正确率，但是实现那个100的突破呢。
+#. 

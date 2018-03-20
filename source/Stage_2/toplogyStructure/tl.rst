@@ -1,6 +1,10 @@
 迁移学习
 ========
 
+https://github.com/gwli/transferlearning
+
+小王爱迁移 https://zhuanlan.zhihu.com/p/30685086
+
 解决的是如何复用知识。现在的深度学习模式，每一次都要从零开始。这样重复的工作量太大。
 如何像传统的软件编程那样，实现知识代码框架的复用。这样可以大大加块深度学习的速度。
 另外是现在已经积累了大量在的model,现在已经开始研究onnx,下一步自然是如何复用的问题了。
@@ -36,3 +40,33 @@
 持续学习
 
 zero-shot学习
+
+
+meta learning
+=============
+
+https://github.com/gwli/supervised-reptile
+
+
+
+reptile
+=======
+
+怎么感觉像是在batch 之间又做了一次更新，并且用泰乐极数来解释。 
+
+.. code-block:: python
+
+   for in epoch:
+       for i in k:
+         backup=before_batch
+       for in batch:
+            W=updateOnLoss
+         bacckup = backup +(w-backup)*outerstepsize
+
+1. agent 是如何产生，固定的从一个备用池中选一下，还动态生的，
+2. 参数是根据什么生成。 
+
+
+meta学习也是进步一步把loss，W的更新再一步神经网络化。是不是直接用RNN来生成W呢。
+提高模型的泛化能力
+------------------

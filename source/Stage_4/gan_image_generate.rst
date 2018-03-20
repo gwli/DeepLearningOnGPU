@@ -45,6 +45,27 @@ Attenion 输入，一个word features另一个每层local Image features.
 
 Attension Generate network, and DAMSM 用计算fine-grained-text-image matching loss. 
 
+
+Deep Attention GAN
+==================
+
+
+所谓的attention,就是重点，例如添加一个mask, 就简单的理解那就是kernel的滤波器的就这样的结构，如何把原来滤波器的知识也都用上。
+
+.. image:: /Stage_4/gan_image_generate/da_gan.png
+
+不光要实现set-set的转换，还要实现instance <-> instance的转换，到后面是不是要实现各个层次，每一个层次内部的上下转换。
+这与自己之前的思路是一致，即要解决组内距离，又要解决组间距离，如何解决这个呢，当然是通过多层次的discriminator来实现。
+discriminator网络比cost函数强的原因，就是在一个原来cost函数之前套上一个网络层，来解决适配问题。
+
+从这里学到，一个对于确定的知识就要用确定的，不确定的就网络部分来模拟学习就像discrminator一样。 
+
+这里生成网络之前，加了一层DAE,变成DAE+G. 与一张大的G有什么区别。内部更加的有序化。
+
+#. floc 是如何编码组织这些位置信息的。
+   #. 拿到一个 Feature Map 的图，然后计算其中间位置，这样。
+#. 如何界定组间信息与组内信息的。
+
 主要利用的领域
 ==============
 
@@ -494,6 +515,16 @@ http://www.pytorchtutorial.com/deepdream-pytorch/#i
 
 进一步的玩法，那就是用两张图，一张当控制图，都输入网络，得到其特征，
 然后它们重新排列，然后做矩阵乘法，最后选择矩阵乘法里面最大的下标，将这些下标对应的原始图片的特征向量提取出作为新的特征向量就可以了。矩阵相乘的时候进行一下转置可以方便的保存想到尺寸。
+
+
+Neural Style
+=============
+
+类似于DeepDream的原理，三个输入，一个content图，一个style图，另外一个随机噪声，输入到一个预训练好的网络，然后定义两个cost函数，
+一个内容评价函数，直接用l2范数，而对于风格采用gram矩阵也就是自身的内积乘积。
+
+把约束函数有意义化，原来单一cost函数用组合优化函数来代替进行得到更加精细的控制 。
+例如class space,image pixel space,image feature space.
 references
 ==========
 

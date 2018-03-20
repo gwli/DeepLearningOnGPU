@@ -99,6 +99,8 @@ batch norm是对一个batch里所有的图片的所有像素求均值和标准�
 链接：https://www.zhihu.com/question/68730628/answer/266733274
 
 
+
+
 隐藏层
 ======
    
@@ -155,6 +157,17 @@ bias
      * Reduce modle size
      * l1/l2 on weights
      
+.. image:: MappingFromTrendes.png
+
+#. 持续学习
+#. 鲁棒决策
+#. 可解决的决策
+#. 安全飞地
+#. 对抗学习
+#. 在保密数据上共享学习
+#. 为特定领域定制的硬件
+#. 组件化的AI系统 
+#. 跨云端和边界的系统 
 
 参考
 ====

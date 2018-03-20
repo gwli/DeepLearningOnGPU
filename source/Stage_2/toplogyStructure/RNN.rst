@@ -87,3 +87,11 @@ Echo 意义，当前状态只由过去的状态来决定，而输出是没有反
 
 另外现在直接端到端的直接语音到文本的转换，采用双向LSTM http://www.jmlr.org/proceedings/papers/v32/graves14.pdf。
 还用利用组合神经网络的，一种是直接从初始数据直接使用神经网络来学习，另一种是采用以前知识进行一定的抽取再来进行神经网络学习。
+
+IndRNN
+======
+
+https://github.com/gwli/indrnn-pytorch/blob/master/indrnn.py
+
+现在只是把 U*h(t-1)的形式，变成了点乘，这样解决了累积消失的问题，相当于实现一个RNN的resnet,而传统的resNet对于CNN很有效，但是RNN不是很效的。IndRNN很好这个问题，步数可以达到5000步之多。
+因为没有了矩阵乘累加，就是每一层的每一个神经元与其它都是独立的，它们之间的连接可以通用stacking 多层来解决。相当于ResNet的 X+wh,只与每个神经网自身的过去有关。

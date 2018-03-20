@@ -23,6 +23,7 @@ R01 卷积滤波示意图
 
 不管什么神经网络最后都链接上一个MLP来做判决的。
 
+对于深层网络,越高层的信息包含越多的语义信息，and less location information. 
 
 
 可视化
@@ -156,3 +157,11 @@ http://web.stanford.edu/class/cs20si/lectures/notes_07_draft.pdf
 
 
 pool层相当于 attention层的一种选择机制。
+
+dilated convolution
+===================
+
+在相同的计算量的情况下，可以增大感受野，这在图像分割领域会特别有用。 解决了
+Pooling过程的信息损失。
+
+https://www.zhihu.com/question/54149221

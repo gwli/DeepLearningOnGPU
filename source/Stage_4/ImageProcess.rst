@@ -25,3 +25,9 @@ http://hi.cs.waseda.ac.jp/~iizuka/projects/completion/en/?utm_campaign=Revue%20n
 
 当然这个功能用于3D重构，也会不错的效果。
 并且这个complete的有效性达到77.0%.的以假乱真的目标。 
+
+实时的语义分割网络shuffleSeg
+=============================
+
+主要利用分组卷积和通道混洗。
+https://mp.weixin.qq.com/s/W2reKR5prcf3_DMp53-2yw

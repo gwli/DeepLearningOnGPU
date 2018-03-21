@@ -27,6 +27,12 @@
 激活函数 
    主要的错误，就像一个哈希函数，把一个任意大小的输入映射到固定区间的大小的数据
    常见的函数有: ReLu ,Sigmoid,Binary,Softplus,SoftMax,Maxout 等以及相关的变型，差不多20多种。
+   相当于一个压缩变换，现在最新的还有 SELU,自归一化神经网络SNN,它在训练误差上，并没有高方差，并且令激励值
+   达到0均值和单位方差，从而达到和批归一化类似的效果，也避免了梯度爆炸与梯度消失。
+   http://blog.csdn.net/zijin0802034/article/details/77334144
+  
+   .. image:: /Stage_2/selu.png   
+     
 
 后向传播
    主要是反馈网络的计算，这包含两个LossFunction的计算，以及如何用LossFunction来更新W参数。
@@ -98,8 +104,23 @@ batch norm是对一个batch里所有的图片的所有像素求均值和标准�
 
 链接：https://www.zhihu.com/question/68730628/answer/266733274
 
+.. image:: /Stage_2/normalization.svg
+
+x,y是某一层的输出，另外都是统计参数，两个scale以及offset. 
+
+#. instance normalization 单个sample
+#. batch normalization, batch 内平均
+#. batch renormalization  batch 权重平均例如softmax,softmean
 
 
+cost函数 
+========
+
+不同cost函数求导等一些性质也都不一样，也导致了训练效率的问题，例如交叉熵的好像，能够避免signoid函数的在极值情况下减速问题。
+原因就是由于其导数结构。自然对数的导数求导，还是自然导数这个特殊的性质。
+https://hit-scir.gitbooks.io/neural-networks-and-deep-learning-zh_cn/content/chap3/c3s1.html
+
+网络的组成，可以都由一类函数来代替与输入加相关的函数来替换，特别是物理学中相关的核函数。 
 
 隐藏层
 ======
@@ -168,6 +189,11 @@ bias
 #. 为特定领域定制的硬件
 #. 组件化的AI系统 
 #. 跨云端和边界的系统 
+
+
+
+一个看不出来规律，那就弄多个来对比，就像周易的演化一样。然后再平均，然后权重平均(又分线性分段，又分非线分段)，简单权重平均还还行的话，那就要非线性的加权。 
+也就是所谓的压缩变换。如何实现一个最合理的非线性加权，当然是网络函数最合适了。或者用理论来解释。
 
 参考
 ====

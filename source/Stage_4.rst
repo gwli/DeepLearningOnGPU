@@ -11,3 +11,5 @@ Deeplearning 在各个应用领域的发展情况。
 .. include:: Stage_4/RecommenderSystem.rst
 .. include:: Stage_4/IM2Markup.rst
 .. include:: Stage_4/AIFilter.rst
+.. include:: Stage_4/ImageProcessing.rst
+.. include:: Stage_4/VQA.rst

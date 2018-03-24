@@ -26,8 +26,39 @@ http://hi.cs.waseda.ac.jp/~iizuka/projects/completion/en/?utm_campaign=Revue%20n
 当然这个功能用于3D重构，也会不错的效果。
 并且这个complete的有效性达到77.0%.的以假乱真的目标。 
 
-实时的语义分割网络shuffleSeg
+实时的形义分割网络shuffleSeg
 =============================
 
+
+IoU 58.3% on CiyteScapes, 15.7 FPS on Jetson-TX2. 
 主要利用分组卷积和通道混洗。
 https://mp.weixin.qq.com/s/W2reKR5prcf3_DMp53-2yw
+LinkNet 语义分割，采用U-Net的思路引入residual Blocks.并且能跑在Jetson-TX1上。
+单独使用 group convolution 有损精度，所以channel shuffling来补偿。
+其本质就是其尽能独立不相关，包含尽可能多的信息量。
+
+R-CNN,Fast-R-CNN,Mask-R-CNN
+===========================
+
+https://www.cnblogs.com/skyfsm/p/6806246.html
+
+.. image:: /Stage_4/ImageProcess/R-CNN.png
+
+
+R-CNN 原理是把分类与检测结合起来。
+
+#. 如何检测区域,
+   直接利用feature层来实现，同时利用loss定义，直接滤波输出boundingbox，以及label的。
+#. 如何适应区块大小不一样。大小不一样，最终都缩放到227*227的大小。
+#. bounding box是大小如何确定的。
+   是通过RPN,从小的合并，然后再NMS得到，每一个记录是x,y,w,h中心位置，以及宽高。 同时需要每某一层需要一个转换那就是到图像原始坐标的转换，这时候就需要训练一个变换来实现这变换。
+
+#. anchor,slideer windows,proposals.
+   - ahchor 相当于在不同层之点interest点，不动点，就像SIFT算法的，在不同层同一个点的表示。
+   - 在feature 层，输出ROI的大致位置也就bounding box.然后反算回去。
+
+去糊
+====
+
+https://mp.weixin.qq.com/s/mtocyqpybSEpwekS20xgmQ
+其实是相当于GAN网络，先训练D网，来把先验概率学到，然后再用来去糊。

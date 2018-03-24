@@ -106,6 +106,9 @@ Batch Nomalization
 Instance Normalization
 ======================
 
+
+.. image:: /Stage_2/norms.png
+
 batch norm是对一个batch里所有的图片的所有像素求均值和标准差。而instance norm是对单个图片的所有像素求均值和标准差。这里其实可以看到的一个问题，由于shuffle的存在，每个batch里每次的均值和标准差是不稳定，本身相当于是引入了噪声。而instance norm的信息都是来自于自身的图片，某个角度来说，可以看作是全局信息的一次整合和调整。对于训练也说也是更稳定的一种方法。其实我们完全可以把instance norm当做L2 norm这种方法的一个变种。前者适合卷积层，后者适合全连接层。仅个人意见，可能存在各种问题，欢迎大神补充讨论。
 
 链接：https://www.zhihu.com/question/68730628/answer/266733274
@@ -117,7 +120,10 @@ x,y是某一层的输出，另外都是统计参数，两个scale以及offset.
 #. instance normalization 单个sample
 #. batch normalization, batch 内平均
 #. batch renormalization  batch 权重平均例如softmax,softmean
+#. Group normaliation,we propose GN as a layer that divides channels into
+groups and normalizes the features within each group
 
+BN,LN,IN,GN,在其内部进行分组并且归一化，归一化为什么有效，这就是看绝对值更有效，还是相对值更有效。
 
 cost函数 
 ========
@@ -148,6 +154,8 @@ Regularization
 #. Mean-constrained regularization
 #. Cluster mean-constrained regularization
 #. Graph-base similarity 
+
+
 
 bias
 ====
@@ -200,6 +208,13 @@ bias
 
 一个看不出来规律，那就弄多个来对比，就像周易的演化一样。然后再平均，然后权重平均(又分线性分段，又分非线分段)，简单权重平均还还行的话，那就要非线性的加权。 
 也就是所谓的压缩变换。如何实现一个最合理的非线性加权，当然是网络函数最合适了。或者用理论来解释。
+
+
+各种评价指标
+============
+
+不仅有更正确率，只有这个对于本身不平衡样本的训练就没有了意义了。召回率，以及精度。等等，包括各种cost都是一种各种有效的度量。 
+https://mp.weixin.qq.com/s/FaNC9RppIhPf6T_qAz3Slg
 
 参考
 ====

@@ -165,3 +165,8 @@ dilated convolution
 Pooling过程的信息损失。
 
 https://www.zhihu.com/question/54149221
+
+1x1 conv
+========
+
+相当于直接相乘了一个W值来做scale的效果。但是多层组合起来，就可以用其他的用途了

@@ -125,6 +125,8 @@ https://evolution.ai/#technology  已经做到实用阶段。
 
 CNN,daily Mail 数据集生成方法，见 R06_ 中文解读见 R07_
 
+#. spaCy coreNLP非常好用的工具包。
+
 
 
 

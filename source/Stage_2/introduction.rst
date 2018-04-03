@@ -134,6 +134,22 @@ https://hit-scir.gitbooks.io/neural-networks-and-deep-learning-zh_cn/content/cha
 
 网络的组成，可以都由一类函数来代替与输入加相关的函数来替换，特别是物理学中相关的核函数。 
 
+交叉熵 http://rdipietro.github.io/friendly-intro-to-cross-entropy-loss/
+
+同时cost函数是整个网络拓扑功能的一个最重要特征，cost函数 就是整个网络的前进的方向。
+
+
+#. MSE(最小二乘），线性的max 函数 
+#. cross-entropy, sigmoid函数
+#. log-likelihood, softmax函数。
+
+具体采用哪一种组合呢，就看你采用哪一种解析了，如果想用要概率模型就要用softmax组合。
+
+.. image:: /Stage_2/cost/LMCL.png
+
+https://arxiv.org/pdf/1801.09414.pdf 腾讯的LMCL的cost函数，利用余弦函数，是基于Y=WX=||W||* ||X|| cos
+并且再加一个常数项，给出组内距离与组间的定义，并且 组间距离，越大，而组内越小 。
+
 隐藏层
 ======
    

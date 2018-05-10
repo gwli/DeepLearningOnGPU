@@ -23,12 +23,14 @@ AutoML则是进一步，包括超参数也变成了网络的一部分，也就�
 
 
 
-.. figure:: /Stage_2/rl/rl.png
+.. figure:: /Stage_2/toplogyStructure/rl/rl.png
+
+/mnt/c/git/DeepLearningOnGPU/source/Stage_2/toplogyStructure
 
 本质就是一种试错学习法。当然可以是单步的试错，也可以多步回合制的试错。
 介于监督学习与非监督学习之间。
 
-.. figure::  /Stage_2/rl/RL4.png
+.. figure::  /Stage_2/toplogyStructure/rl/RL4.png
 
 
 一种是对环境无知状态的学习，也就是瞎摸形式，主要依赖环境的反馈来学习，
@@ -46,7 +48,7 @@ AutoML则是进一步，包括超参数也变成了网络的一部分，也就�
 Q-Learning
 ==========
 
-.. figure:: /Stage_2/rl/q4.png
+.. figure:: /Stage_2/toplogyStructure/rl/q4.png
 
 Q-Learning 
 

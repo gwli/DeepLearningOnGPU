@@ -15,9 +15,9 @@ Introduction
 
 支持向量机首先通过最最大化samples间隔得到如下约束函数：
 
-%$min \frac {1}{2}||w||^2\\
-
-s.t. y_i(w\cdot x_i+b)\geq 1  \forall x_i$%
+.. math::
+   min \frac {1}{2}||w||^2
+   s.t. y_i(w\cdot x_i+b)\geq 1  \forall x_i$%
 
 
 这是一个`二次规划 <Quadratic Programming>`_ 问题，通过转换为对偶优化问题，可以找到更加有效的方法 。
@@ -29,15 +29,17 @@ s.t. y_i(w\cdot x_i+b)\geq 1  \forall x_i$%
 
 上式分别对w和b进行求导，分别得到：
 
-%$w=\sum_{i=1}^{N}\alpha_i y_i x_i,\\
+.. math::
+   w=\sum_{i=1}^{N}\alpha_i y_i x_i
 
-\sum_{i=1}^{N} \alpha_i y_i=0
+.. math::
+   \sum_{i=1}^{N} \alpha_i y_i=0
 
 然后带入拉格朗日函数得到：
 
-%$max W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j\\
-
-suject to \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0$%
+.. math::
+   max W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j
+   suject to \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0
 
 +软间隔最大化
 ===================
@@ -46,16 +48,15 @@ suject to \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0$%
 
 当一些变量可以超出理想的边界一点的时候，使用软间隔最大化。在目标函数加入一个惩罚项，惩罚outlier， 得到新的最小化问题：
 
-%$minimize_{w,b,\xi} \frac{1}{2}w^Tw+C\sum_{i=1}{N}\xi_i
-
-subject to y_i(w^Tx_i -b)+\xi_i-1\geq 0, 1\leq i \leq N \\
-\xi \geq N  1\leq i\leq N$%
+.. math::
+   minimize_{w,b,\xi} \frac{1}{2}w^Tw+C\sum_{i=1}{N}\xi_i
+   subject to y_i(w^Tx_i -b)+\xi_i-1\geq 0, 1\leq i \leq N \\
+    \xi \geq N  1\leq i\leq N
 
 同样转换为对偶问题变为：
-
-%$max \quad W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j\\
-
-subject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}{N}\alpha_i y_i =0$%
+.. math::
+   max \quad W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j\\
+   subject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}{N}\alpha_i y_i =0
 
 +核函数
 ==========
@@ -73,10 +74,9 @@ subject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}{N}\alpha_i y_i =0$%
 
 此时约束函数转化为：
 
-
-%$max W(\alpha)=\sum_{i=1}^{N}\alpha -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j K(x_i, x_j) \\
-
-suject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0$%
+.. math::
+   max W(\alpha)=\sum_{i=1}^{N}\alpha -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j K(x_i, x_j) \\
+   suject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0$%
 
 
 `SVM python <http://tfinley.net/software/svmpython1/#overview>`_ 

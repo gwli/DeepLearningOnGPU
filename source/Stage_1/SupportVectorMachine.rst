@@ -10,14 +10,15 @@ Introduction
    
 
 `SVM python 解释 <http://blog.csdn.net/zouxy09/article/details/17291543>`_   这个里面那个距离公式是错误的。
--+硬间隔最大化
-====================
+
+硬间隔最大化
+============
 
 支持向量机首先通过最最大化samples间隔得到如下约束函数：
 
 .. math::
-   min \frac {1}{2}||w||^2
-   s.t. y_i(w\cdot x_i+b)\geq 1  \forall x_i$%
+   min \frac {1}{2}||w||^2 \\
+   s.t. y_i(w\cdot x_i+b)\geq 1  \forall x_i
 
 
 这是一个`二次规划 <Quadratic Programming>`_ 问题，通过转换为对偶优化问题，可以找到更加有效的方法 。
@@ -38,7 +39,7 @@ Introduction
 然后带入拉格朗日函数得到：
 
 .. math::
-   max W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j
+   max W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j \\
    suject to \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0
 
 +软间隔最大化
@@ -54,6 +55,7 @@ Introduction
     \xi \geq N  1\leq i\leq N
 
 同样转换为对偶问题变为：
+
 .. math::
    max \quad W(\alpha)=\sum_{i=1}^{N}\alpha_i -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j x_i^T x_j\\
    subject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}{N}\alpha_i y_i =0
@@ -76,7 +78,7 @@ Introduction
 
 .. math::
    max W(\alpha)=\sum_{i=1}^{N}\alpha -\frac{1}{2}\sum_{i=1,j=1}^{N}\alpha_i \alpha_j y_i y_j K(x_i, x_j) \\
-   suject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0$%
+   suject to \quad C\geq \alpha_i \geq 0, \sum_{i=1}^{N}\alpha_i y_i =0
 
 
 `SVM python <http://tfinley.net/software/svmpython1/#overview>`_ 
@@ -84,5 +86,3 @@ Introduction
 
 #. `CUDA SVM <http://patternsonascreen.net/cuSVM.html>`_  
 
-` GP 高斯过程  <GaussianProcess>`_ 
-=======================================

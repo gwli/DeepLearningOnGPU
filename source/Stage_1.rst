@@ -21,5 +21,5 @@
 .. include:: Stage_1/DTW.rst
 .. include:: Stage_1/ChaosTheory.rst
 
-
+.. include:: Stage_1/GaussianProcess.rst
 

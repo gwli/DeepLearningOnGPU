@@ -31,30 +31,38 @@
 
 
 高斯过程与核函数紧密联系，定义在y上的高斯分布是通过核函数表示出来的，与线性回归相比，高斯过程通过通过核函数的方式把x和y建立联系。在线性回归中，我们假设yde值服从某一个高斯分布
-.. math:: p\left( y \right){\rm{ = }}N\left( {y|{w^T}\phi \left( x \right),{\sigma ^2}} \right)，即y的均值是w的一个线性变换。
 
-%\[\begin{array}{c}
-{\mathop{\rm cov}} \left( {\rm{y}} \right) = E\left( {y{y^T}} \right) = E\left( {\phi w{w^T}{\phi ^T}} \right)\\
- = \phi E\left( {w{w^T}} \right){\phi ^T} = \phi {\mathop{\rm cov}} \left( w \right){\phi ^T}
-\end{array}\]%
+.. math:: 
+   p\left( y \right){\rm{ = }}N\left( {y|{w^T}\phi \left( x \right),{\sigma ^2}} \right)，即y的均值是w的一个线性变换。
+
+.. math::
+   \begin{array}{c}
+   {\mathop{\rm cov}} \left( {\rm{y}} \right) = E\left( {y{y^T}} \right) = E\left( {\phi w{w^T}{\phi ^T}} \right)\\
+    = \phi E\left( {w{w^T}} \right){\phi ^T} = \phi {\mathop{\rm cov}} \left( w \right){\phi ^T}
+   \end{array}
 
 注意到上面\phi是一个N\times M的设计矩阵，
 
 这里\phi\phi^T可以通过一个核函数表示：
 
-%\[k\left( {{x_m},{x_n}} \right) = \phi {\left( {{x_m}} \right)^T}\phi \left( {{x_n}} \right)\]%
+.. math::
+   k\left( {{x_m},{x_n}} \right) = \phi {\left( {{x_m}} \right)^T}\phi \left( {{x_n}} \right)
 
 可以理解为两个函数的相似关系。
 
-%\[{C_{N + 1}} = \left( {\begin{array}{*{20}{c}}
-{{C_N}}&k\\
-{{k^T}}&c
-\end{array}} \right)\]%
+.. math::
+   {C_{N + 1}} = \left( {\begin{array}{\*{20}{c}}
+  {{C_N}}&k\\
+  {{k^T}}&c
+   \end{array}} \right)
 
 已知分布
-.. math:: p\left( {{t_{N + 1}}} \right) = N\left( {{t_{N + 1}}|0,{C_{N + 1}}} \right)， 因此协方差矩阵是核函数给出的，这样高斯分布的性质容易得到：
 
-%\[p\left( {{x_{N+1}}} \right) = N\left( {{x_{N + 1}}|{k^T}C_N^{-1}t,c - {k^T}C_N^{-1}k} \right)\]%
+.. math:: 
+   p\left( {{t_{N + 1}}} \right) = N\left( {{t_{N + 1}}|0,{C_{N + 1}}} \right)， 因此协方差矩阵是核函数给出的，这样高斯分布的性质容易得到：
+
+.. math::
+    p\left( {{x_{N+1}}} \right) = N\left( {{x_{N + 1}}|{k^T}C_N^{-1}t,c - {k^T}C_N^{-1}k} \right)
 
 %RED% 这里的期望怎么计算的?? %ENDCOLOR%
 #. `高斯过程简单理解 <http://www.cnblogs.com/tornadomeet/archive/2013/06/14/3135380.html>`_  

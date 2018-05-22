@@ -1,7 +1,7 @@
 cover
 ======
 
-* [] 「俩披萨能喂饱的团队才是好团队」，细数贝索斯建立商业帝国的决策方法论,https://www.jiqizhixin.com/articles/2018-05-02-6
+* [ ] 「俩披萨能喂饱的团队才是好团队」，细数贝索斯建立商业帝国的决策方法论,https://www.jiqizhixin.com/articles/2018-05-02-6
 * [] 惹争议！本科毕业生成为NIPS 2018论文同行评审,https://www.jiqizhixin.com/articles/nips2018-undergraduate-peer-reviewers-controversy
 * [] 百度AI开发者实战营成都站,http://www.huodongxing.com/event/5437894683500?qd=jiqizhixin
 * [] ASSIA | 中国自动化学会“深度与宽度强化学习”前沿讲习班,https://www.jiqizhixin.com/articles/ASSIA

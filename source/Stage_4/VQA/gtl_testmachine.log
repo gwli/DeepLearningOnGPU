@@ -1,0 +1,370 @@
+2018-04-03 02:59:25 [rc] {0} {} Log: 1 Using `GTL_RC_DEFAULT_SAFEOS' domain...
+2018-04-03 02:59:25 [rc] {0} {} Log: 3 Current scripts file Id: `3C1CE418-1305-40D8-BE7F-F077F471CA4B'
+2018-04-03 02:59:25 [rc] {0} {} Log: 3 Present scripts file Id: `407A02CC-7BF0-4D2F-94EB-AFC855C3ED89'
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 File::Client Version is 1.10
+2018-04-03 02:59:26 [fileclient] {-1} {} Warning: Use of uninitialized value in unpack at /root/parttools/bootstrap/rcv2.d/lib/NVIDIA/GTL/File/Client.pm line 949.
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 Local host SH-GPU-151 []
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 Downloading file by user: gtl
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 Using GTL API proxy - http://gtl-api:8080/GTLAPI
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 File URL is http://10.35.149.21:1983/FileProxy/nvmdownload.pl?ticket=NTM5NGZkMzBjZmExN2I2NWI3NWI1OTkzYmE2ODBhYjcAYXBpc3J2X2lwADEwLjM1LjE0OS4xMQBjbGllbnRfaXAAMTAuMTkuMTg5LjE0MwBmaWxlX2lkADNDMUNFNDE4LTEzMDUtNDBEOC1CRTdGLUYwNzdGNDcxQ0E0QgBmaWxlX3R5cGUANwBzZXNzaW9uADRiMjJkMTQ2LWZhOWEtNGViNi05ZDFmLWEyNDc4NzkzM2Q0ZgBzcAAyAHRpbWVzdGFtcAAxNTIyNjQ1MTY0AHVzZXIAZ3Rs
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 Remote host [10.35.149.21:1983]
+2018-04-03 02:59:26 [fileclient] {2000} {0} Log: 5 3C1CE418-1305-40D8-BE7F-F077F471CA4B http://10.35.149.21:1983/FileProxy/nvmdownload.pl?ticket=NTM5NGZkMzBjZmExN2I2NWI3NWI1OTkzYmE2ODBhYjcAYXBpc3J2X2lwADEwLjM1LjE0OS4xMQBjbGllbnRfaXAAMTAuMTkuMTg5LjE0MwBmaWxlX2lkADNDMUNFNDE4LTEzMDUtNDBEOC1CRTdGLUYwNzdGNDcxQ0E0QgBmaWxlX3R5cGUANwBzZXNzaW9uADRiMjJkMTQ2LWZhOWEtNGViNi05ZDFmLWEyNDc4NzkzM2Q0ZgBzcAAyAHRpbWVzdGFtcAAxNTIyNjQ1MTY0AHVzZXIAZ3Rs DOWN SUCCESS -1
+2018-04-03 02:59:26 [fileclient] {1000} {3C1CE418-1305-40D8-BE7F-F077F471CA4B} Log: 5 Wget output dump:
+
+2018-04-03 02:59:40 [rc] {0} {} Log: 5 Restoring run environment...
+2018-04-03 02:59:40 [rc] {0} {} Log: 3 Executing nvinit script "01.clock.pl"
+
+2018-04-02 21:59:42 [rc] {0} {} Log: 1 Exited nvinit script "01.clock.pl" with code 0
+
+2018-04-02 21:59:42 [rc] {0} {} Log: 3 Executing nvinit script "01.fresh_mbr.pl"
+
+2018-04-02 21:59:42 [rc] {0} {} Log: 1 Exited nvinit script "01.fresh_mbr.pl" with code 0
+
+2018-04-02 21:59:42 [rc] {0} {} Log: 3 Executing nvinit script "01.maintain.pl"
+
+2018-04-02 21:59:42 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-02 21:59:42 [rc] {0} {} Log: 1 Exited nvinit script "01.maintain.pl" with code 0
+
+2018-04-02 21:59:42 [rc] {0} {} Log: 1 Skipping `04.iptostatevar.pl'
+2018-04-02 21:59:42 [rc] {0} {} Log: 3 Executing nvinit script "08.fscheck.pl"
+
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda1'
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda2'
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda3'
+2018-04-02 21:59:43 [IMAGER] {-1} {} Warning: 'reiserfsck' exited with #16 exit code at 08.fscheck.pl line 198.
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda3 (reiserfs)
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda4'
+2018-04-02 21:59:43 [rc] {0} {} Log: 1 Exited nvinit script "08.fscheck.pl" with code 0
+
+2018-04-02 21:59:43 [rc] {0} {} Log: 3 Executing nvinit script "09.detect_work.pl"
+
+2018-04-02 21:59:43 [IMAGER] {0} {} Log: 5 There is work to do, exiting...
+2018-04-02 21:59:44 [rc] {0} {} Log: 1 Exited nvinit script "09.detect_work.pl" with code 0
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 3 Executing nvinit script "10.heartbeater.pl"
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 1 Exited nvinit script "10.heartbeater.pl" with code 0
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 3 Executing nvinit script "11.handbrake.pl"
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 1 Exited nvinit script "11.handbrake.pl" with code 0
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 3 Executing nvinit script "12.maintain.pl"
+
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 3 Install the latest Acronis tool...
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 3 Manage runlevels...
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `fsck' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `mtab' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Install the service `consolefont' to run on the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `tmpfiles.setup' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `binfmt' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `sysklogd' from the `default' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `sysctl' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Install the service `net.eth0' to run on the `default' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Install the service `sysfs' to run on the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Install the service `net.lo' to run on the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `netmount' from the `default' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `termencoding' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `swap' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `loopback' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Install the service `syslog-ng' to run on the `default' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `swapfiles' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `hwclock' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 5 Remove the service `procfs' from the `boot' runlevel
+2018-04-02 21:59:44 [MAINTAIN] {0} {} Log: 3 All updates are installed
+2018-04-02 21:59:44 [rc] {0} {} Log: 1 Exited nvinit script "12.maintain.pl" with code 0
+
+2018-04-02 21:59:44 [rc] {0} {} Log: 3 Executing nvinit script "15.dumpconfig.pl"
+
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 ======>>> Machine Starting Up <<< ======
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 Id: 662213
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 Hostname: SH-GPU-151
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 OS Name: Gentoo-desktop-x86
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 OS Id: 320
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 MAC: unknown_os_encountered
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 >> CONFIG <<
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 AP__PROCESS => 0.2
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 BOOT_TARGET_DEFAULT => LASTOS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 DATA_MOUNTPOINT => /mnt/work
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 DETACH_NVINIT => 0
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GAR_EXE => /root/parttools/bootstrap/rcv2.d/gar.pl
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GRUB__GRUB_CONF => grub/menu.lst
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GRUB__GRUB_MNTPNT => /mnt/grub
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GRUB__LABEL_SYS => SYS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GTLAPI_PASSWORD => gtlROXX1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GTLAPI_PROXY => http://gtl-api:8080/GTLAPI
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GTLAPI_USER => gtl
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 GTL_WORK_DIR => /mnt/work/GTL
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 HEARTBEAT_HOST => gtl-api
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 IMG__CREATE_HOSTNAME_FILE => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 IMG__MAILTO => GTL-SafeOS-reports@exchange.nvidia.com
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 IMG__MNTPOINT => /mnt/imagestore
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 IMG__USE_COMPRESSION => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 IMG__WORK_DIR => safeos_work_dir
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 LOG_FILE => gtl_testmachine.log
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 LOG_PATH => /var/log/gtl
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 LOG_THRESHOLD => 5
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 NTP_SERVER => bigben.nvidia.com
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 OS_TYPE => SAFEOS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 OVERRIDE_CONFIG => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 OVERRIDE_CONFIG_WITH_STATEVARS => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 PROPAGATE_ENV => 0
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__GAR_EXE => /root/parttools/bootstrap/rcv2.d/gar.pl
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__OS_TYPE => SAFEOS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__OVERRIDE_CONFIG => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__OVERRIDE_CONFIG_WITH_STATEVARS => 1
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__PROPAGATE_ENV => 0
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_DOMAIN => GTL_RC_DEFAULT_SAFEOS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_KEYS => clock;fscheck;detect_work;heartbeater;handbrake;clock;fresh_mbr;maintain;dumpconfig;diskmap;imager;part_setup;activate_windows_boot;reboot
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_POLICY => NONE_EXCEPT
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RC__WORK_DIR => /root/parttools/bootstrap/rcv2.d/../../rc
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 REBOOT_ACTION => REBOOT
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RETRY_COUNT => 10
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RETRY_TIMEOUT => 8
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RUNLEVEL_BREAK_KEY => RC_BREAK
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RUNLEVEL_DOMAIN => GTL_RC_DEFAULT_SAFEOS
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RUNLEVEL_KEYS => clock;fscheck;detect_work;heartbeater;handbrake;clock;fresh_mbr;maintain;dumpconfig;diskmap;imager;part_setup;activate_windows_boot;reboot
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 RUNLEVEL_POLICY => NONE_EXCEPT
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 TMP => /tmp
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 USE_SCREEN => 0
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 WORK_DIR => /root/parttools/bootstrap/rcv2.d/../../rc
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 XMLRPC__CURRENT_PROXY_IDX => 0
+2018-04-02 21:59:47 [dumpconfig] {0} {} Log: 1 ZONE_INFO => Europe/Moscow
+2018-04-02 21:59:47 [rc] {0} {} Log: 1 Exited nvinit script "15.dumpconfig.pl" with code 0
+
+2018-04-02 21:59:47 [rc] {0} {} Log: 3 Executing nvinit script "20.diskmap.pl"
+
+2018-04-02 21:59:48 [DISK_MAP] {0} {} Log: 5 Temporary changed ()
+2018-04-02 21:59:51 [DISK_MAP] {0} {} Log: 1 All partitions are OK
+2018-04-02 21:59:51 [rc] {0} {} Log: 1 Exited nvinit script "20.diskmap.pl" with code 0
+
+2018-04-02 21:59:51 [rc] {0} {} Log: 3 Executing nvinit script "40.imager.pl"
+
+2018-04-02 21:59:54 [IMAGER] {0} {} Log: 1 Processing the ImgRequest #658534...
+2018-04-02 21:59:54 [IMAGER] {0} {} Log: 5 Check and update the Imaging Request...
+2018-04-02 21:59:56 [IMAGER] {0} {} Log: 5 Images cache mounted at /mnt/work/safeos_work_dir/imgcache
+2018-04-02 21:59:57 [IMAGER] {0} {} Log: 5 Downloading image `F2352ECF-100F-4B7F-9B4B-A42715DF4D07' to `/mnt/work/safeos_work_dir/imgcache/F2352ECF-100F-4B7F-9B4B-A42715DF4D07'
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 File::Client Version is 1.10
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Local host SH-GPU-151 []
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Downloading file by user: gtl
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Using GTL API proxy - http://gtl-api:8080/GTLAPI
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 File URL is http://10.35.149.21:1983/FileProxy/nvmdownload.pl?ticket=OWY4ZGQ2NWIyNjg0M2M3MzRjZGY3MDBlYmYwNmI0NjAAYXBpc3J2X2lwADEwLjM1LjE0OS4xNABjbGllbnRfaXAAMTAuMTkuMTg5LjE0MwBmaWxlX2lkAEYyMzUyRUNGLTEwMEYtNEI3Ri05QjRCLUE0MjcxNURGNEQwNwBmaWxlX3R5cGUAMTYAc2Vzc2lvbgAzYThlYTNmMi0wZDg4LTQyMzgtYWJkZi02MDlhMjI3ZWQ4YmUAc3AAMgB0aW1lc3RhbXAAMTUyMjY0NTE5NQB1c2VyAGd0bA==
+2018-04-02 21:59:57 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Remote host [10.35.149.21:1983]
+2018-04-02 22:12:59 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Wget output dump:
+
+2018-04-02 22:12:59 [fileclient] {2000} {0} Log: 5 F2352ECF-100F-4B7F-9B4B-A42715DF4D07 http://10.35.149.21:1983/FileProxy/nvmdownload.pl?ticket=OWY4ZGQ2NWIyNjg0M2M3MzRjZGY3MDBlYmYwNmI0NjAAYXBpc3J2X2lwADEwLjM1LjE0OS4xNABjbGllbnRfaXAAMTAuMTkuMTg5LjE0MwBmaWxlX2lkAEYyMzUyRUNGLTEwMEYtNEI3Ri05QjRCLUE0MjcxNURGNEQwNwBmaWxlX3R5cGUAMTYAc2Vzc2lvbgAzYThlYTNmMi0wZDg4LTQyMzgtYWJkZi02MDlhMjI3ZWQ4YmUAc3AAMgB0aW1lc3RhbXAAMTUyMjY0NTE5NQB1c2VyAGd0bA== DOWN SUCCESS 782
+2018-04-02 22:12:59 [fileclient] {1000} {F2352ECF-100F-4B7F-9B4B-A42715DF4D07} Log: 5 Wget output dump:
+
+2018-04-02 22:12:59 [IMAGER] {0} {} Log: 5 RESTORE the image `Win7_64_Z270-A#7601.18247.130828-1532_fromDEVTOOLS-V5' to the partition #4374527
+2018-04-02 22:13:05 [IMAGER] {0} {} Log: 5 OS belongs to 'windows' group.
+2018-04-02 22:13:05 [IMAGER] {0} {} Log: 5 Activate a partition...
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 1 The command `/sbin/sfdisk /dev/sda -c 1 7 --quiet' exited with the code 1.
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 5 Output:
+WARNING: GPT (GUID Partition Table) detected on '/dev/sda'! The util sfdisk doesn't support GPT. Use GNU Parted.
+Use the --force flag to overrule this check.
+2018-04-02 22:13:06 [fileclient] {-1} {} Error: The command `/sbin/sfdisk /dev/sda -c 1 7 --quiet' exited with the code 1. at 40.imager.pl line 1926.
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 1 DIE callback call... The command `/sbin/sfdisk /dev/sda -c 1 7 --quiet' exited with the code 1. at 40.imager.pl line 1926.
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 1 DIE callback processing...
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 1 DIE message:
+The command `/sbin/sfdisk /dev/sda -c 1 7 --quiet' exited with the code 1. at 40.imager.pl line 1926.
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 3 Cleaning up...
+2018-04-02 22:13:06 [IMAGER] {0} {} Log: 5 Umounting /dev/sda2...
+2018-04-02 22:13:08 [rc] {0} {} Log: 1 Exited nvinit script "40.imager.pl" with code 10
+
+2018-04-03 02:11:06 [rc] {0} {} Log: 1 Using `GTL_RC_DEFAULT_SAFEOS' domain...
+2018-04-03 02:11:06 [rc] {0} {} Log: 3 Current scripts file Id: `3C1CE418-1305-40D8-BE7F-F077F471CA4B'
+2018-04-03 02:11:06 [rc] {0} {} Log: 3 Present scripts file Id: `3C1CE418-1305-40D8-BE7F-F077F471CA4B'
+2018-04-03 02:11:07 [rc] {0} {} Log: 5 Restoring run environment...
+2018-04-03 02:11:07 [rc] {0} {} Log: 3 Executing nvinit script "01.clock.pl"
+
+2018-04-03 02:11:08 [rc] {0} {} Log: 1 Exited nvinit script "01.clock.pl" with code 0
+
+2018-04-03 02:11:08 [rc] {0} {} Log: 3 Executing nvinit script "01.fresh_mbr.pl"
+
+2018-04-03 02:11:08 [rc] {0} {} Log: 1 Exited nvinit script "01.fresh_mbr.pl" with code 0
+
+2018-04-03 02:11:08 [rc] {0} {} Log: 3 Executing nvinit script "01.maintain.pl"
+
+2018-04-03 02:11:08 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-03 02:11:08 [rc] {0} {} Log: 1 Exited nvinit script "01.maintain.pl" with code 0
+
+2018-04-03 02:11:08 [rc] {0} {} Log: 1 Skipping `04.iptostatevar.pl'
+2018-04-03 02:11:08 [rc] {0} {} Log: 3 Executing nvinit script "08.fscheck.pl"
+
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda1'
+2018-04-03 02:11:09 [IMAGER] {-1} {} Warning: 'ntfsfix' exited with #1 exit code at 08.fscheck.pl line 172.
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda1 (ntfs)
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda2'
+2018-04-03 02:11:09 [IMAGER] {-1} {} Warning: 'ntfsfix' exited with #1 exit code at 08.fscheck.pl line 172.
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda2 (ntfs)
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda3'
+2018-04-03 02:11:09 [IMAGER] {-1} {} Warning: 'reiserfsck' exited with #16 exit code at 08.fscheck.pl line 198.
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda3 (reiserfs)
+2018-04-03 02:11:09 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda4'
+2018-04-03 02:11:09 [rc] {0} {} Log: 1 Exited nvinit script "08.fscheck.pl" with code 0
+
+2018-04-03 02:11:09 [rc] {0} {} Log: 3 Executing nvinit script "09.detect_work.pl"
+
+2018-04-03 02:11:13 [IMAGER] {0} {} Log: 5 There is work to do, exiting...
+2018-04-03 02:11:13 [rc] {0} {} Log: 1 Exited nvinit script "09.detect_work.pl" with code 0
+
+2018-04-03 02:11:13 [rc] {0} {} Log: 3 Executing nvinit script "10.heartbeater.pl"
+
+2018-04-03 02:11:13 [rc] {0} {} Log: 1 Exited nvinit script "10.heartbeater.pl" with code 0
+
+2018-04-03 02:11:13 [rc] {0} {} Log: 3 Executing nvinit script "11.handbrake.pl"
+
+2018-04-03 02:11:13 [rc] {0} {} Log: 1 Exited nvinit script "11.handbrake.pl" with code 0
+
+2018-04-03 02:11:13 [rc] {0} {} Log: 3 Executing nvinit script "12.maintain.pl"
+
+2018-04-03 02:11:13 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-03 02:11:13 [MAINTAIN] {0} {} Log: 3 Install the latest Acronis tool...
+2018-04-03 02:11:14 [MAINTAIN] {0} {} Log: 3 Manage runlevels...
+2018-04-03 02:11:14 [MAINTAIN] {0} {} Log: 3 All updates are installed
+2018-04-03 02:11:14 [rc] {0} {} Log: 1 Exited nvinit script "12.maintain.pl" with code 0
+
+2018-04-03 02:11:14 [rc] {0} {} Log: 3 Executing nvinit script "15.dumpconfig.pl"
+
+2018-04-03 05:12:23 [rc] {0} {} Log: 1 Using `GTL_RC_DEFAULT_SAFEOS' domain...
+2018-04-03 05:12:23 [rc] {0} {} Log: 3 Current scripts file Id: `3C1CE418-1305-40D8-BE7F-F077F471CA4B'
+2018-04-03 05:12:23 [rc] {0} {} Log: 3 Present scripts file Id: `3C1CE418-1305-40D8-BE7F-F077F471CA4B'
+2018-04-03 05:12:24 [rc] {0} {} Log: 5 Restoring run environment...
+2018-04-03 05:12:24 [rc] {0} {} Log: 3 Executing nvinit script "01.clock.pl"
+
+2018-04-03 05:12:25 [rc] {0} {} Log: 1 Exited nvinit script "01.clock.pl" with code 0
+
+2018-04-03 05:12:25 [rc] {0} {} Log: 3 Executing nvinit script "01.fresh_mbr.pl"
+
+2018-04-03 05:12:25 [rc] {0} {} Log: 1 Exited nvinit script "01.fresh_mbr.pl" with code 0
+
+2018-04-03 05:12:25 [rc] {0} {} Log: 3 Executing nvinit script "01.maintain.pl"
+
+2018-04-03 05:12:25 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-03 05:12:25 [rc] {0} {} Log: 1 Exited nvinit script "01.maintain.pl" with code 0
+
+2018-04-03 05:12:25 [rc] {0} {} Log: 1 Skipping `04.iptostatevar.pl'
+2018-04-03 05:12:25 [rc] {0} {} Log: 3 Executing nvinit script "08.fscheck.pl"
+
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda1'
+2018-04-03 05:12:26 [IMAGER] {-1} {} Warning: 'ntfsfix' exited with #1 exit code at 08.fscheck.pl line 172.
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda1 (ntfs)
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda2'
+2018-04-03 05:12:26 [IMAGER] {-1} {} Warning: 'ntfsfix' exited with #1 exit code at 08.fscheck.pl line 172.
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda2 (ntfs)
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda3'
+2018-04-03 05:12:26 [IMAGER] {-1} {} Warning: 'reiserfsck' exited with #16 exit code at 08.fscheck.pl line 198.
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 1 Warning: failed checking filesystem on /dev/sda3 (reiserfs)
+2018-04-03 05:12:26 [IMAGER] {0} {} Log: 5 Going to check filesystem on '/dev/sda4'
+2018-04-03 05:12:26 [rc] {0} {} Log: 1 Exited nvinit script "08.fscheck.pl" with code 0
+
+2018-04-03 05:12:26 [rc] {0} {} Log: 3 Executing nvinit script "09.detect_work.pl"
+
+2018-04-03 05:12:29 [IMAGER] {0} {} Log: 5 There is work to do, exiting...
+2018-04-03 05:12:29 [rc] {0} {} Log: 1 Exited nvinit script "09.detect_work.pl" with code 0
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 3 Executing nvinit script "10.heartbeater.pl"
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 1 Exited nvinit script "10.heartbeater.pl" with code 0
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 3 Executing nvinit script "11.handbrake.pl"
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 1 Exited nvinit script "11.handbrake.pl" with code 0
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 3 Executing nvinit script "12.maintain.pl"
+
+2018-04-03 05:12:29 [MAINTAIN] {0} {} Log: 3 Updating a filesystem...
+2018-04-03 05:12:29 [MAINTAIN] {0} {} Log: 3 Install the latest Acronis tool...
+2018-04-03 05:12:29 [MAINTAIN] {0} {} Log: 3 Manage runlevels...
+2018-04-03 05:12:29 [MAINTAIN] {0} {} Log: 3 All updates are installed
+2018-04-03 05:12:29 [rc] {0} {} Log: 1 Exited nvinit script "12.maintain.pl" with code 0
+
+2018-04-03 05:12:29 [rc] {0} {} Log: 3 Executing nvinit script "15.dumpconfig.pl"
+
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 ======>>> Machine Starting Up <<< ======
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 Id: 662213
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 Hostname: SH-GPU-151
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 OS Name: Gentoo-desktop-x86
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 OS Id: 320
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 MAC: unknown_os_encountered
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 >> CONFIG <<
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 AP__PROCESS => 0.2
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 BOOT_TARGET_DEFAULT => LASTOS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 DATA_MOUNTPOINT => /mnt/work
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 DETACH_NVINIT => 0
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GAR_EXE => /root/parttools/bootstrap/rcv2.d/gar.pl
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GRUB__GRUB_CONF => grub/menu.lst
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GRUB__GRUB_MNTPNT => /mnt/grub
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GRUB__LABEL_SYS => SYS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GTLAPI_PASSWORD => gtlROXX1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GTLAPI_PROXY => http://gtl-api:8080/GTLAPI
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GTLAPI_USER => gtl
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 GTL_WORK_DIR => /mnt/work/GTL
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 HEARTBEAT_HOST => gtl-api
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 IMG__CREATE_HOSTNAME_FILE => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 IMG__MAILTO => GTL-SafeOS-reports@exchange.nvidia.com
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 IMG__MNTPOINT => /mnt/imagestore
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 IMG__USE_COMPRESSION => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 IMG__WORK_DIR => safeos_work_dir
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 LOG_FILE => gtl_testmachine.log
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 LOG_PATH => /var/log/gtl
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 LOG_THRESHOLD => 5
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 NTP_SERVER => bigben.nvidia.com
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 OS_TYPE => SAFEOS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 OVERRIDE_CONFIG => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 OVERRIDE_CONFIG_WITH_STATEVARS => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 PROPAGATE_ENV => 0
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__GAR_EXE => /root/parttools/bootstrap/rcv2.d/gar.pl
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__OS_TYPE => SAFEOS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__OVERRIDE_CONFIG => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__OVERRIDE_CONFIG_WITH_STATEVARS => 1
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__PROPAGATE_ENV => 0
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_DOMAIN => GTL_RC_DEFAULT_SAFEOS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_KEYS => clock;fscheck;detect_work;heartbeater;handbrake;clock;fresh_mbr;maintain;dumpconfig;diskmap;imager;part_setup;activate_windows_boot;reboot
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__RUNLEVEL_POLICY => NONE_EXCEPT
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RC__WORK_DIR => /root/parttools/bootstrap/rcv2.d/../../rc
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 REBOOT_ACTION => REBOOT
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RETRY_COUNT => 10
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RETRY_TIMEOUT => 8
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RUNLEVEL_BREAK_KEY => RC_BREAK
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RUNLEVEL_DOMAIN => GTL_RC_DEFAULT_SAFEOS
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RUNLEVEL_KEYS => clock;fscheck;detect_work;heartbeater;handbrake;clock;fresh_mbr;maintain;dumpconfig;diskmap;imager;part_setup;activate_windows_boot;reboot
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 RUNLEVEL_POLICY => NONE_EXCEPT
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 TMP => /tmp
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 USE_SCREEN => 0
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 WORK_DIR => /root/parttools/bootstrap/rcv2.d/../../rc
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 XMLRPC__CURRENT_PROXY_IDX => 0
+2018-04-03 05:12:31 [dumpconfig] {0} {} Log: 1 ZONE_INFO => Europe/Moscow
+2018-04-03 05:12:31 [rc] {0} {} Log: 1 Exited nvinit script "15.dumpconfig.pl" with code 0
+
+2018-04-03 05:12:31 [rc] {0} {} Log: 3 Executing nvinit script "20.diskmap.pl"
+
+2018-04-03 05:12:32 [DISK_MAP] {0} {} Log: 5 Temporary changed ()
+2018-04-03 05:12:33 [DISK_MAP] {0} {} Log: 1 All partitions are OK
+2018-04-03 05:12:33 [rc] {0} {} Log: 1 Exited nvinit script "20.diskmap.pl" with code 0
+
+2018-04-03 05:12:33 [rc] {0} {} Log: 3 Executing nvinit script "40.imager.pl"
+
+2018-04-03 05:12:33 [IMAGER] {0} {} Log: 1 Processing the ImgRequest #658534...
+2018-04-03 05:12:34 [IMAGER] {0} {} Log: 5 Check and update the Imaging Request...
+2018-04-03 05:12:34 [IMAGER] {0} {} Log: 3 Warning: Just found an imaging request in the 'IMAGING' state
+2018-04-03 05:13:33 [IMAGER] {0} {} Log: 1 Let's try again...
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 1 The command `/bin/mount -t ntfs-3g -o rw,force /dev/sda2 /mnt/work' exited with the code 14.
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 5 Output:
+The disk contains an unclean file system (0, 0).
+Metadata kept in Windows cache, refused to mount.
+Failed to mount '/dev/sda2': Operation not permitted
+The NTFS partition is in an unsafe state. Please resume and shutdown
+Windows fully (no hibernation or fast restarting), or mount the volume
+read-only with the 'ro' mount option.
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 1 DIE callback call... The command `/bin/mount -t ntfs-3g -o rw,force /dev/sda2 /mnt/work' exited with the code 14. at 40.imager.pl line 1926.
+
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 1 DIE callback processing...
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 1 DIE message:
+The command `/bin/mount -t ntfs-3g -o rw,force /dev/sda2 /mnt/work' exited with the code 14. at 40.imager.pl line 1926.
+
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 3 Cleaning up...
+2018-04-03 05:13:35 [IMAGER] {0} {} Log: 5 Umounting /dev/sda2...
+2018-04-03 05:13:36 [rc] {0} {} Log: 1 Exited nvinit script "40.imager.pl" with code 10
+

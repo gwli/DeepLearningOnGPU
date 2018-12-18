@@ -27,7 +27,7 @@ WorkSpace
 最基本的workflow
 ================
 
-https://github.com/LitLeo/TensorRT_Tutorial/blob/master/TensorRT_2.1.0_User_Guide.mdjjjjjjjjjjjjjjjjjjjj
+https://github.com/LitLeo/TensorRT_Tutorial/blob/master/TensorRT_2.1.0_User_Guide.md
 使用TensorRT包括两部步骤（1）打开冰箱；（2）把大象装进去：
 
 build阶段，TensorRT进行网络定义、执行优化并生成推理引擎

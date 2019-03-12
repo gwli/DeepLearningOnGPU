@@ -16,7 +16,7 @@ pytorch
    * - THS = TorcH Sparse
 
 
-.. figure:: /Stage_3/pytorch/overall.png
+.. figure:: pytorch/overall.png
 
 #. tensor的结构与numpy的都是通用互转的。
 
@@ -69,7 +69,8 @@ quick tutoiral
 ==============
 
 `PyTorch 中文网 <http://www.pytorchtutorial.com/>`_
-.. image:: /Stage_3/pytorch/dynamic_graph.gif
+
+.. image:: pytorch/dynamic_graph.gif
 
 
 内存管理

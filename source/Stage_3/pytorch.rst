@@ -226,11 +226,11 @@ Adam
 ----
 利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率，使得参数比较平稳。
 
-.. figure:: /Stage_3/pytorch/optims_1.gif
+.. figure:: pytorch/optims_1.gif
    
    损失平面等高线随时间的变化情况
 
-.. figure:: /Stage_3/pytorch/optims_2.gif
+.. figure:: pytorch/optims_2.gif
 
    不同算法在鞍点处的行为比较
 

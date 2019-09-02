@@ -2,6 +2,9 @@
 AutoML
 ***********
 
+* NAS  (Neural Architecture Search)
+* Hyper-parameter optimization
+* meta-learning
 自动特征工程、自动调参,元学习。 
 https://zhuanlan.zhihu.com/p/42924585
 

@@ -2,6 +2,10 @@
 Tensorrt 
 ********
 
+本身又相当于编译器，输入是DL的计算流图加参数，然后要对其进行优化，然后再生成新计算流图，并且也还提供一个相当于ELF engine来能够执行它。
+
+API doc https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/namespacemembers.html
+
 基本概念
 ========
 

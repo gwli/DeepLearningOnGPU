@@ -2,9 +2,18 @@
 Tensorrt 
 ********
 
+
 本身又相当于编译器，输入是DL的计算流图加参数，然后要对其进行优化，然后再生成新计算流图，并且也还提供一个相当于ELF engine来能够执行它。
 
 API doc https://docs.nvidia.com/deeplearning/sdk/tensorrt-api/c_api/namespacemembers.html
+
+onnx operators
+==================
+
+https://github.com/onnx/onnx/blob/master/docs/Operators.md
+https://github.com/onnx/onnx-tensorrt/blob/b7c0840493e72891096771d000d6de26a03aed62/operators.md
+https://github.com/onnx/onnx/tree/master/onnx/optimizer
+
 
 基本概念
 ========

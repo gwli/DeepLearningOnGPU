@@ -88,5 +88,6 @@ build阶段比较耗时间，特别是在嵌入式平台上。所以典型的使
 https://www.jiqizhixin.com/graph/technologies/30ffd95b-36fa-4e6f-b863-926410835b10
 现在做法，还是简单的权值置零，然后再简单重新training. 但是不涉及拓扑的改变，kernel的融合也只是底层的cudnn已经有了API与上层的基于规则的适配。但是这个是不是充分利用图网络来进行重新编译生成。
 但是没有分析其依赖，例如结果为零，那么是不是前面的计算都不需要了。
-   
+
+[如何评价《What is the State of Neural Network Pruning》?](https://www.zhihu.com/question/399296133)
 
